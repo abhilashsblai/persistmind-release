@@ -1,5 +1,9 @@
 # CTX Layer
 
+Copyright (c) 2026 Abhilash Pillai. All rights reserved.
+
+Developed by Abhilash Pillai.
+
 CTX Layer is a local context, memory, governance, and impact layer for coding
 agents. It helps AI coding tools work with better repository context, follow a
 repeatable task workflow, check whether their final diff stayed in scope, and
@@ -230,6 +234,17 @@ Then verify:
 ctxlayer --version
 ctxlayer --repo . doctor
 ```
+
+## License
+
+Copyright (c) 2026 Abhilash Pillai. All rights reserved.
+
+CTX Layer is currently free to use for local, personal, non-commercial projects.
+Commercial use, enterprise deployment, resale, redistribution as part of a paid
+product or service, hosted service use, and internal company-wide rollout require
+prior written permission and a separate commercial license from Abhilash Pillai.
+
+See [LICENSE](LICENSE) for the full terms.
 
 ## Notes
 
