@@ -32,18 +32,17 @@ beside a Git repository and gives agents a repeatable workflow:
 The goal is simple: make agentic coding safer, more reviewable, and easier to
 repeat across real repositories.
 
-## Search-Friendly Summary
+## Built For Modern Agent Workflows
 
-CTX Layer is useful for teams searching for:
+CTX Layer is meant for repositories where AI coding agents are doing real
+engineering work, not just one-off code suggestions. It gives Codex and other
+agentic development tools a local operating layer for repository context,
+project memory, Model Context Protocol integration, governance policy, audit
+trails, code review preparation, and test impact analysis.
 
-- AI coding agent context management
-- context engineering for software repositories
-- local memory for Codex and AI developer tools
-- Model Context Protocol, MCP server, and MCP tool integration
-- AI code governance, audit trails, and policy checks
-- code impact analysis and test selection for agent-generated changes
-- repository-aware AI development workflows
-- local-first LLM developer tooling
+That makes it a practical fit for teams experimenting with context engineering,
+local-first LLM developer tooling, agent memory, MCP servers, and repeatable
+AI-assisted software engineering workflows.
 
 ## Why Use CTX Layer
 
@@ -112,7 +111,7 @@ Optional:
 
 ## Install
 
-Install the latest CTX Layer wheel from this release repository:
+Install the latest release wheel:
 
 ```powershell
 python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.1.0/ctxlayer-0.1.0-py3-none-any.whl"
@@ -262,28 +261,6 @@ Then verify:
 ctxlayer --version
 ctxlayer --repo . doctor
 ```
-
-## Repository Discovery Metadata
-
-Recommended GitHub repository description:
-
-```text
-CTX Layer: context engineering, memory, governance, MCP, and impact analysis for AI coding agents like Codex.
-```
-
-Recommended GitHub topics:
-
-```text
-ai-agents, coding-agents, codex, context-engineering, agent-memory, mcp,
-model-context-protocol, ai-governance, developer-tools, python, cli,
-local-first, audit-trail, impact-analysis, code-review, repository-analysis,
-llm, llmops, software-engineering, devtools
-```
-
-For richer WhatsApp, Slack, Discord, LinkedIn, and X previews, upload
-`docs/assets/ctxlayer-social-preview.png` in GitHub repository settings under
-**Social preview**. GitHub controls repository-link Open Graph images from that
-settings screen.
 
 ## License
 
