@@ -102,6 +102,9 @@ CTX Layer improves AI-assisted development by giving agents:
 
 Latest wheel: `ctxlayer-0.2.0a1-py3-none-any.whl`
 
+SHA256:
+`7c61aec90413b2b6b758323bb1197b8bd27a926d300970b3f6774987f1f045f8`
+
 `0.2.0a1` is a preview update. It is ready for opt-in use on development and
 non-critical repositories, and existing users should back up their workspace DB
 before upgrading important projects.
@@ -122,6 +125,10 @@ New in `0.2.0a1`:
   quarantine, approval, and opt-in recall.
 - Advisory decision support with trust-labeled evidence, explicit unknowns, and
   human decision capture.
+- Cognitive Improvement Engine preview with mistake classification, root-cause
+  tracking, recurrence prediction, checklists, cognitive-debt scoring,
+  effectiveness metrics, default-enabled guarded adoption, and CLI/HTTP/MCP
+  surfaces.
 - Release gate artifacts for benchmark corpus, benchmark trend, dead-code
   inventory, no-v0 checklist, and gap-audit register.
 
