@@ -1,16 +1,17 @@
 # CTX Layer
 
-Context engineering, memory, governance, and improvement tooling for AI coding
-agents.
+A governed execution layer for next-generation AI coding agents, enabling
+control, memory, and continuous improvement at scale.
 
 Copyright (c) 2026 Abhilash Pillai. All rights reserved.
 
 Developed by Abhilash Pillai.
 
-CTX Layer is a local-first control plane for AI-assisted software engineering.
-It runs beside a Git repository and gives coding agents such as Codex a
-repeatable workflow for context retrieval, task planning, impact analysis,
-policy checks, project memory, audit trails, and learning from mistakes.
+CTX Layer is a local-first governed execution layer for AI-assisted software
+engineering. It runs beside a Git repository and gives coding agents such as
+Codex a repeatable workflow for context retrieval, task planning, impact
+analysis, policy checks, project memory, audit trails, and learning from
+mistakes.
 
 Use it when you want an agent to understand the right files before it edits,
 stay inside an approved task boundary, choose better tests, record why a change
