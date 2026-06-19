@@ -1,23 +1,111 @@
 # CTX Layer
 
-A governed execution layer for next-generation AI coding agents, enabling
-control, memory, and continuous improvement at scale.
+## The Governed Execution Layer for AI Coding Agents
+
+CTX Layer transforms AI coding agents from code generators into governed
+software engineering systems.
 
 Copyright (c) 2026 Abhilash Pillai. All rights reserved.
 
 Developed by Abhilash Pillai.
 
-CTX Layer is a local-first governed execution layer for AI-assisted software
-engineering. It runs beside a Git repository and gives coding agents such as
-Codex a repeatable workflow for context retrieval, task planning, impact
-analysis, policy checks, project memory, audit trails, and learning from
-mistakes.
+CTX Layer sits between an AI coding agent and your codebase.
 
-Use it when you want an agent to understand the right files before it edits,
-stay inside an approved task boundary, choose better tests, record why a change
-was made, and improve future work from prior outcomes.
+It provides context intelligence, execution governance, impact awareness,
+organizational intelligence, auditability, and continuous improvement.
+
+Without CTX Layer, AI agents generate code.
+
+With CTX Layer, AI agents operate as governed software engineers.
+
+CTX Layer is not a coding agent. It is a governed execution layer that augments
+coding agents such as Codex, Claude Code, Cursor, Aider, and MCP-enabled agent
+systems. The agent writes code; CTX Layer governs how the agent understands,
+plans, validates, learns, and improves.
 
 ![CTX Layer social preview](docs/assets/ctxlayer-social-preview.png)
+
+## Why This Matters
+
+Traditional agent execution is simple:
+
+```text
+Prompt
+  |
+  v
+Agent
+  |
+  v
+Code
+```
+
+CTX Layer adds the governed execution layer that autonomous coding workflows
+need:
+
+```text
+Prompt
+  |
+  v
+CTX Layer
+  |-- Context Intelligence
+  |-- Project and Organizational Intelligence
+  |-- Execution Governance
+  |-- Impact Analysis
+  |-- Skill Library
+  |-- Audit Trail
+  |-- Continuous Learning
+  `-- Decision Support
+  |
+  v
+Agent
+  |
+  v
+Code
+```
+
+## What Makes It Different
+
+Most AI coding systems stop after execution. CTX Layer continues:
+
+```text
+Agent executes
+  |
+  v
+Outcome captured
+  |
+  v
+Mistake or success analyzed
+  |
+  v
+Root cause identified
+  |
+  v
+Intervention or skill update created
+  |
+  v
+Future behavior improved
+```
+
+This makes CTX Layer a governed coding-agent platform with a built-in
+cognitive improvement loop.
+
+## Why CTX Layer Exists
+
+| Capability | Standard coding agent | CTX Layer |
+| --- | --- | --- |
+| Code generation | Yes | Yes |
+| Context management | Limited | Yes |
+| Execution governance | Limited | Yes |
+| Impact analysis | Limited | Yes |
+| Project intelligence | Limited | Yes |
+| Audit trail | Rare | Yes |
+| Root-cause analysis | No | Yes |
+| Continuous improvement | No | Yes |
+| Organizational knowledge | No | Yes |
+
+CTX Layer exists because autonomous coding is not only a generation problem.
+Teams need agents that can operate inside boundaries, explain what happened,
+reuse project knowledge, learn from outcomes, and improve across workstreams.
 
 ## Current Release
 
@@ -76,7 +164,7 @@ optimization fixes:
   `compact_swap_required`, and tell the operator exactly which compact copy must
   replace the live database after CTX processes are stopped.
 
-## What CTX Layer Does
+## Execution Workflow
 
 CTX Layer gives an AI coding agent a structured operating loop:
 
@@ -86,19 +174,20 @@ CTX Layer gives an AI coding agent a structured operating loop:
 - Analyze impact and likely tests for changed paths.
 - Check the final diff against the context the agent received.
 - Record a durable outcome summary for future tasks.
-- Capture project memory, decisions, business rules, runtime signals, and
+- Capture project intelligence, decisions, business rules, runtime signals, and
   learned improvement signals.
 
-The core workflow is local-first. Repository state, memory records, packs,
-audit entries, dashboard data, and CIE learning runs live in the project
-workspace unless you explicitly export or integrate them elsewhere.
+The core workflow is local-first. Repository state, project intelligence
+records, packs, audit entries, dashboard data, and CIE learning runs live in the
+project workspace unless you explicitly export or integrate them elsewhere.
 
-## Why It Exists
+## Built For Governed Agent Coding
 
 Coding agents can edit quickly, but they can also miss context, over-edit,
 forget project rules, repeat old mistakes, or leave no useful trail for the next
 developer or agent. CTX Layer addresses those gaps by making context,
-governance, verification, and memory first-class parts of the coding loop.
+governance, verification, project intelligence, and improvement first-class
+parts of the coding loop.
 
 It is designed around one practical question:
 
@@ -124,8 +213,8 @@ avoid, and how should the result be verified?
   paths.
 - **Audit chain**: records task events and outcomes with tamper-evident hashes
   for accidental edits and partial tampering.
-- **Local memory**: stores outcomes, conventions, gotchas, decisions, runtime
-  signals, business rules, and approved project knowledge.
+- **Project intelligence**: stores outcomes, conventions, gotchas, decisions,
+  runtime signals, business rules, and approved project knowledge.
 - **MCP support**: exposes CTX Layer tools to MCP-compatible agents and clients.
 - **Dashboard and rollups**: renders project, memory, learning, security, CIE,
   and release-health views.
@@ -186,8 +275,8 @@ ctxlayer --repo . cie rollback <intervention_id> --run-id <run_id> --approved-by
   analysis, selected option, rationale, and decision history.
 - **Business memory**: extracts and approves business entities, links, rules,
   conflicts, stale records, and impact exposure.
-- **Organizational knowledge**: ingests local or exported organization sources
-  through redaction, quarantine, approval, and audit flows.
+- **Organizational intelligence**: ingests local or exported organization
+  sources through redaction, quarantine, approval, and audit flows.
 - **Semantic indexing**: indexes semantic findings, graph context, repository
   search, confidence repair, low-confidence findings, and accuracy evaluation.
 - **Security gates**: scans secrets and risky text, audits redaction, manages
