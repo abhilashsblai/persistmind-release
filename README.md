@@ -23,7 +23,7 @@ coding agents such as Codex, Claude Code, Cursor, Aider, and MCP-enabled agent
 systems. The agent writes code; CTX Layer governs how the agent understands,
 plans, validates, learns, and improves.
 
-![CTX Layer governed execution architecture](docs/assets/ctxlayer-social-preview.png)
+![CTX Layer governed execution architecture](docs/assets/CTXLayer.png)
 
 ## Why This Matters
 
