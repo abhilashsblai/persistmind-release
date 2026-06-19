@@ -109,23 +109,24 @@ reuse project knowledge, learn from outcomes, and improve across workstreams.
 
 ## Current Release
 
-Latest wheel: `ctxlayer-0.2.0a3-py3-none-any.whl`
+Latest wheel: `ctxlayer-0.2.0a4-py3-none-any.whl`
 
 Release asset:
-`https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a3/ctxlayer-0.2.0a3-py3-none-any.whl`
+`https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a4/ctxlayer-0.2.0a4-py3-none-any.whl`
 
 SHA256:
-`b9267d164a9dfdd65925775b3af54cffbebc3c282e59e710fe74c766bc3740d3`
+`e8d19bd90792dc4e0d7589fb60adaeb057e49c4e854eb0b76bf9205b704942d2`
 
-Wheel size: `447131` bytes
+Wheel size: `464904` bytes
 
-The `0.2.0a3` build is a preview release for development and non-critical
+The `0.2.0a4` build is a preview release for development and non-critical
 repositories. Existing users should back up `.ctxlayer/workspace.db` before the
 first run after upgrading.
 
 The current wheel was refreshed on 2026-06-19 with the reliable-enforcement,
-large-DB performance, memory optimization, deep-GC, and Cognitive Improvement
-Engine preview build.
+large-DB performance, memory optimization, deep-GC, Cognitive Improvement
+Engine preview, skill-evolution, and write-time semantic guardrail build.
+It was built from Advanced-CTX-Layer source commit `5e3bdda`.
 
 ### Why Upgrade From Earlier Wheels
 
@@ -136,8 +137,8 @@ like a cold-start bottleneck: before the final `0.2.0a2` hot-path fix,
 large-DB memory recall/access was measured around `273 ms` to `314 ms` because
 recall resolved a full repository snapshot before scoring memory.
 
-`0.2.0a3` packages the performance, reliable-enforcement, and memory
-optimization fixes:
+`0.2.0a4` packages the performance, reliable-enforcement, memory optimization,
+skill-evolution, and write-time semantic guardrail fixes:
 
 - Steady-state `CtxLayerService` construction is now measured at `1.95 ms` to
   `2.07 ms` median in final bench/release-gate runs.
@@ -159,6 +160,11 @@ optimization fixes:
 - Snapshot retention now unpins aged reconstructible context packs before deep
   pruning. This lets old index generations become collectible while preserving
   `bound_snapshot_id` and manifest history for audit/reconstruction.
+- Write-time semantic guardrails now flow from governed `memory_enforcement`
+  directives into context packs and plans, the Codex PreToolUse gate,
+  `check-diff`/CI validation, audited override handling, and dashboard/rollup
+  telemetry. Guardrails default to warn mode and can be raised to content-match
+  blocking with approval, severity, and confidence floors.
 - Large database compaction is explicit and safer. Databases above the compact
   threshold use `VACUUM INTO` to create a verified `.compact` sidecar, report
   `compact_swap_required`, and tell the operator exactly which compact copy must
@@ -311,7 +317,7 @@ Optional:
 Install or upgrade directly from the release wheel:
 
 ```powershell
-python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a3/ctxlayer-0.2.0a3-py3-none-any.whl"
+python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a4/ctxlayer-0.2.0a4-py3-none-any.whl"
 ```
 
 Verify:
@@ -323,7 +329,7 @@ ctxlayer --version
 Expected output:
 
 ```text
-ctxlayer 0.2.0a3
+ctxlayer 0.2.0a4
 ```
 
 Avoid creating a new `.venv` inside the target project before setup unless you
@@ -530,13 +536,13 @@ Back up the workspace database before first use of this preview on an important
 repository:
 
 ```powershell
-Copy-Item .ctxlayer\workspace.db .ctxlayer\workspace.db.pre-0.2.0a3.bak
+Copy-Item .ctxlayer\workspace.db .ctxlayer\workspace.db.pre-0.2.0a4.bak
 ```
 
 Install the current wheel:
 
 ```powershell
-python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a3/ctxlayer-0.2.0a3-py3-none-any.whl"
+python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a4/ctxlayer-0.2.0a4-py3-none-any.whl"
 ```
 
 Then verify:
