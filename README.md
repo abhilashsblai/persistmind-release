@@ -109,24 +109,25 @@ reuse project knowledge, learn from outcomes, and improve across workstreams.
 
 ## Current Release
 
-Latest wheel: `ctxlayer-0.2.0a4-py3-none-any.whl`
+Latest wheel: `ctxlayer-0.2.0a5-py3-none-any.whl`
 
 Release asset:
-`https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a4/ctxlayer-0.2.0a4-py3-none-any.whl`
+`https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a5/ctxlayer-0.2.0a5-py3-none-any.whl`
 
 SHA256:
-`e8d19bd90792dc4e0d7589fb60adaeb057e49c4e854eb0b76bf9205b704942d2`
+`148e4e862d5811c3a6787ae2a457e60b48ad42370853397cd7050475669d1b0b`
 
-Wheel size: `464904` bytes
+Wheel size: `475430` bytes
 
-The `0.2.0a4` build is a preview release for development and non-critical
+The `0.2.0a5` build is a preview release for development and non-critical
 repositories. Existing users should back up `.ctxlayer/workspace.db` before the
 first run after upgrading.
 
-The current wheel was refreshed on 2026-06-19 with the reliable-enforcement,
+The current wheel was refreshed on 2026-06-22 with the multi-agent adapter
+layer for Codex, Claude Code, and Cursor, plus the reliable-enforcement,
 large-DB performance, memory optimization, deep-GC, Cognitive Improvement
 Engine preview, skill-evolution, and write-time semantic guardrail build.
-It was built from Advanced-CTX-Layer source commit `5e3bdda`.
+It was built from Advanced-CTX-Layer source commit `aa62cea`.
 
 ### Why Upgrade From Earlier Wheels
 
@@ -137,9 +138,22 @@ like a cold-start bottleneck: before the final `0.2.0a2` hot-path fix,
 large-DB memory recall/access was measured around `273 ms` to `314 ms` because
 recall resolved a full repository snapshot before scoring memory.
 
-`0.2.0a4` packages the performance, reliable-enforcement, memory optimization,
-skill-evolution, and write-time semantic guardrail fixes:
+`0.2.0a5` packages the multi-agent adapter layer, performance,
+reliable-enforcement, memory optimization, skill-evolution, and write-time
+semantic guardrail fixes:
 
+- Multi-agent setup is now adapter-driven. `ctxlayer setup --agents
+  codex,claude,cursor` renders native Codex, Claude Code, and Cursor surfaces
+  from the same CTX Layer contract.
+- `ctxlayer setup auto` detects the running supported agent and renders that
+  agent's instruction file, MCP snippets, hooks, subagents, and skills where the
+  agent supports them.
+- Claude Code setup now writes `CLAUDE.md`, `.claude/settings.json`,
+  `.claude/agents/*.md`, `.claude/skills/ctx-loop/SKILL.md`, `.mcp.json`, and
+  Claude hook registration that reuses the CTX Layer hook.
+- Cursor setup writes `.cursor/rules/ctxlayer.mdc` and `.cursor/mcp.json`, and
+  reports `mcp-only` enforcement because Cursor does not provide lifecycle hook,
+  subagent, or skill surfaces.
 - Steady-state `CtxLayerService` construction is now measured at `1.95 ms` to
   `2.07 ms` median in final bench/release-gate runs.
 - The first fixed migration/dedup pass on the large DB was measured at about
@@ -317,7 +331,7 @@ Optional:
 Install or upgrade directly from the release wheel:
 
 ```powershell
-python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a4/ctxlayer-0.2.0a4-py3-none-any.whl"
+python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a5/ctxlayer-0.2.0a5-py3-none-any.whl"
 ```
 
 Verify:
@@ -329,7 +343,7 @@ ctxlayer --version
 Expected output:
 
 ```text
-ctxlayer 0.2.0a4
+ctxlayer 0.2.0a5
 ```
 
 Avoid creating a new `.venv` inside the target project before setup unless you
@@ -343,7 +357,7 @@ Run setup from the root of the repository where you want to use CTX Layer.
 For a new folder that is not already a Git repository:
 
 ```powershell
-ctxlayer --repo . setup codex --init-git --install-hooks --configure-mcp --absolute-mcp-repo
+ctxlayer --repo . setup --agents codex,claude,cursor --init-git --install-hooks --configure-mcp --absolute-mcp-repo
 ctxlayer --repo . doctor
 ctxlayer --repo . plan --help
 ```
@@ -351,7 +365,7 @@ ctxlayer --repo . plan --help
 For an existing Git repository, omit `--init-git`:
 
 ```powershell
-ctxlayer --repo . setup codex --install-hooks --configure-mcp --absolute-mcp-repo
+ctxlayer --repo . setup --agents codex,claude,cursor --install-hooks --configure-mcp --absolute-mcp-repo
 ctxlayer --repo . doctor
 ctxlayer --repo . plan --help
 ```
@@ -491,7 +505,7 @@ ctxlayer --repo . serve --host 127.0.0.1 --port 8765 --auth token
 Setup can generate MCP snippets for supported clients:
 
 ```powershell
-ctxlayer --repo . setup codex --configure-mcp --absolute-mcp-repo
+ctxlayer --repo . setup --agents codex,claude,cursor --configure-mcp --absolute-mcp-repo
 ```
 
 The MCP server exposes the same local project intelligence used by the CLI:
@@ -536,13 +550,13 @@ Back up the workspace database before first use of this preview on an important
 repository:
 
 ```powershell
-Copy-Item .ctxlayer\workspace.db .ctxlayer\workspace.db.pre-0.2.0a4.bak
+Copy-Item .ctxlayer\workspace.db .ctxlayer\workspace.db.pre-0.2.0a5.bak
 ```
 
 Install the current wheel:
 
 ```powershell
-python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a4/ctxlayer-0.2.0a4-py3-none-any.whl"
+python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a5/ctxlayer-0.2.0a5-py3-none-any.whl"
 ```
 
 Then verify:
