@@ -109,29 +109,29 @@ reuse project knowledge, learn from outcomes, and improve across workstreams.
 
 ## Current Release
 
-Latest wheel: `ctxlayer-0.2.0a6-py3-none-any.whl`
+Latest wheel: `ctxlayer-0.2.0a7-py3-none-any.whl`
 
 Release asset:
-`https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a6/ctxlayer-0.2.0a6-py3-none-any.whl`
+`https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a7/ctxlayer-0.2.0a7-py3-none-any.whl`
 
 SHA256:
-`d03a34934c544323bdd89fea9e31180eac7d09f91c9d3f28f333e0ab4d078be6`
+`af17b6051e70683c1625725cf59d2b9a96081542957254c9eac0b33d06ef0cc2`
 
-Wheel size: `550977` bytes
+Wheel size: `550982` bytes
 
-The `0.2.0a6` build is a preview release for development and non-critical
+The `0.2.0a7` build is a preview release for development and non-critical
 repositories. Existing users should back up `.ctxlayer/workspace.db` before the
 first run after upgrading.
 
-The current wheel was refreshed on 2026-06-23 with the latest source after the
-`0.2.0a6` version bump. It includes the multi-agent adapter layer for Codex,
-Claude Code, and Cursor, the full sixth-sense anticipation hardening path, plus
-the reliable-enforcement, large-DB performance, fluid-memory optimization,
-deep-GC, Cognitive Improvement Engine preview, skill-evolution, and write-time
-semantic guardrail build. It was built from Advanced-CTX-Layer source commit
-`dbb2c66`, which includes upstream commit `19baa39` (`Implement anticipation
-hardening and fluid memory`). The Python package version remains `0.2.0a6`;
-this release-repo commit refreshes the wheel content for the same preview line.
+The current wheel was built on 2026-06-23 from the latest Advanced-CTX-Layer
+source after the `0.2.0a7` version bump. It includes the multi-agent adapter
+layer for Codex, Claude Code, and Cursor, the full sixth-sense anticipation
+hardening path, plus the reliable-enforcement, large-DB performance,
+fluid-memory optimization, deep-GC, Cognitive Improvement Engine preview,
+skill-evolution, and write-time semantic guardrail build. It supersedes the
+refreshed `0.2.0a6` wheel by publishing the same post-a6 source line under a
+new Python package version instead of mutating the previous preview version.
+It was built from Advanced-CTX-Layer source commit `9f7d041`.
 
 ### Why Upgrade From Earlier Wheels
 
@@ -142,7 +142,7 @@ like a cold-start bottleneck: before the final `0.2.0a2` hot-path fix,
 large-DB memory recall/access was measured around `273 ms` to `314 ms` because
 recall resolved a full repository snapshot before scoring memory.
 
-`0.2.0a6` packages the multi-agent adapter layer, anticipation layer,
+`0.2.0a7` packages the multi-agent adapter layer, anticipation layer,
 performance, reliable-enforcement, fluid-memory optimization, skill-evolution,
 and write-time semantic guardrail fixes:
 
@@ -352,7 +352,7 @@ Optional:
 Install or upgrade directly from the release wheel:
 
 ```powershell
-python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a6/ctxlayer-0.2.0a6-py3-none-any.whl"
+python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a7/ctxlayer-0.2.0a7-py3-none-any.whl"
 ```
 
 Verify:
@@ -364,7 +364,7 @@ ctxlayer --version
 Expected output:
 
 ```text
-ctxlayer 0.2.0a6
+ctxlayer 0.2.0a7
 ```
 
 Avoid creating a new `.venv` inside the target project before setup unless you
@@ -571,13 +571,13 @@ Back up the workspace database before first use of this preview on an important
 repository:
 
 ```powershell
-Copy-Item .ctxlayer\workspace.db .ctxlayer\workspace.db.pre-0.2.0a6.bak
+Copy-Item .ctxlayer\workspace.db .ctxlayer\workspace.db.pre-0.2.0a7.bak
 ```
 
 Install the current wheel:
 
 ```powershell
-python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a6/ctxlayer-0.2.0a6-py3-none-any.whl"
+python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a7/ctxlayer-0.2.0a7-py3-none-any.whl"
 ```
 
 Then verify:
