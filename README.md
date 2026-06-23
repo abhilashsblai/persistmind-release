@@ -115,19 +115,23 @@ Release asset:
 `https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a6/ctxlayer-0.2.0a6-py3-none-any.whl`
 
 SHA256:
-`44374409097b35b70505c3e94c17abc9b09772af4dd25c74d5582731d0f00a18`
+`d03a34934c544323bdd89fea9e31180eac7d09f91c9d3f28f333e0ab4d078be6`
 
-Wheel size: `496559` bytes
+Wheel size: `550977` bytes
 
 The `0.2.0a6` build is a preview release for development and non-critical
 repositories. Existing users should back up `.ctxlayer/workspace.db` before the
 first run after upgrading.
 
-The current wheel was refreshed on 2026-06-22 with the multi-agent adapter
-layer for Codex, Claude Code, and Cursor, the anticipation layer preview, plus
-the reliable-enforcement, large-DB performance, memory optimization, deep-GC,
-Cognitive Improvement Engine preview, skill-evolution, and write-time semantic
-guardrail build. It was built from Advanced-CTX-Layer source commit `01c82a1`.
+The current wheel was refreshed on 2026-06-23 with the latest source after the
+`0.2.0a6` version bump. It includes the multi-agent adapter layer for Codex,
+Claude Code, and Cursor, the full sixth-sense anticipation hardening path, plus
+the reliable-enforcement, large-DB performance, fluid-memory optimization,
+deep-GC, Cognitive Improvement Engine preview, skill-evolution, and write-time
+semantic guardrail build. It was built from Advanced-CTX-Layer source commit
+`dbb2c66`, which includes upstream commit `19baa39` (`Implement anticipation
+hardening and fluid memory`). The Python package version remains `0.2.0a6`;
+this release-repo commit refreshes the wheel content for the same preview line.
 
 ### Why Upgrade From Earlier Wheels
 
@@ -139,17 +143,26 @@ large-DB memory recall/access was measured around `273 ms` to `314 ms` because
 recall resolved a full repository snapshot before scoring memory.
 
 `0.2.0a6` packages the multi-agent adapter layer, anticipation layer,
-performance, reliable-enforcement, memory optimization, skill-evolution, and
-write-time semantic guardrail fixes:
+performance, reliable-enforcement, fluid-memory optimization, skill-evolution,
+and write-time semantic guardrail fixes:
 
 - The anticipation layer adds deterministic surprise scoring, calibrated
   prediction records, expected-free-energy lookahead, interoceptive gut state,
   and quarantined online learning.
+- Sixth-sense hardening adds embedding-world-model generalization, consequence
+  simulation, cross-repo transfer hooks, validation/hardening gates, and a
+  documented `sixth_sense-evolution/` rollout path through phases 00-11.
 - Codex PreToolUse hooks now compute anticipation live through the service path,
   emit nudge events, and can only block high surprise when it is corroborated by
   an independent risk signal.
 - Enforce mode is guarded by the latest model calibration ECE threshold and
   downgrades to warn mode until calibration is acceptable.
+- Fluid memory optimization adds hot-path indexes, bounded vector fallback,
+  read-only parallel retrieval, query-planner optimization, explicit memory
+  health telemetry, and `memory bench` latency SLO reporting.
+- Large workspace maintenance now reports verified compact DB copies when a
+  live swap would be unsafe, making operational cleanup explicit instead of
+  silently mutating active CTX databases.
 - Multi-agent setup is now adapter-driven. `ctxlayer setup --agents
   codex,claude,cursor` renders native Codex, Claude Code, and Cursor surfaces
   from the same CTX Layer contract.
