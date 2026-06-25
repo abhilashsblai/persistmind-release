@@ -82,7 +82,7 @@ guardrails, workflow state, and verification loop around that agent.
 
 ## Product Story
 
-![CTX Layer ecosystem positioning](docs/assets/ctxlayer-ecosystem.svg)
+![CTX Layer ecosystem positioning](docs/assets/ctxlayer-ecosystem.png)
 
 ## Why CTX Layer
 
