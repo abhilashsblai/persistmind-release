@@ -215,6 +215,13 @@ See the full release notes for the exact v0.2.0a8 scope and caveats:
 
 Latest wheel: `ctxlayer-0.2.0a8-py3-none-any.whl`
 
+Refreshed build: July 3, 2026 from Advanced CTX Layer source commit
+`e152f63b9c0a5f7fef2da2895acc13d51dccc921`
+
+SHA256: `e65ccf2fed6f95b549089ce554be459c0c57467bfb02617b77fa3ad6af6ec5bf`
+
+Wheel size: `630134` bytes
+
 Install:
 
 ```powershell
@@ -228,6 +235,7 @@ Highlights:
 - Multi-agent setup for Codex, Claude Code, Cursor, MCP, and AGENTS.md.
 - Anticipation and surprise signals for predictive repository cognition.
 - Cognitive Improvement Engine preview.
+- NextGen runtime surfaces from the latest CTX Layer source update.
 - Faster large-database startup, recall, health checks, and maintenance.
 - Write-time semantic guardrails and pack-aware diff validation.
 
