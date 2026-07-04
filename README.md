@@ -1,6 +1,6 @@
 # CTX Layer
 
-[![Release](https://img.shields.io/badge/release-0.2.0a9-blue)](https://github.com/abhilashsblai/ctxlayer-release/releases/tag/v0.2.0a9)
+[![Release](https://img.shields.io/badge/release-0.2.0a10-blue)](https://github.com/abhilashsblai/ctxlayer-release/releases/tag/v0.2.0a10)
 [![Python](https://img.shields.io/badge/python-%3E%3D3.11-blue)](#install-in-2-minutes)
 [![License](https://img.shields.io/badge/license-proprietary-lightgrey)](LICENSE)
 [![MCP](https://img.shields.io/badge/MCP-ready-6f42c1)](#works-with)
@@ -42,7 +42,7 @@ Install -> Index your repository -> Start your first workflow
 ## Install In 2 Minutes
 
 ```powershell
-python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a9/ctxlayer-0.2.0a9-py3-none-any.whl"
+python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a10/ctxlayer-0.2.0a10-py3-none-any.whl"
 ctxlayer --repo . setup auto
 ctxlayer --repo . workflow start --task "make a focused change" --path src/app.py
 ```
@@ -122,7 +122,7 @@ What should be remembered for next time?
 1. Install the release wheel.
 
    ```powershell
-   python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a9/ctxlayer-0.2.0a9-py3-none-any.whl"
+   python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a10/ctxlayer-0.2.0a10-py3-none-any.whl"
    ```
 
 2. Configure the repository for your agent.
@@ -208,30 +208,30 @@ auditable, and deterministic by default.
 | Memory recall on large workspace DB | about 273-314 ms | low tens of ms |
 | Large DB maintenance | implicit and fragile | explicit health, GC, compact-copy flow |
 
-See the full release notes for the exact v0.2.0a9 scope and caveats:
-[docs/releases/v0.2.0a9.md](docs/releases/v0.2.0a9.md).
+See the full release notes for the exact v0.2.0a10 scope and caveats:
+[docs/releases/v0.2.0a10.md](docs/releases/v0.2.0a10.md).
 
 ## Latest Release
 
-Latest wheel: `ctxlayer-0.2.0a9-py3-none-any.whl`
+Latest wheel: `ctxlayer-0.2.0a10-py3-none-any.whl`
 
 New build: July 3, 2026 from Advanced CTX Layer workspace at source base
 commit `e152f63b9c0a5f7fef2da2895acc13d51dccc921` with package metadata
-bumped to `0.2.0a9`.
+bumped to `0.2.0a10`.
 
-SHA256: `3d231ec7d9f2816acc3928a79764bd2774b2de0f980c43f7a61411b4488f7bbb`
+SHA256: `aec83a11b06c6d1b9259eca702909568d242aa5f5770c5b4a13153221a9dcf06`
 
 Wheel size: `630811` bytes
 
 Install:
 
 ```powershell
-python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a9/ctxlayer-0.2.0a9-py3-none-any.whl"
+python -m pip install --upgrade "https://github.com/abhilashsblai/ctxlayer-release/releases/download/v0.2.0a10/ctxlayer-0.2.0a10-py3-none-any.whl"
 ```
 
 Highlights:
 
-- New `0.2.0a9` wheel artifact for the memory and runtime wiring upgrade.
+- New `0.2.0a10` wheel artifact for database evolution, metacognition, governance activation, advanced memory, judgment, workspace loop, and runtime wiring updates.
 - Workflow Orchestrator for `workflow recommend`, `workflow start`, and
   `workflow next`.
 - Multi-agent setup for Codex, Claude Code, Cursor, MCP, and AGENTS.md.
@@ -283,6 +283,7 @@ Enterprise
 ## Documentation
 
 - [Usage and command reference](docs/usage.md)
+- [v0.2.0a10 release notes](docs/releases/v0.2.0a10.md)
 - [v0.2.0a9 release notes](docs/releases/v0.2.0a9.md)
 - [v0.2.0a8 release notes](docs/releases/v0.2.0a8.md)
 - [GitHub Pages overview](https://abhilashsblai.github.io/ctxlayer-release/)
