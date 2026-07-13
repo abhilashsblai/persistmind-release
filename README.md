@@ -21,13 +21,13 @@ hooks/skills/MCP surfaces, indexes the repository, and runs verification.
 Windows PowerShell:
 
 ```powershell
-& ([scriptblock]::Create((Invoke-RestMethod "https://github.com/abhilashsblai/persistmind-release/releases/latest/download/install-persistmind.ps1"))) -Repo .
+& ([scriptblock]::Create((Invoke-RestMethod "https://github.com/abhilashsblai/persistmind-release/releases/download/v0.2.0a19/install-persistmind.ps1"))) -Repo .
 ```
 
 macOS or Linux:
 
 ```bash
-curl -fsSL "https://github.com/abhilashsblai/persistmind-release/releases/latest/download/install-persistmind.sh" | bash -s -- --repo .
+curl -fsSL "https://github.com/abhilashsblai/persistmind-release/releases/download/v0.2.0a19/install-persistmind.sh" | bash -s -- --repo .
 ```
 
 Non-interactive agent selection:
