@@ -21,23 +21,23 @@ hooks/skills/MCP surfaces, indexes the repository, and runs verification.
 Windows PowerShell:
 
 ```powershell
-& ([scriptblock]::Create((Invoke-RestMethod "https://github.com/abhilashsblai/persistmind-release/releases/download/v0.2.0a19/install-persistmind.ps1"))) -Repo .
+& ([scriptblock]::Create((Invoke-RestMethod "https://github.com/abhilashsblai/persistmind-release/releases/download/v0.2.0a20/install-persistmind.ps1"))) -Repo . -Version v0.2.0a20
 ```
 
 macOS or Linux:
 
 ```bash
-curl -fsSL "https://github.com/abhilashsblai/persistmind-release/releases/download/v0.2.0a19/install-persistmind.sh" | bash -s -- --repo .
+curl -fsSL "https://github.com/abhilashsblai/persistmind-release/releases/download/v0.2.0a20/install-persistmind.sh" | bash -s -- --repo . --version v0.2.0a20
 ```
 
 Non-interactive agent selection:
 
 ```powershell
-./install-persistmind.ps1 -Repo C:\path\to\project -Agents codex,claude,cursor
+./install-persistmind.ps1 -Repo C:\path\to\project -Version v0.2.0a20 -Agents "codex,claude,cursor"
 ```
 
 ```bash
-./install-persistmind.sh --repo /path/to/project --agents codex,claude,cursor
+./install-persistmind.sh --repo /path/to/project --version v0.2.0a20 --agents codex,claude,cursor
 ```
 
 If the package is already installed:
@@ -75,7 +75,7 @@ rolls back automatically if post-cutover verification fails.
 
 ## Uninstall and start fresh
 
-Download `uninstall_persistmind.py` from the latest release. The default is a
+Download `uninstall_persistmind.py` from the selected release. The default is a
 read-only dry run:
 
 ```text
