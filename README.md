@@ -21,23 +21,23 @@ hooks/skills/MCP surfaces, indexes the repository, and runs verification.
 Windows PowerShell:
 
 ```powershell
-& ([scriptblock]::Create((Invoke-RestMethod "https://github.com/abhilashsblai/persistmind-release/releases/download/v0.2.0a20/install-persistmind.ps1"))) -Repo . -Version v0.2.0a20
+& ([scriptblock]::Create((Invoke-RestMethod "https://github.com/abhilashsblai/persistmind-release/releases/download/v0.2.0a21/install-persistmind.ps1"))) -Repo . -Version v0.2.0a21
 ```
 
 macOS or Linux:
 
 ```bash
-curl -fsSL "https://github.com/abhilashsblai/persistmind-release/releases/download/v0.2.0a20/install-persistmind.sh" | bash -s -- --repo . --version v0.2.0a20
+curl -fsSL "https://github.com/abhilashsblai/persistmind-release/releases/download/v0.2.0a21/install-persistmind.sh" | bash -s -- --repo . --version v0.2.0a21
 ```
 
 Non-interactive agent selection:
 
 ```powershell
-./install-persistmind.ps1 -Repo C:\path\to\project -Version v0.2.0a20 -Agents "codex,claude,cursor"
+./install-persistmind.ps1 -Repo C:\path\to\project -Version v0.2.0a21 -Agents "codex,claude,cursor"
 ```
 
 ```bash
-./install-persistmind.sh --repo /path/to/project --version v0.2.0a20 --agents codex,claude,cursor
+./install-persistmind.sh --repo /path/to/project --version v0.2.0a21 --agents codex,claude,cursor
 ```
 
 If the package is already installed:
