@@ -10,34 +10,33 @@ It works with Codex, Claude Code, Cursor, MCP-compatible clients, and other
 coding agents. The core is local-first and does not require Node.js; Node is
 used only by the optional npm wrapper.
 
-## Install with one command
+## Verified fresh installation
 
-The platform installer locates or provisions Python 3.11+, downloads a signed
-GitHub release, verifies the manifest, signature, wheel identity, size, and
-SHA-256, installs PersistMind into an isolated user environment, prompts for
-the coding agents to configure, creates all seven databases, installs supported
-hooks/skills/MCP surfaces, indexes the repository, and runs verification.
+The installer creates an isolated environment, verifies the signed manifest and
+wheel, creates all seven databases, configures selected coding agents, and runs
+verification. A fresh machine must first authenticate the release assets using
+an independently installed official GitHub CLI. A pristine `GH_CONFIG_DIR` is
+not authenticated automatically; run `gh auth login` or provide a short-lived
+fine-grained `GH_TOKEN` with read-only Metadata, Contents, and Attestations
+permissions for both the source and release repositories.
 
-Windows PowerShell:
+Follow the complete [verified-install procedure](docs/verified-install.md).
+It verifies release immutability, release-asset membership, source workflow
+provenance, tag, source commit, issuer, runner class, and asset digests
+before executing either the installer or bootstrap. Verification, download,
+and execution remain separate commands; never pipe downloaded code to a shell.
+
+Releases published before this contract do not satisfy it retroactively.
+
+After the staged procedure has verified both local files, non-interactive agent
+selection is available without weakening the bootstrap binding:
 
 ```powershell
-& ([scriptblock]::Create((Invoke-RestMethod "https://github.com/abhilashsblai/persistmind-release/releases/download/v0.2.0a21/install-persistmind.ps1"))) -Repo . -Version v0.2.0a21
-```
-
-macOS or Linux:
-
-```bash
-curl -fsSL "https://github.com/abhilashsblai/persistmind-release/releases/download/v0.2.0a21/install-persistmind.sh" | bash -s -- --repo . --version v0.2.0a21
-```
-
-Non-interactive agent selection:
-
-```powershell
-./install-persistmind.ps1 -Repo C:\path\to\project -Version v0.2.0a21 -Agents "codex,claude,cursor"
+./install-persistmind.ps1 -Repo C:\path\to\project -Version v0.2.0a23 -BootstrapPath .\bootstrap_persistmind.py -Agents "codex,claude,cursor"
 ```
 
 ```bash
-./install-persistmind.sh --repo /path/to/project --version v0.2.0a21 --agents codex,claude,cursor
+./install-persistmind.sh --repo /path/to/project --version v0.2.0a23 --bootstrap-path ./bootstrap_persistmind.py --agents codex,claude,cursor
 ```
 
 If the package is already installed:

@@ -1,8 +1,13 @@
 # PersistMind usage and command reference
 
-## Configure a project
+## Install and configure a project
 
-The unified installer is preferred:
+For a fresh installation, first follow the
+[verified-install procedure](verified-install.md). Do not execute an installer
+directly from a network pipe. The procedure authenticates both the installer
+and the local bootstrap before either one runs.
+
+After PersistMind is installed, configure a project with:
 
 ```text
 persistmind --repo . install --agents codex,claude,cursor
