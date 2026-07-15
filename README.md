@@ -28,6 +28,25 @@ and execution remain separate commands; never pipe downloaded code to a shell.
 
 Releases published before this contract do not satisfy it retroactively.
 
+### Temporary Google Drive mirror (Windows)
+
+While GitHub release publishing is unavailable, the Windows installer can use
+the checksum-pinned `0.2.0a24` wheel mirrored on Google Drive. Download and
+review `install-persistmind.ps1` from this repository, then run:
+
+```powershell
+.\install-persistmind.ps1 -DriveMirror -Repo C:\path\to\project -Agents codex -InitGit
+```
+
+Use `-SkipIndex` only when you want PersistMind to build the source index on the
+first workflow request. The installer downloads the public bootstrap and Drive
+wheel to a temporary directory, verifies both SHA-256 values before execution,
+and removes the temporary files afterward. The pinned wheel SHA-256 is
+`2f8a68bd22c3d797df1a4941991b8de5414137722cb76f70b29c9f6efcfc2b02`.
+
+This mirror is a distribution fallback, not a replacement for the immutable
+GitHub release and attestation procedure documented below.
+
 After the staged procedure has verified both local files, non-interactive agent
 selection is available without weakening the bootstrap binding:
 
