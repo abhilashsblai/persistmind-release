@@ -84,7 +84,7 @@ Choose the exact tag you intend to install. New trust-qualified releases
 contain the policy, installer, and bootstrap assets named below.
 
 ```powershell
-$tag = 'v0.2.0a23'
+$tag = '<tag>'
 $releaseRepo = 'abhilashsblai/persistmind-release'
 $sourceRepo = 'abhilashsblai/PersistMind'
 $signerWorkflow = 'abhilashsblai/PersistMind/.github/workflows/release.yml'
@@ -159,7 +159,7 @@ The POSIX procedure enforces the same policy:
 
 ```bash
 set -euo pipefail
-tag='v0.2.0a23'
+tag='<tag>'
 release_repo='abhilashsblai/persistmind-release'
 source_repo='abhilashsblai/PersistMind'
 download="$PWD/.persistmind-installer-download"

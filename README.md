@@ -32,11 +32,11 @@ After the staged procedure has verified both local files, non-interactive agent
 selection is available without weakening the bootstrap binding:
 
 ```powershell
-./install-persistmind.ps1 -Repo C:\path\to\project -Version v0.2.0a23 -BootstrapPath .\bootstrap_persistmind.py -Agents "codex,claude,cursor"
+./install-persistmind.ps1 -Repo C:\path\to\project -Version <tag> -BootstrapPath .\bootstrap_persistmind.py -Agents "codex,claude,cursor"
 ```
 
 ```bash
-./install-persistmind.sh --repo /path/to/project --version v0.2.0a23 --bootstrap-path ./bootstrap_persistmind.py --agents codex,claude,cursor
+./install-persistmind.sh --repo /path/to/project --version <tag> --bootstrap-path ./bootstrap_persistmind.py --agents codex,claude,cursor
 ```
 
 If the package is already installed:
