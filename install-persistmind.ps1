@@ -9,19 +9,17 @@ param(
     [string]$BootstrapPath = "",
     [string]$LocalWheelPath = "",
     [string]$LocalWheelSha256 = "",
-    [switch]$DriveMirror,
     [switch]$InitGit,
     [switch]$SkipIndex,
     [switch]$Reinstall
 )
 
 $ErrorActionPreference = "Stop"
-$releaseRepo = "abhilashsblai/persistmind-release"
-$driveMirrorVersion = "0.2.0a24"
-$driveMirrorBootstrapUrl = "https://raw.githubusercontent.com/abhilashsblai/persistmind-release/fcf055e4ce406e3179db6855a48af207468e8f82/bootstrap_persistmind.py"
-$driveMirrorBootstrapSha256 = "6a23c71dc737e66ba5e940453bc86e3d27295ab3aa9ae30867bfa107aeba84e0"
-$driveMirrorWheelUrl = "https://drive.usercontent.google.com/download?id=1qxQK9uaEb2medjGFNMrLzZU2KzjbJDuW&export=download&confirm=t"
-$driveMirrorWheelSha256 = "2f8a68bd22c3d797df1a4941991b8de5414137722cb76f70b29c9f6efcfc2b02"
+$driveArtifactVersion = "0.2.0a24"
+$driveBootstrapUrl = "https://drive.usercontent.google.com/download?id=1PppMk20fKrsw8lmGlkyHwmbnRAkZG9fd&export=download&confirm=t"
+$driveBootstrapSha256 = "6a23c71dc737e66ba5e940453bc86e3d27295ab3aa9ae30867bfa107aeba84e0"
+$driveWheelUrl = "https://drive.usercontent.google.com/download?id=1qxQK9uaEb2medjGFNMrLzZU2KzjbJDuW&export=download&confirm=t"
+$driveWheelSha256 = "2f8a68bd22c3d797df1a4941991b8de5414137722cb76f70b29c9f6efcfc2b02"
 
 function Test-CompatiblePython {
     param([string]$Command)
@@ -78,62 +76,33 @@ if (-not $python) {
 }
 
 $temporaryDirectory = $null
-$temporary = $null
 $bootstrap = $null
-$headers = @{}
-$token = if ($env:GH_TOKEN) { $env:GH_TOKEN } else { $env:GITHUB_TOKEN }
-if ($token) { $headers["Authorization"] = "Bearer $token" }
 try {
-    if ($DriveMirror) {
-        if ($BootstrapPath -or $LocalWheelPath -or $LocalWheelSha256) {
-            throw "-DriveMirror cannot be combined with local bootstrap or wheel inputs."
+    $usingLocalArtifacts = [bool]($BootstrapPath -or $LocalWheelPath -or $LocalWheelSha256)
+    if (-not $usingLocalArtifacts) {
+        if ($Version -and $Version.TrimStart("v") -ne $driveArtifactVersion) {
+            throw "Google Drive is pinned to PersistMind $driveArtifactVersion."
         }
-        if ($Version -and $Version.TrimStart("v") -ne $driveMirrorVersion) {
-            throw "The Drive mirror is pinned to PersistMind $driveMirrorVersion."
-        }
-        $Version = $driveMirrorVersion
-        $temporaryDirectory = Join-Path ([System.IO.Path]::GetTempPath()) ("persistmind-drive-mirror-" + [guid]::NewGuid().ToString("N"))
+        $Version = $driveArtifactVersion
+        $temporaryDirectory = Join-Path ([System.IO.Path]::GetTempPath()) ("persistmind-drive-artifacts-" + [guid]::NewGuid().ToString("N"))
         New-Item -ItemType Directory -Path $temporaryDirectory | Out-Null
         $BootstrapPath = Join-Path $temporaryDirectory "bootstrap_persistmind.py"
-        $LocalWheelPath = Join-Path $temporaryDirectory "persistmind-$driveMirrorVersion-py3-none-any.whl"
-        $LocalWheelSha256 = $driveMirrorWheelSha256
+        $LocalWheelPath = Join-Path $temporaryDirectory "persistmind-$driveArtifactVersion-py3-none-any.whl"
+        $LocalWheelSha256 = $driveWheelSha256
 
-        Write-Host "persistmind-install: downloading checksum-pinned Drive mirror artifacts"
-        Invoke-WebRequest -Uri $driveMirrorBootstrapUrl -OutFile $BootstrapPath -UseBasicParsing
-        Assert-Sha256 -Path $BootstrapPath -Expected $driveMirrorBootstrapSha256 -Label "Bootstrap"
-        Invoke-WebRequest -Uri $driveMirrorWheelUrl -OutFile $LocalWheelPath -UseBasicParsing
-        Assert-Sha256 -Path $LocalWheelPath -Expected $driveMirrorWheelSha256 -Label "Wheel"
+        Write-Host "persistmind-install: downloading checksum-pinned Google Drive artifacts"
+        Invoke-WebRequest -Uri $driveBootstrapUrl -OutFile $BootstrapPath -UseBasicParsing
+        Assert-Sha256 -Path $BootstrapPath -Expected $driveBootstrapSha256 -Label "Bootstrap"
+        Invoke-WebRequest -Uri $driveWheelUrl -OutFile $LocalWheelPath -UseBasicParsing
+        Assert-Sha256 -Path $LocalWheelPath -Expected $driveWheelSha256 -Label "Wheel"
     }
     if ([bool]$LocalWheelPath -ne [bool]$LocalWheelSha256) {
         throw "-LocalWheelPath and -LocalWheelSha256 must be supplied together."
     }
-    if ($LocalWheelPath -and (-not $BootstrapPath -or -not $Version)) {
-        throw "Local wheel testing requires -BootstrapPath and the exact -Version."
+    if ($usingLocalArtifacts -and (-not $BootstrapPath -or -not $LocalWheelPath -or -not $LocalWheelSha256 -or -not $Version)) {
+        throw "Local artifact testing requires -BootstrapPath, -LocalWheelPath, -LocalWheelSha256, and the exact -Version."
     }
-    if ($BootstrapPath) {
-        if (-not $Version) { throw "-BootstrapPath requires the exact -Version that was verified." }
-        $bootstrap = (Resolve-Path -LiteralPath $BootstrapPath).Path
-    } else {
-        $temporary = Join-Path ([System.IO.Path]::GetTempPath()) ("persistmind-bootstrap-" + [guid]::NewGuid().ToString("N") + ".py")
-        $bootstrap = $temporary
-        Write-Host "persistmind-install: downloading a release bootstrap"
-        Write-Warning "This mode assumes the selected release was verified separately."
-        $apiHeaders = $headers.Clone()
-        $apiHeaders["Accept"] = "application/vnd.github+json"
-        if ($Version) {
-            $tag = if ($Version.StartsWith("v")) { $Version } else { "v$Version" }
-            $release = Invoke-RestMethod -Uri "https://api.github.com/repos/$releaseRepo/releases/tags/$tag" -Headers $apiHeaders
-        } elseif ($Channel -eq "stable") {
-            $release = Invoke-RestMethod -Uri "https://api.github.com/repos/$releaseRepo/releases/latest" -Headers $apiHeaders
-        } else {
-            $releases = Invoke-RestMethod -Uri "https://api.github.com/repos/$releaseRepo/releases?per_page=100" -Headers $apiHeaders
-            $release = $releases | Where-Object { -not $_.draft -and $_.prerelease } | Select-Object -First 1
-        }
-        if (-not $release) { throw "No matching PersistMind release was found." }
-        $asset = $release.assets | Where-Object { $_.name -eq "bootstrap_persistmind.py" } | Select-Object -First 1
-        if (-not $asset) { throw "The selected release does not contain bootstrap_persistmind.py." }
-        Invoke-WebRequest -Uri $asset.browser_download_url -Headers $headers -OutFile $bootstrap -UseBasicParsing
-    }
+    $bootstrap = (Resolve-Path -LiteralPath $BootstrapPath).Path
     if (-not (Test-Path -LiteralPath $Repo)) {
         if (-not $InitGit) {
             throw "Repository path does not exist. Create it first or pass -InitGit: $Repo"
@@ -156,7 +125,6 @@ try {
     & $python @arguments
     if ($LASTEXITCODE -ne 0) { throw "PersistMind installation failed with exit code $LASTEXITCODE" }
 } finally {
-    if ($temporary) { Remove-Item -LiteralPath $temporary -Force -ErrorAction SilentlyContinue }
     if ($temporaryDirectory) { Remove-Item -LiteralPath $temporaryDirectory -Recurse -Force -ErrorAction SilentlyContinue }
 }
 

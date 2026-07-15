@@ -12,46 +12,43 @@ used only by the optional npm wrapper.
 
 ## Verified fresh installation
 
-The installer creates an isolated environment, verifies the signed manifest and
+The installer creates an isolated environment, verifies the bootstrap and
 wheel, creates all seven databases, configures selected coding agents, and runs
-verification. A fresh machine must first authenticate the release assets using
-an independently installed official GitHub CLI. A pristine `GH_CONFIG_DIR` is
-not authenticated automatically; run `gh auth login` or provide a short-lived
-fine-grained `GH_TOKEN` with read-only Metadata, Contents, and Attestations
-permissions for both the source and release repositories.
+verification. Public installation artifacts are always stored in the
+[PersistMind Releases Google Drive folder](https://drive.google.com/drive/folders/1aOOJ7fEE9Bv8yS-jzFVvTuBwlx0q7Nz9).
+GitHub stores source code, checksums, documentation, and commit history; the
+installer does not fall back to GitHub release assets.
 
-Follow the complete [verified-install procedure](docs/verified-install.md).
-It verifies release immutability, release-asset membership, source workflow
-provenance, tag, source commit, issuer, runner class, and asset digests
-before executing either the installer or bootstrap. Verification, download,
-and execution remain separate commands; never pipe downloaded code to a shell.
+### Google Drive installation (Windows)
 
-Releases published before this contract do not satisfy it retroactively.
-
-### Temporary Google Drive mirror (Windows)
-
-While GitHub release publishing is unavailable, the Windows installer can use
-the checksum-pinned `0.2.0a24` wheel mirrored on Google Drive. Download and
-review `install-persistmind.ps1` from this repository, then run:
+Download and review
+[`install-persistmind.ps1`](https://drive.google.com/file/d/16OChpEU4pVR4OgmmhxddXP511t6uAmcc/view),
+then run:
 
 ```powershell
-.\install-persistmind.ps1 -DriveMirror -Repo C:\path\to\project -Agents codex -InitGit
+.\install-persistmind.ps1 -Repo C:\path\to\project -Agents codex -InitGit
 ```
 
 Use `-SkipIndex` only when you want PersistMind to build the source index on the
-first workflow request. The installer downloads the public bootstrap and Drive
-wheel to a temporary directory, verifies both SHA-256 values before execution,
-and removes the temporary files afterward. The pinned wheel SHA-256 is
+first workflow request. The installer downloads the public bootstrap and wheel
+from Google Drive to a temporary directory, verifies both SHA-256 values before
+execution, and removes the temporary files afterward. The installer SHA-256 is
+`1538071295436c2c5b9852ce247f85bf28f28edf6e7799cc7ea0955c14383646`, the pinned
+bootstrap SHA-256 is
+`6a23c71dc737e66ba5e940453bc86e3d27295ab3aa9ae30867bfa107aeba84e0` and the
+wheel SHA-256 is
 `2f8a68bd22c3d797df1a4941991b8de5414137722cb76f70b29c9f6efcfc2b02`.
 
-This mirror is a distribution fallback, not a replacement for the immutable
-GitHub release and attestation procedure documented below.
+Every new public version must be uploaded beneath the public Drive release
+folder and pinned by file ID and SHA-256 in the installer before publication.
+The legacy GitHub attestation workflow is documented separately for historical
+releases and source provenance.
 
-After the staged procedure has verified both local files, non-interactive agent
-selection is available without weakening the bootstrap binding:
+For explicit developer qualification with local artifacts, supply all local
+inputs and the exact version together:
 
 ```powershell
-./install-persistmind.ps1 -Repo C:\path\to\project -Version <tag> -BootstrapPath .\bootstrap_persistmind.py -Agents "codex,claude,cursor"
+./install-persistmind.ps1 -Repo C:\path\to\project -Version <tag> -BootstrapPath .\bootstrap_persistmind.py -LocalWheelPath .\persistmind.whl -LocalWheelSha256 <sha256> -Agents "codex,claude,cursor"
 ```
 
 ```bash

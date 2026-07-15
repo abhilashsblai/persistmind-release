@@ -1,5 +1,11 @@
 # Verified fresh installation
 
+> **Historical GitHub-release procedure:** public PersistMind installer,
+> bootstrap, and wheel artifacts are now stored on Google Drive. The Windows
+> installer pins their Drive file IDs and SHA-256 values and does not fall back
+> to GitHub release assets. The procedure below remains for historical release
+> verification and source-provenance reference.
+
 A fresh install has no trusted PersistMind executable yet. The trust anchor is
 an independently installed official GitHub CLI (`gh`), not a script downloaded
 from the PersistMind release. Verification, download, and execution are
