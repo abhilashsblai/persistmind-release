@@ -15,11 +15,11 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$driveArtifactVersion = "0.2.0a24"
+$driveArtifactVersion = "0.2.0a25"
 $driveBootstrapUrl = "https://drive.usercontent.google.com/download?id=1PppMk20fKrsw8lmGlkyHwmbnRAkZG9fd&export=download&confirm=t"
 $driveBootstrapSha256 = "6a23c71dc737e66ba5e940453bc86e3d27295ab3aa9ae30867bfa107aeba84e0"
-$driveWheelUrl = "https://drive.usercontent.google.com/download?id=1qxQK9uaEb2medjGFNMrLzZU2KzjbJDuW&export=download&confirm=t"
-$driveWheelSha256 = "2f8a68bd22c3d797df1a4941991b8de5414137722cb76f70b29c9f6efcfc2b02"
+$driveWheelUrl = "https://drive.usercontent.google.com/download?id=1TujlEMlaKHIZauLD3FLJA_rdDThllT7u&export=download&confirm=t"
+$driveWheelSha256 = "39e23e6cfc077ac1677a9af4c6b933fcf44739080437e9d0a35050a614662d14"
 
 function Test-CompatiblePython {
     param([string]$Command)

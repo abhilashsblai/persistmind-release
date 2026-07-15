@@ -33,11 +33,11 @@ Use `-SkipIndex` only when you want PersistMind to build the source index on the
 first workflow request. The installer downloads the public bootstrap and wheel
 from Google Drive to a temporary directory, verifies both SHA-256 values before
 execution, and removes the temporary files afterward. The installer SHA-256 is
-`1538071295436c2c5b9852ce247f85bf28f28edf6e7799cc7ea0955c14383646`, the pinned
+`5870b4076c0f6258d241b80baebda7d9863ad62fb8f8f8277f55e92585d41da4`, the pinned
 bootstrap SHA-256 is
 `6a23c71dc737e66ba5e940453bc86e3d27295ab3aa9ae30867bfa107aeba84e0` and the
 wheel SHA-256 is
-`2f8a68bd22c3d797df1a4941991b8de5414137722cb76f70b29c9f6efcfc2b02`.
+`39e23e6cfc077ac1677a9af4c6b933fcf44739080437e9d0a35050a614662d14`.
 
 Every new public version must be uploaded beneath the public Drive release
 folder and pinned by file ID and SHA-256 in the installer before publication.
