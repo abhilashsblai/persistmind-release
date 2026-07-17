@@ -3,7 +3,7 @@
 ## Current release
 
 - Windows 10 is named in the intended preview boundary but was not directly
-  observed in the `0.2.1.dev16` qualification run.
+  observed in the `0.2.1.dev17` qualification run.
 - Linux and macOS qualification is pending for this artifact.
 - Python 3.11 and Python 3.13 qualification is pending for this artifact.
 - Acceptance in a real, non-disposable project remains tester feedback rather

@@ -2,7 +2,7 @@
 
 ## Current support boundary
 
-PersistMind `0.2.1.dev16` is an internal Windows preview for disposable or
+PersistMind `0.2.1.dev17` is an internal Windows preview for disposable or
 non-critical local repositories. It requires manual review and has no
 production, enterprise, response-time, or compatibility SLA.
 

@@ -2,7 +2,7 @@
 
 ## Internal preview policy
 
-There is no supported automatic upgrade path into or out of `0.2.1.dev16`.
+There is no supported automatic upgrade path into or out of `0.2.1.dev17`.
 Treat each internal preview as a separate evaluation installation.
 
 Before testing a newer build:

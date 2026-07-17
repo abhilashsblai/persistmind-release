@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.2.1.dev17 - 2026-07-17
+
+### Fixed
+
+- `workflow next` now supports the documented manual `task start → pack → plan`
+  lifecycle instead of requiring a hidden recommendation created only by
+  `workflow start`.
+- Missing split workflow recommendations are reconstructed from authoritative
+  task text, bound pack, accepted plan paths/capabilities, and impact evidence,
+  then persisted for subsequent calls.
+- Existing affected tasks self-heal on their next `workflow next` invocation;
+  `workflow brief` is no longer a required workaround.
+
+### Qualification
+
+- Exact-commit Windows 11/Python 3.12 installed-wheel lifecycle passed.
+- The original FoxFlow task was repaired and then succeeded through the installed
+  dev16 reader using the persisted recovered snapshot.
+
 ## 0.2.1.dev16 - 2026-07-17
 
 ### Fixed

@@ -1,6 +1,6 @@
 # Current Limitations
 
-PersistMind `0.2.1.dev16` has these intentional boundaries:
+PersistMind `0.2.1.dev17` has these intentional boundaries:
 
 - private internal testing only;
 - unsigned artifacts and manual checksum verification;
