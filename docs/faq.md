@@ -47,5 +47,5 @@ transport-bound principal for mutations.
 
 ## Can I use the automatic updater?
 
-No. `0.2.1.dev18` is unsigned and must be installed manually after checksum
+No. `0.2.1.dev19` is unsigned and must be installed manually after checksum
 verification.

@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.2.1.dev19 - 2026-07-17
+
+### Fixed
+
+- The preview ZIP now exposes the installer and installation guide at its root,
+  as required by the published GitHub instructions.
+- The installer searches both its own directory and the bundle's `artifacts`
+  directory for the exact wheel.
+- Packaging runs the documented root-level `-VerifyOnly` command before ZIP
+  creation.
+
+### Qualification
+
+- The broken dev18 root and nested installation commands were reproduced.
+- The corrected dev19 ZIP was extracted and installed into FoxFlow using the
+  published command sequence.
+- Setup, MCP probes, doctor, governed preflight, and the Supabase write-channel
+  hook passed from the installed wheel.
+
 ## 0.2.1.dev18 - 2026-07-17
 
 ### Fixed

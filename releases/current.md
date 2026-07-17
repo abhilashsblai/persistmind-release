@@ -6,25 +6,25 @@
 
 ## Release identity
 
-- Version: `0.2.1.dev18`
+- Version: `0.2.1.dev19`
 - Release type: Internal Windows Preview
-- Source commit: [`60924ed94d1d7bcf965bf729ccef947936fd5995`](https://github.com/abhilashsblai/PersistMind/commit/60924ed94d1d7bcf965bf729ccef947936fd5995)
-- Build timestamp: `2026-07-17T11:16:15.112007Z`
+- Source commit: [`8e0e67aefa0ec5cafe80ac5b180a0708cacfc3a4`](https://github.com/abhilashsblai/PersistMind/commit/8e0e67aefa0ec5cafe80ac5b180a0708cacfc3a4)
+- Build timestamp: `2026-07-17T12:29:15.551152Z`
 - Runtime profile: `windows-internal-preview` (Core Local boundary)
-- Distribution: [Google Drive release folder](https://drive.google.com/drive/folders/1MhEEibPxLZMs6HgIUJVaUNpgJ7NWgch1)
+- Distribution: [Google Drive release folder](https://drive.google.com/drive/folders/1KUZKm3wyvy3HqJZBeqMzkQlkd5sRgY-5)
 - Production: No
 - Public beta: No
 - Officially signed: No
 
 ## Download
 
-- **[Qualified Windows preview ZIP](https://drive.google.com/file/d/1rR0O7woaS7hs8nqrpYK-8NOUIEVtJM_q/view?usp=drivesdk)**
-- [Checksum-verifying installer](https://drive.google.com/file/d/1ixaWuOj0XpQC4UPnhEBwa1ob4Sr4m84k/view?usp=drivesdk)
-- [Wheel](https://drive.google.com/file/d/1yoGAfMg6OzXqHeHOWB5UOwWu_es83fCr/view?usp=drivesdk)
-- [Source distribution](https://drive.google.com/file/d/1iryCDChwQu3HE30yCwQaMA9GX7KmjaRb/view?usp=drivesdk)
-- [SHA-256 list](https://drive.google.com/file/d/1v5dxO3yb6Mx9kz4bJ-xnaOP56T7ozrFs/view?usp=drivesdk)
-- [Release manifest](https://drive.google.com/file/d/166Nw28khfQrTOeIGQ-FLfk2EBugGmaT7/view?usp=drivesdk)
-- [Windows installation guide](https://drive.google.com/file/d/1Lt-dmT3kP7iPIlivM5sM_HKsPqztFLVH/view?usp=drivesdk)
+- **[Qualified Windows preview ZIP](https://drive.google.com/file/d/1WiT3UrMXEb_T4FTbIxHzuwnU-gWHKPju/view?usp=drivesdk)**
+- [Checksum-verifying installer](https://drive.google.com/file/d/1A7N_lbDDj539sB-wwhJV-jdnjRf8xYEW/view?usp=drivesdk)
+- [Wheel](https://drive.google.com/file/d/1O1KZq-Na3GYZ2cHrE5_1-jK6HjIUG9wQ/view?usp=drivesdk)
+- [Source distribution](https://drive.google.com/file/d/1w29kHAEqeXAD0AtsAuRmnm4Is9Gkqqpm/view?usp=drivesdk)
+- [SHA-256 list](https://drive.google.com/file/d/1F2uLD7pZiLHgGJw_1_Q97inW9-fDCXE5/view?usp=drivesdk)
+- [Release manifest](https://drive.google.com/file/d/1dVPqtYC4qR9vThXx2UvbTsIbwfEmbVK8/view?usp=drivesdk)
+- [Windows installation guide](https://drive.google.com/file/d/1usK9HAYKXtEFjK4waW_2VgjFAInPqQXf/view?usp=drivesdk)
 
 The ZIP is the recommended download because it keeps the installer, wheel,
 manifest, checksums, and documentation together. GitHub contains no release
@@ -34,17 +34,23 @@ binary.
 
 | Artifact | Size | SHA-256 |
 | --- | ---: | --- |
-| `PersistMind-Windows-Internal-Preview-0.2.1.dev18.zip` | 2,860,708 bytes | `738520945882ce43cebbefebbcbc1d9614df1f8a25f4c5ab7c733e70dd263f22` |
-| `persistmind-0.2.1.dev18-py3-none-any.whl` | 1,321,058 bytes | `6963ee88abf2ddb90898c11ac07718e6ebce06b98edba5a70424a8c0933d8dce` |
-| `persistmind-0.2.1.dev18.tar.gz` | 1,569,604 bytes | `5d56a0ade92755b2079f481adb4da53810e5074f8842db18c39edba8e990b7d9` |
-| `internal-preview-manifest.json` | 1,723 bytes | `6e04acbf9bc8493f3e1c8f810d0b84ff8c7a0836fc4bab0f4618065da5a06c7b` |
-| `Install-PersistMind.ps1` | 2,478 bytes | `71a80bae61160c2b2fc49c0c92250e25b3b658fa4e7527018f17ac958710dd0d` |
+| `PersistMind-Windows-Internal-Preview-0.2.1.dev19.zip` | 2,863,771 bytes | `e397e87e83453e9ffb94d650f0ee29d44db8690347ce071d81b54240e5cd15cf` |
+| `persistmind-0.2.1.dev19-py3-none-any.whl` | 1,321,054 bytes | `c9a1d3e41236c3f86fdd9103337522fa2e41eaaf10e086bb94f4064f48f8abd3` |
+| `persistmind-0.2.1.dev19.tar.gz` | 1,570,208 bytes | `287f04f4ebf4a13e9742aa212505eff1330c20e84efcf087748724e9a817f673` |
+| `internal-preview-manifest.json` | 1,723 bytes | `61835ddb824edad9e3268287d1d8825e48ff45d37a6273574393677a3723c448` |
+| `Install-PersistMind.ps1` | 2,923 bytes | `ecb366d43d613c24baf30919ea87ea11db098f9c1f6014692dbd7ef5f9b7521c` |
 
 - Signature status: unsigned internal preview
 - Trusted updater status: ineligible
 
 ## What changed
 
+- The extracted ZIP now contains `Install-PersistMind.ps1` and
+  `INSTALL-WINDOWS.txt` at its root, matching the documented commands.
+- The installer resolves a standalone adjacent wheel or the ZIP's
+  `artifacts` wheel without manual path arguments.
+- Packaging now executes the root installer with `-VerifyOnly` before creating
+  the ZIP, preventing a structurally uninstallable archive from being published.
 - Hook policy freshness is bound to the active task, pack, plan status, and plan
   revision instead of the entire task SQLite database/WAL image.
 - Routine checkpoint, workflow, and telemetry writes no longer invalidate a
@@ -76,6 +82,6 @@ Real-project behavior remains an explicit tester-feedback gate. Windows 10,
 Python 3.11/3.13, Linux, macOS, signing, and production updater qualification are
 still pending.
 
-Read the [release notes](release-notes/0.2.1.dev18.md),
+Read the [release notes](release-notes/0.2.1.dev19.md),
 [artifact verification guide](../docs/artifact-verification.md), and
 [known issues](../docs/known-issues.md).
