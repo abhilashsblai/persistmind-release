@@ -1,4 +1,4 @@
-# PersistMind 0.2.1.dev4 — Internal Windows Preview
+# PersistMind 0.2.1.dev4 - Internal Windows Preview
 
 Released July 17, 2026 for restricted private testing.
 

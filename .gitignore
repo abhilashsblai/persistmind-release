@@ -2,7 +2,10 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .ruff_cache/
-.ctxlayer/
 .venv/
 venv/
 *.log
+*.whl
+*.tar.gz
+*.zip
+/releases/
