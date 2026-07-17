@@ -5,7 +5,7 @@ is not a marketing label and cannot expand the evidence attached to a release.
 
 | Profile | Purpose | Current status |
 | --- | --- | --- |
-| `windows-internal-preview` | Locked local Windows evaluation profile | Qualified in `0.2.1.dev4` |
+| `windows-internal-preview` | Locked local Windows evaluation profile | Qualified in `0.2.1.dev15` |
 | Core Local | Local repository, filesystem, CLI, human-reviewed operation | Target boundary represented by the current preview |
 | Labs | Explicit experimental capability evaluation | Disabled in the current preview |
 | Team Preview | Authenticated multi-user/team service | Future qualification phase |

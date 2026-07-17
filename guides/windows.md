@@ -3,7 +3,7 @@
 ## Safe preparation
 
 - Use Windows 11 for the directly qualified environment.
-- Install Python 3.11, 3.12, or 3.13 and Git.
+- Use Python 3.12 and Git for the currently qualified path.
 - Work on a disposable copy with a clean Git commit.
 - Avoid credentials and sensitive repositories.
 - Verify `SHA256SUMS.txt` before installation.

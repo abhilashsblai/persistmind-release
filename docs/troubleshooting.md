@@ -21,7 +21,7 @@ environment's Python executable directly. Do not bypass organizational policy.
 
 ## Installation or dependency failure
 
-Confirm Python is 3.11-3.13, upgrade pip inside the isolated environment, and
+Confirm Python is 3.12 for the qualified path, upgrade pip inside the isolated environment, and
 install the wheel from a local path. Record the complete redacted pip error.
 
 ## Indexing failure

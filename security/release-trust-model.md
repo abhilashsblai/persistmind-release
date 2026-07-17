@@ -16,9 +16,9 @@ No single filename, Drive link, Git tag, or README statement is sufficient.
 
 ## Current private preview
 
-`0.2.1.dev4` is checksum-verified but unsigned. It is distributed only to
-approved testers and is not trusted by the automatic updater. GitHub contains no
-public artifact URL for this private channel.
+`0.2.1.dev15` is checksum-verified but unsigned. It is distributed only to
+approved testers and is not trusted by the automatic updater. GitHub publishes
+the direct Drive link and immutable identity metadata, but hosts no artifact.
 
 ## Future signed channels
 

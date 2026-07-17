@@ -22,7 +22,7 @@ persistent context, governance, verification, and project memory around them.
 
 ## Current Release Status
 
-PersistMind `0.2.1.dev4` is available only for approved private Windows internal
+PersistMind `0.2.1.dev15` is available only for approved private Windows internal
 testing. It is not a public beta or production release.
 
 | Item | Status |
@@ -153,7 +153,7 @@ The supported internal-preview boundary:
 
 - local repository and filesystem;
 - CLI workflows and local mutations;
-- local storage, backup, and restore;
+- local storage, with backup and recovery qualification still pending;
 - read-only MCP; and
 - mandatory human review.
 
@@ -176,13 +176,16 @@ Read [Core Local](docs/core-local.md) and
 PersistMind is currently distributed privately to approved Windows internal
 preview testers. This GitHub repository provides product documentation, release
 notes, qualification information, artifact metadata, and installation guidance.
-It does not host release binaries and does not publish a public artifact link
-for the private channel.
+It does not host release binaries. The current qualified artifact is stored in
+the designated Google Drive release channel.
 
-Approved testers receive access to the version-specific Google Drive folder
-separately. Before installing, the version, filename, source commit, file size,
-SHA-256, manifest, and signature status must match
-[releases/current.md](releases/current.md).
+**[Download the exact `0.2.1.dev15` Windows preview ZIP](https://drive.google.com/file/d/1lQt8FB7koSMylYCsJ-sUJLr_hhyyLPVB/view?usp=drivesdk)**
+
+This link identifies one release artifact, not a folder containing multiple
+versions. Access may require approval. Before installing, the version, filename,
+source commit, file size, SHA-256, manifest, and signature status must match
+[releases/current.md](releases/current.md). The ZIP SHA-256 is
+`4d5edaf1ff008aa45bb340de15c735f9966bfac48eff2505d9f5d81cc23f4598`.
 
 See:
 
@@ -237,16 +240,21 @@ metadata.
 Tested commit == Built commit == Published commit == Installed commit
 ```
 
-For `0.2.1.dev4`:
+For `0.2.1.dev15`:
 
 | Target | Result |
 | --- | --- |
-| Source suite | 1,168 tests; 0 failures; 0 errors; 7 skipped |
 | Windows 11 | Passed |
 | Windows 10 | Qualification pending |
-| Python 3.11-3.13 | Same installed wheel passed |
-| Backup and restore | Passed |
+| Python 3.12 | Installed wheel passed |
+| Python 3.11 and 3.13 | Qualification pending |
+| Fresh external-project workflow | Passed |
+| Python project tests | 9 passed |
+| JavaScript project tests | 8 passed |
+| Real loopback download task | Passed |
 | Read-only MCP boundary | Passed |
+| Chrome UI automation | Manual check pending; Chrome was not running |
+| Backup, restore, updater, and rollback | Pending for promotion |
 | Linux and macOS | Qualification pending |
 
 SHA-256 verifies exact bytes but does not authenticate an unsigned publisher.

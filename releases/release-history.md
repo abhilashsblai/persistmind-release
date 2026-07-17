@@ -4,7 +4,7 @@
 
 | Version | Date | Channel | Source commit | Notes |
 | --- | --- | --- | --- | --- |
-| `0.2.1.dev4` | 2026-07-17 | Internal Windows Preview | `af93e56e54350d82ae0d40a8bdcce71dd0ac7c03` | [Release notes](release-notes/0.2.1.dev4.md) |
+| `0.2.1.dev15` | 2026-07-17 | Internal Windows Preview | `1e26c25f91e8a3bc3b7cc98046e63d8b9cd250ca` | [Release notes](release-notes/0.2.1.dev15.md) |
 
 ## Historical tags
 

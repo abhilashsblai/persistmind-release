@@ -1,32 +1,28 @@
 # Changelog
 
-## 0.2.1.dev4 - 2026-07-17
+## 0.2.1.dev15 - 2026-07-17
 
 ### Added
 
-- Locked `windows-internal-preview` runtime profile.
-- Exact release identity in version, status, and diagnostics.
-- Installed-wheel qualification on Windows with Python 3.11-3.13.
-- Manifest, checksum, limitation, installation, and evidence records.
-
-### Changed
-
-- Release artifacts moved to a private version-specific Google Drive channel.
-- GitHub became documentation, metadata, qualification, and history only.
+- Frozen exact-commit Windows Internal Preview release record.
+- Drive-only artifact links, checksums, manifest identity, and limitations.
+- Installed-wheel qualification in a fresh external Chrome-extension project.
 
 ### Fixed
 
-- Release qualification tooling now validates continuation, memory evidence,
-  uninstall preservation, and strict machine-result schemas.
+- Project setup fallback when Python is supplied through `uv`.
+- Evidence-directory handling in release qualification.
+- Generated commands that could invoke an unrelated global executable.
+- Plan-to-preflight reuse of the task's bound context pack.
 
 ### Security
 
-- Remote writes, writable MCP, and autonomous source modification remain
-  disabled.
-- The unsigned preview is explicitly excluded from the trusted updater.
+- Remote writes, writable MCP, and autonomous source modification remain disabled.
+- The unsigned preview remains excluded from the trusted updater.
 
 ### Known limitations
 
-- Windows 10 qualification is pending.
-- Linux and macOS qualification is pending.
+- Windows 10, Python 3.11/3.13, Linux, and macOS qualification is pending.
+- Chrome UI automation remains a manual check.
+- Backup/recovery, updater/rollback, and signing gates remain pending.
 - No production, public-beta, enterprise, or support-SLA claim.

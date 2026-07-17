@@ -12,9 +12,9 @@ compatibility.
 
 | Python | Windows 11 result |
 | --- | --- |
-| 3.11 | Passed |
+| 3.11 | Qualification pending |
 | 3.12 | Passed |
-| 3.13 | Passed |
+| 3.13 | Qualification pending |
 
 The `py3-none-any` filename does not prove cross-platform support. A platform is
 supported only after the exact installed artifact passes the declared matrix.

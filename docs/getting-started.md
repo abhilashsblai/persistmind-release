@@ -4,39 +4,31 @@
 
 The current release is an unsigned Windows internal preview. Use a disposable
 or non-critical local Git repository, create a commit or backup, remove
-credentials from the test copy, and plan to review every result manually.
+credentials from the test copy, and review every result manually.
 
-Requirements:
-
-- Windows 11 for the directly observed platform result;
-- Python 3.11, 3.12, or 3.13;
-- Git and PowerShell; and
-- enough local disk space for a virtual environment, repository index, and
-  backups.
-
-Windows 10 is in the intended preview boundary but was not directly observed in
-the current qualification run.
+The qualified path is Windows 11 with Python 3.12, Git, and PowerShell. Windows
+10, Python 3.11/3.13, Linux, and macOS remain pending.
 
 ## Install and verify
 
 1. Open the exact [current release record](../releases/current.md).
-2. Download the wheel, `SHA256SUMS.txt`, and `INSTALL-WINDOWS.txt`.
-3. Verify the wheel hash before installation.
-4. Create an isolated virtual environment and install the local wheel.
-5. Run `persistmind --version`, `persistmind status`, and
-   `persistmind --repo C:\path\to\test-repo doctor`.
+2. Download its version-specific ZIP link.
+3. Verify the ZIP SHA-256 before extraction.
+4. Run `Install-PersistMind.ps1 -VerifyOnly`.
+5. Install into a new isolated environment.
+6. Invoke PersistMind through that environment's exact Python executable.
+7. Configure a disposable or non-critical repository and run `doctor --summary`.
 
-The output must identify version `0.2.1.dev4`, source commit
-`af93e56e54350d82ae0d40a8bdcce71dd0ac7c03`, and runtime profile
+The output must identify version `0.2.1.dev15`, source commit
+`1e26c25f91e8a3bc3b7cc98046e63d8b9cd250ca`, and runtime profile
 `windows-internal-preview`.
 
-## First safe workflow
+## First governed workflow
 
-```powershell
-persistmind --repo C:\path\to\test-repo index
-persistmind --repo C:\path\to\test-repo search "the behavior to inspect"
-persistmind --repo C:\path\to\test-repo pack --task "review the behavior"
-```
+Use the generated project instructions. A mutation task must have a task
+session, agent session, context pack, plan, write preflight, verification,
+checkpoints, outcome, and closed session. Do not rely on a bare global
+`persistmind` command when qualifying a specific installed candidate.
 
 Do not enable labs, team/server operation, remote writes, writable MCP, or the
 automatic updater for this release.
