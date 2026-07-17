@@ -22,7 +22,7 @@ persistent context, governance, verification, and project memory around them.
 
 ## Current Release Status
 
-PersistMind `0.2.1.dev17` is available only for approved private Windows internal
+PersistMind `0.2.1.dev18` is available only for approved private Windows internal
 testing. It is not a public beta or production release.
 
 | Item | Status |
@@ -179,13 +179,13 @@ notes, qualification information, artifact metadata, and installation guidance.
 It does not host release binaries. The current qualified artifact is stored in
 the designated Google Drive release channel.
 
-**[Download the exact `0.2.1.dev17` Windows preview ZIP](https://drive.google.com/file/d/1VlU4tRxs0wudWkba6oYdVcjSG66gvosF/view?usp=drivesdk)**
+**[Download the exact `0.2.1.dev18` Windows preview ZIP](https://drive.google.com/file/d/1rR0O7woaS7hs8nqrpYK-8NOUIEVtJM_q/view?usp=drivesdk)**
 
 This link identifies one release artifact, not a folder containing multiple
 versions. Access may require approval. Before installing, the version, filename,
 source commit, file size, SHA-256, manifest, and signature status must match
 [releases/current.md](releases/current.md). The ZIP SHA-256 is
-`fc5c537a4a1ccee52d936f918c6c62b4023ac0d1741247d2c1e0322d056e22f9`.
+`738520945882ce43cebbefebbcbc1d9614df1f8a25f4c5ab7c733e70dd263f22`.
 
 See:
 
@@ -240,7 +240,7 @@ metadata.
 Tested commit == Built commit == Published commit == Installed commit
 ```
 
-For `0.2.1.dev17`:
+For `0.2.1.dev18`:
 
 | Target | Result |
 | --- | --- |

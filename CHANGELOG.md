@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.2.1.dev18 - 2026-07-17
+
+### Fixed
+
+- Preflight hook freshness now uses task-bound semantic source, pack, plan, and
+  trust revisions instead of hashing the complete SQLite database and WAL.
+- Routine task/checkpoint telemetry no longer makes a green preflight stale.
+- Read-only workflow inspection no longer publishes or downgrades hook policy
+  readiness.
+- Real plan amendments, pack rebinding, source updates, trust changes, and
+  snapshot expiry continue to fail closed.
+
+### Qualification
+
+- Exact-commit Windows 11/Python 3.12 installed-wheel lifecycle passed.
+- Dev18 was installed into FoxFlow, setup surfaces were regenerated, the exact
+  affected preflight passed, and the installed hook allowed the formerly blocked
+  Supabase SQL tool in about 8 ms.
+
 ## 0.2.1.dev17 - 2026-07-17
 
 ### Fixed

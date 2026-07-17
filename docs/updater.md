@@ -2,7 +2,7 @@
 
 ## Current release
 
-The automatic updater is not an installation path for `0.2.1.dev17`. This
+The automatic updater is not an installation path for `0.2.1.dev18`. This
 internal preview is checksum-verified but not signed with the official release
 key. Install it manually from its version-specific Drive folder.
 

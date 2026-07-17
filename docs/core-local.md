@@ -1,7 +1,7 @@
 # Core Local Profile
 
 Core Local is the supported product boundary represented by the locked
-`windows-internal-preview` runtime profile in `0.2.1.dev17`.
+`windows-internal-preview` runtime profile in `0.2.1.dev18`.
 
 ## Included
 
