@@ -10,6 +10,18 @@ It works with Codex, Claude Code, Cursor, MCP-compatible clients, and other
 coding agents. The core is local-first and does not require Node.js; Node is
 used only by the optional npm wrapper.
 
+## Private Windows internal preview
+
+PersistMind `0.2.1.dev4` is available as an **unsigned, private Windows-only
+internal preview** for non-critical local repositories and manual human review.
+It is not a public beta, production release, or trusted-updater artifact.
+
+- [Internal preview files on Google Drive](https://drive.google.com/drive/folders/1HT9bAsR4S9D1bmJ8MtaX9GiweuHK77U1)
+- [Release notes, checksums, qualification, and restrictions](docs/releases/persistmind-0.2.1.dev4-windows-internal-preview.md)
+
+Installer and wheel bytes remain exclusively on Google Drive. This repository
+contains only the release record and links.
+
 ## Verified fresh installation
 
 The installer creates an isolated environment, verifies the bootstrap and
