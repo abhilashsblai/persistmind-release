@@ -23,5 +23,5 @@ Restore only into an empty location, reopen and verify the restored state, then
 decide whether a controlled replacement is necessary. Do not manually delete
 live database sidecars while a process may be running.
 
-See [installation](../docs/installation.md) and
+See [installation](../docs/windows-installation.md) and
 [troubleshooting](../docs/troubleshooting.md).

@@ -7,3 +7,6 @@ evidence containing private paths, or obsolete branding here.
 The architecture flow is maintained as Mermaid source in
 [docs/architecture.md](../docs/architecture.md) so it stays reviewable and
 version-controlled.
+
+- [Architecture assets](architecture/README.md)
+- [Screenshot assets](screenshots/README.md)

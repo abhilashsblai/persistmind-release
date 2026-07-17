@@ -4,7 +4,7 @@
 
 - Windows 10 is named in the intended preview boundary but was not directly
   observed in the `0.2.1.dev4` qualification run.
-- Linux and macOS have no qualification evidence for this artifact.
+- Linux and macOS qualification is pending for this artifact.
 - The preview is unsigned and cannot be installed through the trusted updater.
 - Windows may display warnings for downloaded unsigned archive or wheel files.
 - There is no production, enterprise, or response-time SLA.

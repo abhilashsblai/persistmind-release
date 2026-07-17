@@ -1,32 +1,36 @@
 # Security Policy
 
-## Supported release
+## Supported versions
 
-Only the release identified in [releases/current.md](releases/current.md) is
-current. Its maturity, supported platforms, and security limitations are stated
-in that file. An internal preview does not carry a production security SLA.
+Only the version identified in [releases/current.md](releases/current.md) is
+current. An Internal Preview has no production security-fix or response-time
+SLA. Historical tags are unsupported.
 
 ## Reporting a vulnerability
 
-Use GitHub private vulnerability reporting for this repository when available.
-If it is unavailable, contact the repository owner through the maintainer's
-GitHub profile before sending sensitive details. Do not publish an unpatched
-vulnerability, credentials, private repository content, or signing material in
-a public issue.
+Use GitHub private vulnerability reporting when available. If it is unavailable,
+contact the repository owner through the maintainer's GitHub profile before
+sending sensitive details. Do not publish an unpatched vulnerability,
+credentials, tokens, private source, database content, or signing material in a
+public issue.
 
 Include the PersistMind version, source commit, artifact SHA-256, operating
-system, Python version, affected command, impact, and minimal reproduction.
-Redact tokens, credentials, user names, absolute private paths, source content,
-database contents, and logs unrelated to the failure.
+system, Python version, affected command, impact, and a minimal redacted
+reproduction.
 
-## Release trust
+## Release integrity
 
-PersistMind release bytes are distributed through version-specific Google
-Drive folders. GitHub contains documentation and metadata only. Verify SHA-256
-before installation. A release is trusted by the production updater only when
-its manifest and artifact satisfy the signed-channel policy; checksum-only
-internal previews are not trusted updater inputs.
+The private release channel binds version, source commit, filename, byte size,
+SHA-256, manifest, runtime profile, and qualification evidence. Checksums detect
+byte mismatch but do not authenticate an unsigned publisher. Future public and
+stable channels require signature verification.
 
-See [docs/security-model.md](docs/security-model.md) for the threat model and
-[docs/release-qualification.md](docs/release-qualification.md) for publication
-gates.
+Private signing keys must never be shared, committed, attached to an issue,
+included in a release bundle, or copied into qualification evidence.
+
+See:
+
+- [Release trust model](security/release-trust-model.md)
+- [Checksum verification](security/checksum-verification.md)
+- [Signature verification](security/signature-verification.md)
+- [Vulnerability reporting](security/vulnerability-reporting.md)

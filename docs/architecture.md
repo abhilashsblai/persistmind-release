@@ -33,5 +33,5 @@ flowchart TD
   is disabled in the current release boundary.
 
 Architecture availability does not imply release support. Consult
-[capabilities](capabilities.md) and [supported platforms](supported-platforms.md)
+[capability status](capability-status.md) and [supported platforms](supported-platforms.md)
 for the current qualified boundary.

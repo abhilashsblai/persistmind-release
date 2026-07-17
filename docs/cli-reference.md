@@ -58,7 +58,7 @@ Restore only into a clean target and verify it before replacing any live state.
 persistmind mcp --repo C:\absolute\path\to\repo
 ```
 
-The current profile exposes read-only stdio MCP. See [mcp.md](mcp.md).
+The current profile exposes read-only stdio MCP. See [MCP guide](mcp-guide.md).
 
 ## Outside the qualified boundary
 

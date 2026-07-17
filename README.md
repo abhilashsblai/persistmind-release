@@ -1,307 +1,326 @@
-# PersistMind Releases
+# PersistMind
 
-> Persistent project intelligence and governed local workflows for AI
-> engineering.
+> Persistent project intelligence for AI engineering.
 
-This repository is the public documentation and release-record surface for
-PersistMind. Official release bytes are stored exclusively in version-specific
-Google Drive folders. GitHub contains documentation, release notes, checksums,
-installation guidance, qualification summaries, and source history only.
+PersistMind is a local-first project intelligence layer for AI coding agents. It
+helps agents understand a repository, retrieve the right context, preserve
+approved project knowledge, evaluate the impact of changes, and continue
+engineering work across sessions.
 
-## Current release
+It works alongside tools such as Codex, Claude Code, Cursor, and MCP-compatible
+clients. PersistMind does not replace the coding agent or Git; it supplies the
+persistent context, governance, verification, and project memory around them.
 
-**PersistMind `0.2.1.dev4` - Internal Windows Preview**
+`Release: Internal Windows Preview` `Profile: Core Local`
+`Platform: Windows` `MCP: Read-only` `Production: Not qualified`
 
-[Open the exact `0.2.1.dev4` Google Drive folder](https://drive.google.com/drive/folders/1HT9bAsR4S9D1bmJ8MtaX9GiweuHK77U1)
+> [!WARNING]
+> Historical Git tags and any former GitHub-hosted artifacts are not the current
+> recommended PersistMind distribution. GitHub Releases is not an active
+> delivery channel. Always review [Current Release Status](#current-release-status)
+> and [releases/current.md](releases/current.md) before installing.
 
-This link targets one release. It does not open the parent folder containing
-multiple releases.
+## Current Release Status
 
-| Item | Link |
+PersistMind `0.2.1.dev4` is available only for approved private Windows internal
+testing. It is not a public beta or production release.
+
+| Item | Status |
 | --- | --- |
-| Packaged ZIP | [Download](https://drive.google.com/file/d/1Si6ETnyg5F66gFSgw_nUkhhh_-7-vKWY/view) |
-| Python wheel | [Download](https://drive.google.com/file/d/1w0FkMNt3gTQ3d6oM-DMeKt6knyLzyNun/view) |
-| SHA-256 checksums | [Download](https://drive.google.com/file/d/1QeKqS7iEQZk8eRJjzzjqgzkuj3K7je1e/view) |
-| Windows instructions | [Read](https://drive.google.com/file/d/1CDpY7GIAZRpYnsxNrwAKa3BH-1mlh20O/view) |
-| Qualification summary | [Read](https://drive.google.com/file/d/1Jq0jcGhG3LfoQoHg2JC9vRJWAgYLX1nR/view) |
-| Release record | [Open](releases/current.md) |
+| Release level | Internal Windows Preview |
+| Supported profile | Core Local (`windows-internal-preview`) |
+| Windows 11 | Qualified on the current candidate |
+| Windows 10 | Internal-preview target; qualification pending |
+| Linux and macOS | Qualification pending |
+| Distribution | Private Google Drive channel for approved testers |
+| Production use | Not supported |
+| Public beta | Not available |
+| MCP | Read-only |
+| Remote writes | Disabled |
+| Autonomous source modification | Disabled |
 
-The current release is unsigned, non-production, and restricted to disposable
-or non-critical local repositories with manual human review.
+## Why PersistMind Exists
 
-## 1. What is PersistMind?
+AI coding agents are powerful, but they commonly lose project context between
+sessions. They may retrieve the wrong files, repeat investigations, overlook
+business rules, modify code outside the intended scope, or fail to preserve why
+a previous decision was made.
 
-PersistMind sits between a developer, a repository, and an AI coding agent. It
-turns repository state into bounded context, tracks governed work, records
-verification evidence, and maintains local memory without treating retrieved
-text as authority.
+PersistMind provides a persistent intelligence layer between the repository and
+the coding agent. The intended outcomes are:
 
-PersistMind exists because coding agents often lose repository context, exceed
-intended scope, repeat failed approaches, and leave weak evidence about what was
-changed or verified. Its core philosophy is local-first operation, explicit
-provenance, fail-closed authority, deterministic evidence, and human review.
+- better context selection;
+- less repeated investigation;
+- safer, more scoped changes;
+- continued tasks across sessions; and
+- traceable decisions and verification.
 
-## 2. Key capabilities
+Read [What is PersistMind?](docs/what-is-persistmind.md).
 
-- **Repository intelligence:** explicit indexing, snapshots, lexical search,
-  provenance, and impact information.
-- **Context packs:** bounded, deterministic task context with token budgets and
-  snapshot identity.
-- **Local AI memory:** candidate, approved, recalled, revised, and auditable
-  project knowledge.
-- **Workflow engine:** task sessions, plans, checkpoints, scope assessment,
-  verification, outcomes, and continuation.
-- **Verification:** commands and results linked to the task, plan, pack, and
-  changed paths.
-- **Audit:** local evidence and integrity checks separated from ordinary memory.
-- **Local-first architecture:** repository state and storage remain local in the
-  current supported profile.
-- **Agent context:** the same read-only context boundary can serve supported MCP
-  clients.
+## What PersistMind Does
 
-See [capabilities](docs/capabilities.md) and
-[current limitations](docs/limitations.md).
+### Builds repository intelligence
 
-## 3. How PersistMind works
+Indexes source files and repository structure into an identified local snapshot.
 
-```mermaid
-flowchart TD
-    D[Developer] --> P[PersistMind]
-    P --> R[Repository intelligence]
-    R --> C[Deterministic context pack]
-    C --> A[AI coding agent]
-    A --> V[Verification and outcome]
-    V --> M[Approved local memory]
-    M --> P
-```
+### Creates focused context packs
 
-The developer defines the task and authority. PersistMind resolves repository
-state, prepares bounded context, and records workflow evidence. The coding agent
-uses that context; verification and reviewed outcomes feed durable local memory.
+Selects relevant context within a token budget and records provenance.
 
-## 4. Architecture overview
+### Preserves project memory
 
-| Layer | Responsibility |
-| --- | --- |
-| Entry | CLI and read-only stdio MCP |
-| Workflow | Tasks, plans, checkpoints, scope, verification, outcomes |
-| Source intelligence | Indexes, search, snapshots, provenance, context packs |
-| Memory and policy | Candidate knowledge, approval, recall, authority separation |
-| Storage | Local source, task, activity, audit, knowledge, policy, learning roles |
-| Learning | Evidence-gated candidates; no automatic adoption in this release |
+Stores approved project facts, decisions, rules, and workflow history without
+treating unapproved memory as authority.
 
-Read the [architecture guide](docs/architecture.md) for the high-level model.
-Implementation detail does not expand a release's qualified boundary.
+### Governs AI engineering work
 
-## 5. Runtime profiles
+Tracks tasks, plans, checkpoints, allowed write scope, verification, and
+outcomes.
 
-| Profile | Meaning | Status |
-| --- | --- | --- |
-| `windows-internal-preview` | Locked local Windows evaluation | Current qualified profile |
-| Core Local | Local repository, filesystem, CLI, human review | Current target boundary |
-| Labs | Explicit experimental evaluation | Disabled in current release |
-| Team Preview | Authenticated team/server operation | Future qualification phase |
-| Enterprise | Reviewed multi-user deployment and operations | Future |
+### Evaluates change impact
 
-See [runtime profiles](docs/runtime-profiles.md).
+Surfaces related files and tests before and after a modification.
 
-## 6. Supported features
+### Integrates with coding agents
 
-| Capability | Current release status |
-| --- | --- |
-| CLI identity, status, doctor | Qualified internal preview |
-| Repository indexing and search | Qualified internal preview |
-| Deterministic context packs | Qualified internal preview |
-| Workflow engine | Qualified internal preview |
-| Local approved memory and audit | Qualified internal preview |
-| Backup and restore | Qualified internal preview |
-| Read-only stdio MCP | Qualified policy boundary |
-| Team mode and remote writes | Disabled |
-| Advanced cognitive improvement | Experimental; non-authoritative |
-| Anticipation | Experimental; non-authoritative |
-| Automatic self-improvement adoption | Disabled |
+Provides read-only context and repository intelligence to Codex, Claude Code,
+Cursor, VS Code clients, and MCP-compatible tools.
 
-"Implemented" and "qualified" are different states. The complete status table
-is in [docs/capabilities.md](docs/capabilities.md).
+## Example
 
-## 7. Release channels
+Task:
+
+> Make the address on a WordPress Contact Us page editable through the CMS.
+
+PersistMind can:
+
+1. Locate where the existing address is generated.
+2. Identify whether it is hard-coded, stored in theme options, or loaded from
+   another source.
+3. Retrieve the relevant templates, settings, and approved project rules.
+4. Create a scoped implementation plan.
+5. Validate the files changed by the agent.
+6. Recommend affected tests.
+7. Record the final decision and reusable project knowledge after review.
+
+## How PersistMind Works
 
 ```text
-Internal Preview -> Closed Beta -> Public Beta -> Stable -> LTS
+Task
+  -> Repository snapshot
+  -> Source indexing and retrieval
+  -> Context pack
+  -> Agent execution
+  -> Diff and verification
+  -> Audit and approved memory
 ```
 
-- **Internal Preview:** narrow evaluation, explicit restrictions, no production
-  claim, may be unsigned.
-- **Closed Beta:** selected design partners, beta blockers closed, monitored
-  installed-artifact soak.
-- **Public Beta:** signed public pre-production channel with security and support
-  policies.
-- **Stable:** production-approved platform matrix, operations, recovery, and
-  compatibility policy.
-- **LTS:** stable release with an explicit maintenance and end-of-support window.
+PersistMind resolves repository state before creating bounded context. Agent
+work is checked against the intended plan and scope. Reviewed verification and
+outcomes can become durable local evidence.
 
-Read [release channels](releases/channels.md) and the
-[release policy](docs/release-policy.md).
+See [How PersistMind works](docs/how-persistmind-works.md) and the
+[architecture overview](docs/architecture.md).
 
-## 8. Downloading PersistMind
+## Capability Status
 
-All official artifacts are distributed through the designated PersistMind
-Release Drive. Each release uses one immutable version folder.
+| Capability | Status | Default profile |
+| --- | --- | --- |
+| Repository indexing | Core | Core Local |
+| Lexical source search | Core | Core Local |
+| Context packs | Core | Core Local |
+| Impact analysis | Core | Core Local |
+| Local project memory | Core | Core Local |
+| Governed workflows | Core | Core Local |
+| Read-only MCP | Core | Core Local |
+| Semantic retrieval | Experimental | Labs |
+| Architecture analysis | Experimental | Labs |
+| Cognitive improvement and adaptive learning | Experimental | Labs |
+| Anticipation | Experimental | Labs |
+| Team server | Planned / unavailable | Team Preview |
+| Writable MCP | Disabled | None |
+| Autonomous self-modification | Disabled | None |
 
-GitHub contains only:
+Status terms are **Core**, **Preview**, **Experimental**, **Disabled**, and
+**Planned**. Implemented code is not automatically release-qualified. See the
+[capability status](docs/capability-status.md).
 
-- documentation;
-- release notes;
-- checksums and release metadata;
-- installation instructions;
-- qualification summaries; and
-- source and documentation history.
+## Runtime Profiles
 
-GitHub must not contain wheels, installers, source distributions, or ZIP
-packages. Use [releases/current.md](releases/current.md) for the current exact
-folder and artifact links.
+### Core Local
 
-## 9. Installation
+The supported internal-preview boundary:
 
-The current release supports manual Windows installation into an isolated
-virtual environment. Verify SHA-256 first, install the local wheel, then confirm
-version, source commit, and runtime profile.
+- local repository and filesystem;
+- CLI workflows and local mutations;
+- local storage, backup, and restore;
+- read-only MCP; and
+- mandatory human review.
 
-- [Getting started](docs/getting-started.md)
-- [Installation guide](docs/installation.md)
-- [Windows guide](guides/windows.md)
-- [Supported platforms](docs/supported-platforms.md)
+### Labs
 
-Linux and macOS are not qualified for `0.2.1.dev4`.
+Experimental and disabled by default. Labs output is advisory, is not release
+evidence, and carries no autonomous authority.
 
-## 10. Updating and rollback
+### Team Preview
 
-Do not use the trusted automatic updater for the unsigned internal preview.
-Install each preview manually in a separate environment and preserve the prior
-artifact, checksums, manifest, and verified backup.
+Not currently available for production. Remote identity, multi-user service,
+tenant isolation, and remote writes require separate security and qualification
+gates.
 
-Future trusted channels must authenticate signed manifests, verify exact bytes,
-stage atomically, test the installed candidate, and retain rollback data.
+Read [Core Local](docs/core-local.md) and
+[runtime profiles](docs/runtime-profiles.md).
 
-- [Updater model](docs/updater.md)
-- [Upgrade guide](docs/upgrade-guide.md)
+## Download and Install PersistMind
 
-## 11. Verification
+PersistMind is currently distributed privately to approved Windows internal
+preview testers. This GitHub repository provides product documentation, release
+notes, qualification information, artifact metadata, and installation guidance.
+It does not host release binaries and does not publish a public artifact link
+for the private channel.
 
-Current artifact hashes:
+Approved testers receive access to the version-specific Google Drive folder
+separately. Before installing, the version, filename, source commit, file size,
+SHA-256, manifest, and signature status must match
+[releases/current.md](releases/current.md).
 
-| Artifact | SHA-256 |
-| --- | --- |
-| Wheel | `e91b3f403cb76816cfa608b5848a96c82054e07a0cc3c4e4898c2084af5e9bad` |
-| Source distribution | `1375c3b705bad562b9fc1301125d4f910b6e8757edbd11fba32082703f8ff7dc` |
-| Packaged ZIP | `fbf8324921182d551c6e28a095ebb366ede9c63bca87961f7ff2ec27f81e2123` |
+See:
 
-SHA-256 verifies byte identity. It does not authenticate an unsigned publisher.
-Future public and stable channels require authenticated signature verification
-in addition to checksums.
+- [Current release](releases/current.md)
+- [Windows installation](docs/windows-installation.md)
+- [Artifact verification](docs/artifact-verification.md)
+- [Known limitations](docs/limitations.md)
 
-## 12. Release qualification
+Linux and macOS instructions will be published only after their required
+platform and Python-version matrices pass.
 
-Every release must publish its exact source commit, profile, platform matrix,
-installed-artifact results, integrity metadata, known limitations, and evidence
-bundle. Evidence cannot be reused after a commit, artifact, schema, or release
-tool changes.
+## Release Channels
 
-Current qualification:
+| Channel | Audience | Status | Artifact location |
+| --- | --- | --- | --- |
+| Internal Preview | Approved testers | Current | Private Google Drive |
+| Closed Beta | Selected design partners | Planned | Controlled Drive channel |
+| Public Beta | Public evaluators | Not available | To be announced |
+| Stable | Production users | Not available | To be announced |
+| LTS | Long-lived production users | Not available | To be announced |
+
+GitHub is the canonical source for documentation, release metadata,
+installation guidance, qualification status, checksums, and release history. A
+download is acceptable only when its identity and evidence match the current
+release record.
+
+See [release channels](releases/release-channels.md).
+
+## Updating an Internal Preview
+
+Internal preview builds are installed manually from a verified release artifact.
+Automatic updates are not enabled for unsigned internal-preview packages.
+
+Before installing a newer preview:
+
+1. Review its release record.
+2. Verify the artifact identity and checksum.
+3. Back up PersistMind state.
+4. Follow the release-specific migration instructions.
+5. Install into an isolated environment.
+6. Run `persistmind doctor` and the release smoke checks.
+
+Read the [upgrade guide](docs/upgrade-guide.md).
+
+## Release Qualification and Artifact Verification
+
+Every release record publishes the tested source commit, build identity,
+platform matrix, installed-artifact results, known limitations, and integrity
+metadata.
+
+```text
+Tested commit == Built commit == Published commit == Installed commit
+```
+
+For `0.2.1.dev4`:
 
 | Target | Result |
 | --- | --- |
 | Source suite | 1,168 tests; 0 failures; 0 errors; 7 skipped |
 | Windows 11 | Passed |
-| Windows 10 | Not directly observed |
+| Windows 10 | Qualification pending |
 | Python 3.11-3.13 | Same installed wheel passed |
-| Backup/restore | Passed |
+| Backup and restore | Passed |
 | Read-only MCP boundary | Passed |
-| Uninstall/source preservation | Passed |
-| Linux/macOS | Not qualified |
+| Linux and macOS | Qualification pending |
 
-Source commit:
-[`af93e56e54350d82ae0d40a8bdcce71dd0ac7c03`](https://github.com/abhilashsblai/PersistMind/commit/af93e56e54350d82ae0d40a8bdcce71dd0ac7c03).
+SHA-256 verifies exact bytes but does not authenticate an unsigned publisher.
+Public and stable channels require signature verification in addition to
+checksums.
 
-Read [release qualification](docs/release-qualification.md).
+- [Qualification policy](releases/qualification-policy.md)
+- [Artifact verification](docs/artifact-verification.md)
+- [Release trust model](security/release-trust-model.md)
 
-## 13. Release notes and versioning
+## Coding-Agent Integrations
 
-- [Current release](releases/current.md)
-- [Release notes](releases/release-notes/0.2.1.dev4.md)
-- [Release history](releases/release-history.md)
-- [Changelog](CHANGELOG.md)
-- [Known issues](docs/known-issues.md)
+The current supported integration boundary is local, read-only context through
+MCP plus explicitly reviewed CLI workflows.
 
-Version meanings:
+- [Integration overview](docs/integrations.md)
+- [Codex guide](guides/codex.md)
+- [Claude Code guide](guides/claude.md)
+- [Cursor guide](guides/cursor.md)
+- [VS Code guide](guides/vscode.md)
+- [MCP guide](docs/mcp-guide.md)
 
-- `.devN`: internal development or preview identity;
-- alpha: early external pre-release with incomplete qualification;
-- beta: feature-bounded pre-production release;
-- stable: production-approved release;
-- LTS: stable line with a published maintenance window.
+## Uninstalling
 
-Version syntax never overrides the evidence and channel recorded for the
-artifact.
+PersistMind package removal must preserve project source and unowned files.
+Review local state before cleanup, and use a dry-run ownership plan whenever an
+uninstaller is supplied for a release.
 
-## 14. Roadmap
+See [Uninstall and Cleanup](docs/uninstall-and-cleanup.md).
 
-The near-term sequence is release reliability, Windows closed-beta soak,
-team/public-beta security and authorization, then production operations.
-Advanced intelligence features are promoted individually only after genuine
-usage shows benefit, safety, and rollback readiness.
+## Documentation
 
-Read the [high-level roadmap](docs/roadmap.md).
-
-## 15. Documentation
-
-### Product
+### Start and understand
 
 - [Getting started](docs/getting-started.md)
+- [What is PersistMind?](docs/what-is-persistmind.md)
+- [How PersistMind works](docs/how-persistmind-works.md)
 - [Architecture](docs/architecture.md)
-- [Capabilities](docs/capabilities.md)
+- [Core Local](docs/core-local.md)
+- [Capability status](docs/capability-status.md)
+
+### Install and operate
+
+- [Supported platforms](docs/supported-platforms.md)
+- [Windows installation](docs/windows-installation.md)
+- [Artifact verification](docs/artifact-verification.md)
 - [CLI reference](docs/cli-reference.md)
-- [MCP guide](docs/mcp.md)
-- [Runtime profiles](docs/runtime-profiles.md)
-- [Glossary](docs/glossary.md)
-
-### Operations and trust
-
-- [Installation](docs/installation.md)
+- [MCP guide](docs/mcp-guide.md)
+- [Storage and backup](docs/storage-and-backup.md)
 - [Troubleshooting](docs/troubleshooting.md)
-- [Security model](docs/security-model.md)
-- [Release policy](docs/release-policy.md)
-- [Support lifecycle](docs/support-lifecycle.md)
-- [Upgrade guide](docs/upgrade-guide.md)
+- [FAQ](docs/faq.md)
 
-### Agent and platform guides
+### Release and trust
 
-- [Codex](guides/codex.md)
-- [Claude Code](guides/claude.md)
-- [Cursor](guides/cursor.md)
-- [VS Code](guides/vscode.md)
-- [Windows](guides/windows.md)
+- [Current release](releases/current.md)
+- [Release channels](releases/release-channels.md)
+- [Qualification policy](releases/qualification-policy.md)
+- [Versioning policy](releases/versioning-policy.md)
+- [Support policy](releases/support-policy.md)
+- [Release history](releases/release-history.md)
+- [Security model](security/release-trust-model.md)
 
-## 16. FAQ and troubleshooting
+## Security and Privacy
 
-The [FAQ](docs/faq.md) covers licensing, local/offline behavior, Windows
-support, resource expectations, MCP authority, and agent/editor roles.
-
-The [troubleshooting guide](docs/troubleshooting.md) covers identity mismatch,
-PowerShell, Python installation, indexing, storage, MCP, and expected updater
-rejection for unsigned previews.
-
-## 17. Security
-
-The current profile is local-first, read-only over MCP, and fail-closed against
-remote authority expansion. Test reports must redact credentials, private
-source, private paths, database contents, and signing material.
+The current profile is local-first, keeps MCP read-only, and rejects remote
+authority expansion. Evidence and support reports must redact credentials,
+private source, private paths, database contents, and signing material. Private
+keys must never be placed in source control, release bundles, issues, or logs.
 
 - [Security policy](SECURITY.md)
-- [Security model](docs/security-model.md)
-- [Report a vulnerability](SECURITY.md#reporting-a-vulnerability)
+- [Release trust model](security/release-trust-model.md)
+- [Vulnerability reporting](security/vulnerability-reporting.md)
 
-## 18. Support and contributing
+## Support and Contributing
 
 - [Support](SUPPORT.md)
 - [Contributing](CONTRIBUTING.md)
@@ -310,7 +329,7 @@ source, private paths, database contents, and signing material.
 The current internal preview has no production, enterprise, response-time, or
 compatibility SLA.
 
-## 19. License
+## License
 
 PersistMind is distributed under the
 [PersistMind Personal Use License](LICENSE). Commercial, enterprise,

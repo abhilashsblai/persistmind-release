@@ -6,7 +6,7 @@ PersistMind `0.2.1.dev4` has these intentional boundaries:
 - unsigned artifacts and manual checksum verification;
 - Windows 11 directly observed; Windows 10 not directly observed;
 - Python 3.11-3.13 on the Windows qualification machine;
-- Linux and macOS unqualified;
+- Linux and macOS qualification pending;
 - disposable or non-critical local repositories only;
 - manual human review for all agent-assisted work;
 - local filesystem and local Git repositories;

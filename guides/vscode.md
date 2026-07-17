@@ -12,5 +12,5 @@ persistmind --repo . pack --task "review a change"
 ```
 
 An MCP-capable VS Code client may start the same read-only local MCP command
-described in [the MCP guide](../docs/mcp.md). This does not grant editor write
+described in [the MCP guide](../docs/mcp-guide.md). This does not grant editor write
 authority.

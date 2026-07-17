@@ -19,7 +19,7 @@ the current qualification run.
 
 ## Install and verify
 
-1. Open the exact [current release folder](../releases/current.md).
+1. Open the exact [current release record](../releases/current.md).
 2. Download the wheel, `SHA256SUMS.txt`, and `INSTALL-WINDOWS.txt`.
 3. Verify the wheel hash before installation.
 4. Create an isolated virtual environment and install the local wheel.
