@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.2.1.dev16 - 2026-07-17
+
+### Fixed
+
+- Git patch identity no longer assumes every committed byte is UTF-8; legacy
+  Windows-1252 content is hashed deterministically instead of crashing source scans.
+- Codex preflight, plan validation, and pack lookup now use the same split-v1
+  Task and Activity authorities.
+- Plans reject legacy, missing, foreign, and incorrectly task-bound pack IDs.
+- CLI and MCP pack creation now honor diff-derived seed paths.
+- Diff verification preserves `verification_incomplete` instead of reporting a
+  misleading `internal_error` when no scoped violation exists.
+
+### Qualification
+
+- Exact-commit wheel and source archive built from PersistMind commit `d4666d0`.
+- Isolated Windows 11/Python 3.12 wheel installation and disposable-project
+  lifecycle smoke passed.
+- Published installer, wheel, manifest, checksums, guide, and release ZIP to the
+  private Internal Windows Previews Drive channel.
+
+### Known limitations
+
+- This remains an unsigned internal preview for non-critical repositories.
+- Windows 10, Python 3.11/3.13, Linux, and macOS qualification is pending.
+- Real-project acceptance remains tester feedback rather than a production claim.
+
 ## 0.2.1.dev15 - 2026-07-17
 
 ### Added

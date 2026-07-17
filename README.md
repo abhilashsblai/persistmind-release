@@ -22,7 +22,7 @@ persistent context, governance, verification, and project memory around them.
 
 ## Current Release Status
 
-PersistMind `0.2.1.dev15` is available only for approved private Windows internal
+PersistMind `0.2.1.dev16` is available only for approved private Windows internal
 testing. It is not a public beta or production release.
 
 | Item | Status |
@@ -179,13 +179,13 @@ notes, qualification information, artifact metadata, and installation guidance.
 It does not host release binaries. The current qualified artifact is stored in
 the designated Google Drive release channel.
 
-**[Download the exact `0.2.1.dev15` Windows preview ZIP](https://drive.google.com/file/d/1lQt8FB7koSMylYCsJ-sUJLr_hhyyLPVB/view?usp=drivesdk)**
+**[Download the exact `0.2.1.dev16` Windows preview ZIP](https://drive.google.com/file/d/1hZY6mh-cxkEFF6GR617Kj4ncCWF7Sfym/view?usp=drivesdk)**
 
 This link identifies one release artifact, not a folder containing multiple
 versions. Access may require approval. Before installing, the version, filename,
 source commit, file size, SHA-256, manifest, and signature status must match
 [releases/current.md](releases/current.md). The ZIP SHA-256 is
-`4d5edaf1ff008aa45bb340de15c735f9966bfac48eff2505d9f5d81cc23f4598`.
+`8d3cd96d018d5cb145254949eeefa6190f3d6bec8a7343e3e72b028a4296b295`.
 
 See:
 
@@ -240,7 +240,7 @@ metadata.
 Tested commit == Built commit == Published commit == Installed commit
 ```
 
-For `0.2.1.dev15`:
+For `0.2.1.dev16`:
 
 | Target | Result |
 | --- | --- |
@@ -248,12 +248,11 @@ For `0.2.1.dev15`:
 | Windows 10 | Qualification pending |
 | Python 3.12 | Installed wheel passed |
 | Python 3.11 and 3.13 | Qualification pending |
-| Fresh external-project workflow | Passed |
-| Python project tests | 9 passed |
-| JavaScript project tests | 8 passed |
-| Real loopback download task | Passed |
+| Fresh disposable-project workflow | Passed |
+| Repository identity with legacy patch bytes | Passed |
+| Split preflight, pack, plan, and diff workflow | Passed |
 | Read-only MCP boundary | Passed |
-| Chrome UI automation | Manual check pending; Chrome was not running |
+| Real-project feedback | Requested from approved testers |
 | Backup, restore, updater, and rollback | Pending for promotion |
 | Linux and macOS | Qualification pending |
 

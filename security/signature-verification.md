@@ -2,7 +2,7 @@
 
 ## Current status
 
-PersistMind `0.2.1.dev15` is unsigned. There is no valid signature-verification
+PersistMind `0.2.1.dev16` is unsigned. There is no valid signature-verification
 step that can promote it into the trusted updater channel.
 
 ## Future signed releases
