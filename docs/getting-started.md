@@ -19,8 +19,8 @@ The qualified path is Windows 11 with Python 3.13, Git, and PowerShell. Windows
 6. Invoke PersistMind through that environment's exact Python executable.
 7. Configure a disposable or non-critical repository and run `doctor --summary`.
 
-The output must identify version `0.2.1.dev29`, source commit
-`f83781d5022af1834f842c3dfeffb438c6013ba4`, and runtime profile
+The output must identify version `0.2.1.dev31`, source commit
+`2a468449f79272b5d8e8aac15fc9c91a8a42e4a6`, and runtime profile
 `windows-internal-preview`.
 
 ## First governed workflow

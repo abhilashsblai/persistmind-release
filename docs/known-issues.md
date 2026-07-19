@@ -3,13 +3,14 @@
 ## Current release
 
 - Windows 10 is named in the intended preview boundary but was not directly
-  observed in the `0.2.1.dev29` qualification run.
+  observed in the `0.2.1.dev31` qualification run.
 - Linux and macOS qualification is pending for this artifact.
 - Python 3.11 and Python 3.12 qualification is pending for this artifact.
 - The production Windows keyring backup path was not observed because the test
   host's Credential Manager was saturated by pre-existing test credentials.
-- The full historical source suite still imports retired monolithic APIs; the
-  next-generation release checks pass, but a clean full-suite claim is not made.
+- Qualification focused on the corrected storage-routing, setup,
+  installed-artifact, and FoxFlow integration paths; a clean full historical
+  regression-suite claim is not made.
 - Trusted updater, rollback, and signing gates remain pending for promotion.
 - The preview is unsigned and cannot be installed through the trusted updater.
 - Windows may display warnings for downloaded unsigned archive or wheel files.

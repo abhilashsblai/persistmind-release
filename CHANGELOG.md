@@ -1,5 +1,42 @@
 # Changelog
 
+## 0.2.1.dev31 - 2026-07-19
+
+### Fixed
+
+- Read-only task, activity, manifest, and MCP lookups no longer attempt to
+  resolve a Task State writer.
+- `check-diff` and pack-aware impact verification now use the correct writable
+  verification runtime while source-impact lookup remains read-only.
+- The CLI now routes `setup` and `setup auto` through the dedicated agent
+  surface service, so reinstalling an exact release refreshes project hooks and
+  MCP launchers instead of querying an unrelated Control authority table.
+
+### Qualification
+
+- Twenty focused storage-routing, setup, authority, and Windows-preview tests
+  passed.
+- The exact installed dev31 wheel passed Windows 11/Python 3.13 identity,
+  doctor, indexing, search, context-pack, workflow, MCP, backup, staged restore,
+  uninstall, and packaged installer verification.
+- FoxFlow now invokes the canonical dev31 environment for project and Codex MCP
+  surfaces; the originally failing read-only lookups and scoped `check-diff`
+  pass from that installed release.
+
+### Security
+
+- The preview remains unsigned, non-production, local-only, and ineligible for
+  the trusted updater.
+- Remote writes, writable MCP, and autonomous source modification remain disabled.
+
+### Known limitations
+
+- Windows 10, Python 3.11/3.12, Linux, and macOS qualification is pending.
+- The production Windows keyring backup path was not observed because the test
+  host's Credential Manager was saturated by pre-existing test credentials.
+- Qualification was intentionally focused; no full historical regression-suite
+  claim is made.
+
 ## 0.2.1.dev29 - 2026-07-19
 
 ### Added

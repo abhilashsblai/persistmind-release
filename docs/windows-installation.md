@@ -1,18 +1,18 @@
 # Windows Installation
 
-PersistMind `0.2.1.dev29` is available only to approved private internal-preview
+PersistMind `0.2.1.dev31` is available only to approved private internal-preview
 testers. The directly qualified path is Windows 11 with Python 3.13.
 
 ## Download and verify
 
-Download the [exact qualified ZIP](https://drive.google.com/file/d/1vwEKHmyvq1MDz5edbuhUh1329FXo79eP/view?usp=drivesdk).
+Download the [exact qualified ZIP](https://drive.google.com/file/d/1oCQN8stUdmeHvUQsO7tk-kKUqdd65A8s/view?usp=drivesdk).
 
 ```powershell
-Get-FileHash .\PersistMind-Windows-Internal-Preview-0.2.1.dev29.zip -Algorithm SHA256
+Get-FileHash .\PersistMind-Windows-Internal-Preview-0.2.1.dev31.zip -Algorithm SHA256
 ```
 
 Expected ZIP SHA-256:
-`ab64122adb3b7820ef11e130f3e15339553a1683b57d2f847b490f999d8ff709`.
+`013ce8741201abd5ae8640f0bce3d7f47cb8d3d5310f8e18c64a779fa0bc9f24`.
 
 Extract it and verify the wheel:
 
@@ -25,8 +25,8 @@ Extract it and verify the wheel:
 From the extracted directory:
 
 ```powershell
-.\Install-PersistMind.ps1 -VenvPath C:\PersistMind\0.2.1.dev29
-C:\PersistMind\0.2.1.dev29\Scripts\python.exe -I -m persistmind --version
+.\Install-PersistMind.ps1 -VenvPath C:\PersistMind\0.2.1.dev31
+C:\PersistMind\0.2.1.dev31\Scripts\python.exe -I -m persistmind --version
 ```
 
 The installer refuses to replace an existing environment. A `uv` installation
@@ -38,8 +38,8 @@ also be provided with `-PythonCommand`.
 Commit or back up the repository first:
 
 ```powershell
-C:\PersistMind\0.2.1.dev29\Scripts\python.exe -I -m persistmind --repo C:\Path\To\TestRepo setup codex --install-hooks --configure-mcp --absolute-mcp-repo
-C:\PersistMind\0.2.1.dev29\Scripts\python.exe -I -m persistmind --repo C:\Path\To\TestRepo doctor --summary
+C:\PersistMind\0.2.1.dev31\Scripts\python.exe -I -m persistmind --repo C:\Path\To\TestRepo setup codex --install-hooks --configure-mcp --absolute-mcp-repo
+C:\PersistMind\0.2.1.dev31\Scripts\python.exe -I -m persistmind --repo C:\Path\To\TestRepo doctor --summary
 ```
 
 Review all generated files and restart the agent after reviewing MCP

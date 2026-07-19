@@ -6,10 +6,10 @@
 
 ## Release identity
 
-- Version: `0.2.1.dev29`
+- Version: `0.2.1.dev31`
 - Release type: Internal Windows Preview
-- Source commit: [`f83781d5022af1834f842c3dfeffb438c6013ba4`](https://github.com/abhilashsblai/PersistMind/commit/f83781d5022af1834f842c3dfeffb438c6013ba4)
-- Build timestamp: `2026-07-19T13:23:34.397349Z`
+- Source commit: [`2a468449f79272b5d8e8aac15fc9c91a8a42e4a6`](https://github.com/abhilashsblai/PersistMind/commit/2a468449f79272b5d8e8aac15fc9c91a8a42e4a6)
+- Build timestamp: `2026-07-19T15:04:09.547278Z`
 - Runtime profile: `windows-internal-preview` (Core Local boundary)
 - Distribution channel: designated Google Drive release channel
 - Production: No
@@ -18,14 +18,14 @@
 
 ## Download
 
-- **[Qualified Windows preview ZIP](https://drive.google.com/file/d/1vwEKHmyvq1MDz5edbuhUh1329FXo79eP/view?usp=drivesdk)**
-- [Version-specific Drive folder](https://drive.google.com/drive/folders/1fVt44iXYZEzmkpuIKbZT8bxl_48JjyNn)
-- [Wheel](https://drive.google.com/file/d/1pt56geMeUykchgKkwZpQzJTsBY4QO2Kg/view?usp=drivesdk)
-- [Source distribution](https://drive.google.com/file/d/1Z5VPZHc142wNulaNf3lN3uHhneBL0wt6/view?usp=drivesdk)
-- [Checksum-verifying installer](https://drive.google.com/file/d/1BHXxZdQestopEoKQe1fCC_4Gl0irxRQg/view?usp=drivesdk)
-- [Windows installation guide](https://drive.google.com/file/d/1Albdipzg58T0py8zhyH4DAlcu-fz0Nvj/view?usp=drivesdk)
-- [SHA-256 list](https://drive.google.com/file/d/1_EME8XkhZO6XwL7EA8QC3_cXGvogJ7tK/view?usp=drivesdk)
-- [Release manifest](https://drive.google.com/file/d/1uuNT4N-BW9vWtd3sBujlHwdKmzUYhKdF/view?usp=drivesdk)
+- **[Qualified Windows preview ZIP](https://drive.google.com/file/d/1oCQN8stUdmeHvUQsO7tk-kKUqdd65A8s/view?usp=drivesdk)**
+- [Version-specific Drive folder](https://drive.google.com/drive/folders/16ecYOlq4AZghwj7xPWkhxnUiyk7_8Y3y)
+- [Wheel](https://drive.google.com/file/d/1e-oXJW5C2h3M1iRwwQLE4Kib_jUUT0k0/view?usp=drivesdk)
+- [Source distribution](https://drive.google.com/file/d/1E1R5Pq4bbObvJm0TPACSPslB1m464k2x/view?usp=drivesdk)
+- [Checksum-verifying installer](https://drive.google.com/file/d/1jyYHFmSz9hVGDwtCHHQ4DJUxka2gYgSE/view?usp=drivesdk)
+- [Windows installation guide](https://drive.google.com/file/d/13ElKWxm_g7qwcyjz_em-HYI-0U-3Eo6o/view?usp=drivesdk)
+- [SHA-256 list](https://drive.google.com/file/d/1rrGcKiz0rdbzGUfbvAs1iUkFrUHKnDc5/view?usp=drivesdk)
+- [Release manifest](https://drive.google.com/file/d/1N6GKgwN_fJfyDpzNutZP6_FhdGALpGzX/view?usp=drivesdk)
 
 The first link is the recommended download and identifies one exact ZIP. GitHub
 contains no release binary.
@@ -34,13 +34,13 @@ contains no release binary.
 
 | Artifact | Size | SHA-256 |
 | --- | ---: | --- |
-| `PersistMind-Windows-Internal-Preview-0.2.1.dev29.zip` | 2,434,007 bytes | `ab64122adb3b7820ef11e130f3e15339553a1683b57d2f847b490f999d8ff709` |
-| `persistmind-0.2.1.dev29-py3-none-any.whl` | 1,115,538 bytes | `df73341a2598a1415bcb366deeb2523cd61537608f6800b05bf2e3f2a70dfa5f` |
-| `persistmind-0.2.1.dev29.tar.gz` | 1,349,274 bytes | `8f7b473bcf6bcb2fb19dd26f95764b11ab2d2270dabfa06a67a7896499bc4022` |
-| `internal-preview-manifest.json` | 1,723 bytes | `0aefa2f3de29dbf263dc11cf35d5e2f22d5cdf6e1d64f5aceee6a5ff839212a9` |
-| `INSTALL-WINDOWS.txt` | 2,259 bytes | `d1e333c9804cd9eead73c9245eb9a994eb686091972583e803491ab19c0bfce9` |
-| `Install-PersistMind.ps1` | 2,923 bytes | `44a51963ea87ef9a08ab6fec026f395653eaed72368aa4bd6181285ad06b7f9c` |
-| `SHA256SUMS.txt` | 602 bytes | `f955b3c4f181a3a2c040f8b7f6777f82e16c4deb26dc9b6055c0b8c43426fdc6` |
+| `PersistMind-Windows-Internal-Preview-0.2.1.dev31.zip` | 2,435,321 bytes | `013ce8741201abd5ae8640f0bce3d7f47cb8d3d5310f8e18c64a779fa0bc9f24` |
+| `persistmind-0.2.1.dev31-py3-none-any.whl` | 1,115,754 bytes | `6c3cc745f347b5a4e11fe64bf098787e7c24697b8332f438a6e1f933e743c7bf` |
+| `persistmind-0.2.1.dev31.tar.gz` | 1,350,330 bytes | `8fc974e35bf2a8c0e5bfdfd3fe153ae36e7d10c5d5eac3afaf90b0a339187611` |
+| `internal-preview-manifest.json` | 1,723 bytes | `f2bdaf79e917fc1134eb0039a73ab92d786764eebde36bf9ca7cebbc95f52fc3` |
+| `INSTALL-WINDOWS.txt` | 2,259 bytes | `a1e1f66f1dd357679591e779afdf3d2ee86cdb987d0ef9b843df0030916bf884` |
+| `Install-PersistMind.ps1` | 2,923 bytes | `f4c8c5b8a3bb1623249b5bec7c1f18854afe416e18de4e00d8b60e04f89cae4f` |
+| `SHA256SUMS.txt` | 602 bytes | `1ca1f5055af1dfe6dd81601660a2d4faa08a7f487f457c16a894f8ec5c44a978` |
 
 - Signature status: unsigned internal preview
 - Trusted updater status: ineligible
@@ -76,9 +76,11 @@ exercised in a disposable Git repository on Windows 11 Pro with Python 3.13.5.
 | Safe uninstall and source preservation | Passed |
 | Root PowerShell installer checksum mode | Passed |
 
-The qualification uncovered and fixed a staged-restore collision involving the
-content-addressed `objects/sha256` directory. The regression test and exact
-installed-wheel restore both passed after the fix.
+The qualification verified the FoxFlow-reported read-only storage-routing fix:
+task, activity, manifest, and MCP lookups no longer require a Task State writer.
+It also verified that `check-diff` uses a writable verification runtime while
+keeping source-impact lookup read-only, and that `setup` refreshes agent
+surfaces through the dedicated setup service.
 
 ## Restrictions and known issues
 
@@ -90,11 +92,11 @@ installed-wheel restore both passed after the fix.
 - Windows 10, Python 3.11/3.12, Linux, and macOS qualification is pending
 - The production Windows keyring backup path was not observed because the test
   host's Credential Manager was saturated by pre-existing test credentials
-- The source tree still contains legacy tests that import retired monolithic
-  APIs; the next-generation release checks and storage regression tests pass,
-  but the full historical suite is not clean
+- Qualification is intentionally focused on the corrected storage-routing,
+  setup, installed-artifact, and FoxFlow integration paths; no full historical
+  regression-suite claim is made
 - The artifact is unsigned and may trigger host download warnings
 - There is no production, enterprise, compatibility, or response-time SLA
 
-Read the [release notes](release-notes/0.2.1.dev29.md) and
+Read the [release notes](release-notes/0.2.1.dev31.md) and
 [known issues](../docs/known-issues.md).
