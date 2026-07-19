@@ -16,7 +16,7 @@ No single filename, Drive link, Git tag, or README statement is sufficient.
 
 ## Current private preview
 
-`0.2.1.dev17` is checksum-verified but unsigned. It is distributed only to
+`0.2.1.dev29` is checksum-verified but unsigned. It is distributed only to
 approved testers and is not trusted by the automatic updater. GitHub publishes
 the direct Drive link and immutable identity metadata, but hosts no artifact.
 

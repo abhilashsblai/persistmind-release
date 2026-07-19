@@ -1,7 +1,7 @@
 # Core Local Profile
 
 Core Local is the supported product boundary represented by the locked
-`windows-internal-preview` runtime profile in `0.2.1.dev19`.
+`windows-internal-preview` runtime profile in `0.2.1.dev29`.
 
 ## Included
 
@@ -11,7 +11,8 @@ Core Local is the supported product boundary represented by the locked
 - local human-reviewed mutations;
 - read-only stdio MCP;
 - manual approval and review; and
-- local storage; backup and recovery qualification remains pending for promotion.
+- local storage, encrypted backup, and staged restore; the production keyring
+  allocation path remains pending direct observation.
 
 ## Excluded
 

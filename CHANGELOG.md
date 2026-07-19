@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.2.1.dev29 - 2026-07-19
+
+### Added
+
+- Next-generation eight-authority storage and application architecture.
+- Drive-hosted Windows preview package, exact checksums, and installed-wheel
+  qualification for Windows 11 with Python 3.13.
+- Read-only MCP coverage across all 92 registered tools.
+
+### Fixed
+
+- Migration, concurrency, Windows path, and PowerShell release regressions.
+- Staged backup restore when sealed source objects already create the target
+  content-addressed directory.
+
+### Security
+
+- The preview remains unsigned, non-production, local-only, and ineligible for
+  the trusted updater.
+- Remote writes, writable MCP, and autonomous source modification remain disabled.
+
+### Known limitations
+
+- Windows 10, Python 3.11/3.12, Linux, and macOS qualification is pending.
+- The production Windows keyring backup path was not observed because the test
+  host's Credential Manager was saturated by pre-existing test credentials.
+- Legacy source-suite modules still require migration to the next-generation API.
+
 ## 0.2.1.dev19 - 2026-07-17
 
 ### Fixed

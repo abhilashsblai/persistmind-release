@@ -6,8 +6,8 @@ The current release is an unsigned Windows internal preview. Use a disposable
 or non-critical local Git repository, create a commit or backup, remove
 credentials from the test copy, and review every result manually.
 
-The qualified path is Windows 11 with Python 3.12, Git, and PowerShell. Windows
-10, Python 3.11/3.13, Linux, and macOS remain pending.
+The qualified path is Windows 11 with Python 3.13, Git, and PowerShell. Windows
+10, Python 3.11/3.12, Linux, and macOS remain pending.
 
 ## Install and verify
 
@@ -19,8 +19,8 @@ The qualified path is Windows 11 with Python 3.12, Git, and PowerShell. Windows
 6. Invoke PersistMind through that environment's exact Python executable.
 7. Configure a disposable or non-critical repository and run `doctor --summary`.
 
-The output must identify version `0.2.1.dev19`, source commit
-`8e0e67aefa0ec5cafe80ac5b180a0708cacfc3a4`, and runtime profile
+The output must identify version `0.2.1.dev29`, source commit
+`f83781d5022af1834f842c3dfeffb438c6013ba4`, and runtime profile
 `windows-internal-preview`.
 
 ## First governed workflow

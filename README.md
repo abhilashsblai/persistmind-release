@@ -22,7 +22,7 @@ persistent context, governance, verification, and project memory around them.
 
 ## Current Release Status
 
-PersistMind `0.2.1.dev19` is available only for approved private Windows internal
+PersistMind `0.2.1.dev29` is available only for approved private Windows internal
 testing. It is not a public beta or production release.
 
 | Item | Status |
@@ -153,7 +153,7 @@ The supported internal-preview boundary:
 
 - local repository and filesystem;
 - CLI workflows and local mutations;
-- local storage, with backup and recovery qualification still pending;
+- local storage, with backup and staged-restore smoke coverage;
 - read-only MCP; and
 - mandatory human review.
 
@@ -179,13 +179,13 @@ notes, qualification information, artifact metadata, and installation guidance.
 It does not host release binaries. The current qualified artifact is stored in
 the designated Google Drive release channel.
 
-**[Download the exact `0.2.1.dev19` Windows preview ZIP](https://drive.google.com/file/d/1WiT3UrMXEb_T4FTbIxHzuwnU-gWHKPju/view?usp=drivesdk)**
+**[Download the exact `0.2.1.dev29` Windows preview ZIP](https://drive.google.com/file/d/1vwEKHmyvq1MDz5edbuhUh1329FXo79eP/view?usp=drivesdk)**
 
 This link identifies one release artifact, not a folder containing multiple
 versions. Access may require approval. Before installing, the version, filename,
 source commit, file size, SHA-256, manifest, and signature status must match
 [releases/current.md](releases/current.md). The ZIP SHA-256 is
-`e397e87e83453e9ffb94d650f0ee29d44db8690347ce071d81b54240e5cd15cf`.
+`ab64122adb3b7820ef11e130f3e15339553a1683b57d2f847b490f999d8ff709`.
 
 See:
 
@@ -240,20 +240,20 @@ metadata.
 Tested commit == Built commit == Published commit == Installed commit
 ```
 
-For `0.2.1.dev19`:
+For `0.2.1.dev29`:
 
 | Target | Result |
 | --- | --- |
 | Windows 11 | Passed |
 | Windows 10 | Qualification pending |
-| Python 3.12 | Installed wheel passed |
-| Python 3.11 and 3.13 | Qualification pending |
-| Fresh disposable-project workflow | Passed |
-| Repository identity with legacy patch bytes | Passed |
-| Split preflight, pack, plan, and diff workflow | Passed |
+| Python 3.13 | Installed wheel passed |
+| Python 3.11 and 3.12 | Qualification pending |
+| Fresh disposable-project install/index/search/pack | Passed |
+| Codex read preflight | Passed |
 | Read-only MCP boundary | Passed |
-| Real-project feedback | Requested from approved testers |
-| Backup, restore, updater, and rollback | Pending for promotion |
+| Encrypted backup and staged restore | Passed with the explicit development key provider; production keyring path not observed |
+| Safe uninstall and source preservation | Passed |
+| Trusted updater, rollback, and signing | Pending for promotion |
 | Linux and macOS | Qualification pending |
 
 SHA-256 verifies exact bytes but does not authenticate an unsigned publisher.

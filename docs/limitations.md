@@ -1,11 +1,11 @@
 # Current Limitations
 
-PersistMind `0.2.1.dev19` has these intentional boundaries:
+PersistMind `0.2.1.dev29` has these intentional boundaries:
 
 - private internal testing only;
 - unsigned artifacts and manual checksum verification;
 - Windows 11 directly observed; Windows 10 not directly observed;
-- Python 3.12 directly qualified; Python 3.11 and 3.13 pending;
+- Python 3.13 directly qualified; Python 3.11 and 3.12 pending;
 - Linux and macOS qualification pending;
 - disposable or non-critical local repositories only;
 - manual human review for all agent-assisted work;

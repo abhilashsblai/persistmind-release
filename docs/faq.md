@@ -25,8 +25,8 @@ separately configured external provider are not offline operations.
 
 ## Does it support Windows?
 
-Windows 11 passed installed-wheel qualification with Python 3.12. Windows 10
-and Python 3.11/3.13 remain pending for this candidate.
+Windows 11 passed installed-wheel qualification with Python 3.13. Windows 10
+and Python 3.11/3.12 remain pending for this candidate.
 
 ## How much RAM and disk space does it need?
 
@@ -47,5 +47,5 @@ transport-bound principal for mutations.
 
 ## Can I use the automatic updater?
 
-No. `0.2.1.dev19` is unsigned and must be installed manually after checksum
+No. `0.2.1.dev29` is unsigned and must be installed manually after checksum
 verification.

@@ -3,18 +3,20 @@
 ## Current release
 
 - Windows 10 is named in the intended preview boundary but was not directly
-  observed in the `0.2.1.dev19` qualification run.
+  observed in the `0.2.1.dev29` qualification run.
 - Linux and macOS qualification is pending for this artifact.
-- Python 3.11 and Python 3.13 qualification is pending for this artifact.
-- Acceptance in a real, non-disposable project remains tester feedback rather
-  than release qualification.
-- Independent updater and rollback promotion gates remain pending.
+- Python 3.11 and Python 3.12 qualification is pending for this artifact.
+- The production Windows keyring backup path was not observed because the test
+  host's Credential Manager was saturated by pre-existing test credentials.
+- The full historical source suite still imports retired monolithic APIs; the
+  next-generation release checks pass, but a clean full-suite claim is not made.
+- Trusted updater, rollback, and signing gates remain pending for promotion.
 - The preview is unsigned and cannot be installed through the trusted updater.
 - Windows may display warnings for downloaded unsigned archive or wheel files.
 - There is no production, enterprise, or response-time SLA.
 - Resource requirements are repository-dependent and do not yet have a
   qualified universal minimum.
 
-The isolated installed-wheel lifecycle completed without data corruption or
-uncontrolled mutation. New real-project issues should be reported under
+The focused disposable-project workflow completed without data corruption or
+uncontrolled mutation. New issues should be reported under
 [SUPPORT.md](../SUPPORT.md).

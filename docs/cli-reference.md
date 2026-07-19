@@ -64,4 +64,4 @@ The current profile exposes read-only stdio MCP. See [MCP guide](mcp-guide.md).
 
 Remote/team servers, writable MCP, automatic updating, labs, autonomous source
 modification, and advanced intelligence promotion are not supported by
-`0.2.1.dev19`, even if a help surface exists.
+`0.2.1.dev29`, even if a help surface exists.
