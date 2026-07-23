@@ -4,6 +4,23 @@
 > This is an unsigned private internal-preview record, not a public-beta or
 > production download page. Access to the Drive files may require approval.
 
+## Newer dev41 candidate
+
+`0.2.1.dev41` is now available in the private Drive channel as a
+**qualification-blocked internal candidate**. It is newer than this qualified
+release, but it does not replace `0.2.1.dev31` as the recommended preview.
+
+- [Dev41 candidate ZIP](https://drive.google.com/file/d/16trZ7KnP6cLPlJva08YXToWy4Z_l3isf/view?usp=drivesdk)
+- [Dev41 Drive folder](https://drive.google.com/drive/folders/158iM5dE7ruqFRP3Fs_fSPeKoIiaFZW8H)
+- [Dev41 release record](release-notes/0.2.1.dev41.md)
+
+The exact dev41 wheel passed isolated offline installation and package/resource
+identity checks. Full APSW-backed workflow qualification is blocked on the
+release host by Windows Application Control, and the source tag contains stale
+legacy regression expectations. Use dev41 only for targeted investigation on a
+disposable repository; stop if installation or `doctor` reports a degraded
+runtime.
+
 ## Release identity
 
 - Version: `0.2.1.dev31`

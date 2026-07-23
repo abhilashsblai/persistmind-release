@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.2.1.dev41 candidate - 2026-07-23
+
+### Added
+
+- Published exact-commit dev41 wheel, source distribution, Windows ZIP,
+  checksum-verifying installer, installation guide, candidate manifest, and
+  checksums to the private Google Drive internal-preview channel.
+- Added release-repository installation instructions and immutable Drive links.
+
+### Candidate changes
+
+- Adds bounded context-snippet retrieval and improves read-only hook gating.
+- Includes the next-generation authority schema upgrade lifecycle, preview
+  installation rollback corrections, and the dev38 authority/workflow changes.
+
+### Qualification status
+
+- Exact source identity, build record, isolated offline wheel installation,
+  packaged runtime resources, and CLI help passed.
+- Full APSW-backed install/index/search/pack/workflow qualification is blocked
+  on the release host because Windows Application Control rejects the pinned
+  native APSW module.
+- The dev41 source tag contains stale legacy installer and schema regression
+  expectations, so dev41 does not replace dev31 as the current qualified
+  preview.
+
+### Security
+
+- The candidate is unsigned, non-production, private, local-only, and
+  ineligible for the trusted updater.
+- Do not bypass organizational Application Control policy.
+
 ## 0.2.1.dev31 - 2026-07-19
 
 ### Fixed

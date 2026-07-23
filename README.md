@@ -11,7 +11,8 @@ It works alongside tools such as Codex, Claude Code, Cursor, and MCP-compatible
 clients. PersistMind does not replace the coding agent or Git; it supplies the
 persistent context, governance, verification, and project memory around them.
 
-`Release: Internal Windows Preview` `Profile: Core Local`
+`Qualified release: 0.2.1.dev31` `Latest candidate: 0.2.1.dev41`
+`Profile: Core Local`
 `Platform: Windows` `MCP: Read-only` `Production: Not qualified`
 
 > [!WARNING]
@@ -24,6 +25,11 @@ persistent context, governance, verification, and project memory around them.
 
 PersistMind `0.2.1.dev31` is available only for approved private Windows internal
 testing. It is not a public beta or production release.
+
+The newer `0.2.1.dev41` build is published as a qualification-blocked internal
+candidate for targeted testing. It does not replace dev31 as the last qualified
+preview. See [the dev41 release record](releases/release-notes/0.2.1.dev41.md)
+before downloading it.
 
 | Item | Status |
 | --- | --- |
@@ -186,6 +192,17 @@ versions. Access may require approval. Before installing, the version, filename,
 source commit, file size, SHA-256, manifest, and signature status must match
 [releases/current.md](releases/current.md). The ZIP SHA-256 is
 `013ce8741201abd5ae8640f0bce3d7f47cb8d3d5310f8e18c64a779fa0bc9f24`.
+
+For targeted testing of the newer, qualification-blocked candidate:
+
+**[Download the exact `0.2.1.dev41` candidate ZIP](https://drive.google.com/file/d/16trZ7KnP6cLPlJva08YXToWy4Z_l3isf/view?usp=drivesdk)**
+
+Its SHA-256 is
+`3b83ccfae09bed6ff3ee4d76dc5557dcf66d67c7582e528bdf78c1c345f5f8c9`.
+Dev41 passed exact package identity and isolated offline installation checks,
+but not full APSW-backed workflow qualification. It may be blocked by enterprise
+Windows Application Control. Do not bypass organizational policy and do not use
+the trusted updater for this unsigned candidate.
 
 See:
 
