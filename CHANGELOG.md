@@ -11,9 +11,12 @@
 
 ### Candidate changes
 
+- Migrates the legacy pytest suite to the next-generation authority and schema
+  architecture.
 - Adds bounded context-snippet retrieval and improves read-only hook gating.
 - Includes the next-generation authority schema upgrade lifecycle, preview
-  installation rollback corrections, and the dev38 authority/workflow changes.
+  installation rollback corrections, and the dev38-dev40 authority, workflow,
+  reporting, and schema-head changes.
 
 ### Qualification status
 
@@ -22,9 +25,10 @@
 - Full APSW-backed install/index/search/pack/workflow qualification is blocked
   on the release host because Windows Application Control rejects the pinned
   native APSW module.
-- The dev41 source tag contains stale legacy installer and schema regression
-  expectations, so dev41 does not replace dev31 as the current qualified
-  preview.
+- The complete source suite passed locally in serial and four-worker modes.
+- The cross-platform GitHub matrix was blocked before a runner started by the
+  account billing/spending limit, so no cross-platform result is claimed.
+- Dev41 does not replace dev31 as the current qualified preview.
 
 ### Security
 

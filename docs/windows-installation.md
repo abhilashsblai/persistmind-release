@@ -15,7 +15,7 @@ Get-FileHash .\PersistMind-Windows-Internal-Preview-0.2.1.dev41.zip -Algorithm S
 ```
 
 Expected SHA-256:
-`3b83ccfae09bed6ff3ee4d76dc5557dcf66d67c7582e528bdf78c1c345f5f8c9`.
+`cfef0c82dbee27cce5e76f67d66730fec2f0a1c15fd18b90cc97dad86f8a2ca9`.
 
 Extract the archive and verify its wheel before installation:
 

@@ -198,11 +198,14 @@ For targeted testing of the newer, qualification-blocked candidate:
 **[Download the exact `0.2.1.dev41` candidate ZIP](https://drive.google.com/file/d/16trZ7KnP6cLPlJva08YXToWy4Z_l3isf/view?usp=drivesdk)**
 
 Its SHA-256 is
-`3b83ccfae09bed6ff3ee4d76dc5557dcf66d67c7582e528bdf78c1c345f5f8c9`.
+`cfef0c82dbee27cce5e76f67d66730fec2f0a1c15fd18b90cc97dad86f8a2ca9`.
 Dev41 passed exact package identity and isolated offline installation checks,
-but not full APSW-backed workflow qualification. It may be blocked by enterprise
-Windows Application Control. Do not bypass organizational policy and do not use
-the trusted updater for this unsigned candidate.
+and its source suite passed locally in serial and four-worker modes. Full
+APSW-backed workflow qualification is not complete, and the cross-platform
+GitHub matrix could not start because of the account billing/spending limit. It
+may be blocked by enterprise Windows Application Control. Do not bypass
+organizational policy and do not use the trusted updater for this unsigned
+candidate.
 
 See:
 

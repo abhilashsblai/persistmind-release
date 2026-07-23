@@ -16,10 +16,11 @@ release, but it does not replace `0.2.1.dev31` as the recommended preview.
 
 The exact dev41 wheel passed isolated offline installation and package/resource
 identity checks. Full APSW-backed workflow qualification is blocked on the
-release host by Windows Application Control, and the source tag contains stale
-legacy regression expectations. Use dev41 only for targeted investigation on a
-disposable repository; stop if installation or `doctor` reports a degraded
-runtime.
+release host by Windows Application Control. The complete source suite passed
+locally in serial and four-worker modes; the cross-platform GitHub matrix could
+not start because of the account billing/spending limit. Use dev41 only for
+targeted investigation on a disposable repository; stop if installation or
+`doctor` reports a degraded runtime.
 
 ## Release identity
 
