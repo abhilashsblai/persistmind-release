@@ -1,55 +1,37 @@
 # Artifact Verification
 
 Do not trust a Drive filename by itself. Download the exact artifact linked from
-[releases/current.md](../releases/current.md), then compare all identity fields.
-
-## Required comparisons
-
-1. Product and version
-2. Exact filename and byte size
-3. Source commit SHA
-4. Runtime profile and channel
-5. SHA-256 checksum
-6. Manifest product/version/commit binding
-7. Qualified platform and Python version
-8. Signature status
-9. Qualification record
+[releases/current.md](../releases/current.md), then compare its filename, size,
+version, source commit, runtime profile, qualification, and SHA-256.
 
 ## Windows checksum
 
-For the recommended ZIP:
-
 ```powershell
-Get-FileHash C:\Path\To\PersistMind-Windows-Internal-Preview-0.2.1.dev31.zip -Algorithm SHA256
+Get-FileHash C:\Path\To\PersistMind-Windows-Internal-Preview-0.2.2.dev1.zip -Algorithm SHA256
 ```
 
 Expected ZIP SHA-256:
 
 ```text
-013ce8741201abd5ae8640f0bce3d7f47cb8d3d5310f8e18c64a779fa0bc9f24
+26aba71a82beb992628cc81c309a535af280db17ab118402ef2ffd0fe3bce9f4
 ```
 
-After extraction, verify the wheel or run the bundled verifier:
+After extraction:
 
 ```powershell
-Get-FileHash .\persistmind-0.2.1.dev31-py3-none-any.whl -Algorithm SHA256
+Get-FileHash .\persistmind-0.2.2.dev1-py3-none-any.whl -Algorithm SHA256
 .\Install-PersistMind.ps1 -VerifyOnly
 ```
 
 Expected wheel SHA-256:
 
 ```text
-6c3cc745f347b5a4e11fe64bf098787e7c24697b8332f438a6e1f933e743c7bf
+40e0e3d9369d9e6f0285825611492844d11fefecf932040ccb50b8b7d9f2a11d
 ```
 
-Stop if the value, filename, byte size, version, commit, or manifest differs.
+The manifest must identify version `0.2.2.dev1`, source commit
+`ee5ede7df9aef29d6e99c9ef16ef7ff0d185838a`, profile
+`windows-internal-preview`, Windows 11, and CPython 3.12.
 
-## Checksum and signature distinction
-
-SHA-256 proves that two byte sequences match. It does not prove who published
-them. `0.2.1.dev31` is explicitly unsigned and ineligible for the trusted
-updater. Future public/stable releases require authenticated signature
-verification in addition to checksum matching.
-
-See [checksum verification](../security/checksum-verification.md) and
-[signature verification](../security/signature-verification.md).
+SHA-256 proves byte equality; it does not authenticate an unsigned publisher.
+This preview is not eligible for the trusted updater.

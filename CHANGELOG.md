@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.2.2.dev1 - 2026-07-24
+
+### Fixed
+
+- Return typed, actionable plan-validation failures while preserving task and
+  pack references.
+- Distinguish unrelated failure operation IDs while deduplicating identical
+  validation retries.
+- Refresh packaged architecture/interface contracts and validate them in the
+  release suite.
+- Emit manifest-compatible Windows qualification identities.
+
+### Qualification and publication
+
+- Passed the full source suite on the final release commit.
+- Passed exact-wheel Windows 11/Python 3.12 installation, doctor, index,
+  search, context-pack, workflow, storage, backup, restore, Codex hook, MCP,
+  and source-preserving cleanup gates.
+- Published the exact ZIP, wheel, source distribution, installer, manifest,
+  guide, and checksums to the version-specific Google Drive folder.
+
+### Security
+
+- Remains unsigned, local-only, non-production, and ineligible for the trusted
+  updater.
+
 ## 0.2.1.dev41 candidate - 2026-07-23
 
 ### Added

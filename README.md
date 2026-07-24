@@ -11,7 +11,7 @@ It works alongside tools such as Codex, Claude Code, Cursor, and MCP-compatible
 clients. PersistMind does not replace the coding agent or Git; it supplies the
 persistent context, governance, verification, and project memory around them.
 
-`Qualified release: 0.2.1.dev31` `Latest candidate: 0.2.1.dev41`
+`Current preview: 0.2.2.dev1` `Qualified: Windows 11 / Python 3.12`
 `Profile: Core Local`
 `Platform: Windows` `MCP: Read-only` `Production: Not qualified`
 
@@ -23,13 +23,10 @@ persistent context, governance, verification, and project memory around them.
 
 ## Current Release Status
 
-PersistMind `0.2.1.dev31` is available only for approved private Windows internal
-testing. It is not a public beta or production release.
-
-The newer `0.2.1.dev41` build is published as a qualification-blocked internal
-candidate for targeted testing. It does not replace dev31 as the last qualified
-preview. See [the dev41 release record](releases/release-notes/0.2.1.dev41.md)
-before downloading it.
+PersistMind `0.2.2.dev1` is available only for approved private Windows
+internal testing. It is qualified on Windows 11 with CPython 3.12 and is not a
+public beta or production release. See
+[the release record](releases/release-notes/0.2.2.dev1.md).
 
 | Item | Status |
 | --- | --- |
@@ -185,27 +182,18 @@ notes, qualification information, artifact metadata, and installation guidance.
 It does not host release binaries. The current qualified artifact is stored in
 the designated Google Drive release channel.
 
-**[Download the exact `0.2.1.dev31` Windows preview ZIP](https://drive.google.com/file/d/1oCQN8stUdmeHvUQsO7tk-kKUqdd65A8s/view?usp=drivesdk)**
+**[Download the exact `0.2.2.dev1` Windows preview ZIP](https://drive.google.com/file/d/1MAQKcVNRBeUnd8LeMv2GbRHLD4dd8mzk/view?usp=drivesdk)**
 
 This link identifies one release artifact, not a folder containing multiple
 versions. Access may require approval. Before installing, the version, filename,
 source commit, file size, SHA-256, manifest, and signature status must match
 [releases/current.md](releases/current.md). The ZIP SHA-256 is
-`013ce8741201abd5ae8640f0bce3d7f47cb8d3d5310f8e18c64a779fa0bc9f24`.
+`26aba71a82beb992628cc81c309a535af280db17ab118402ef2ffd0fe3bce9f4`.
 
-For targeted testing of the newer, qualification-blocked candidate:
-
-**[Download the exact `0.2.1.dev41` candidate ZIP](https://drive.google.com/file/d/16trZ7KnP6cLPlJva08YXToWy4Z_l3isf/view?usp=drivesdk)**
-
-Its SHA-256 is
-`cfef0c82dbee27cce5e76f67d66730fec2f0a1c15fd18b90cc97dad86f8a2ca9`.
-Dev41 passed exact package identity and isolated offline installation checks,
-and its source suite passed locally in serial and four-worker modes. Full
-APSW-backed workflow qualification is not complete, and the cross-platform
-GitHub matrix could not start because of the account billing/spending limit. It
-may be blocked by enterprise Windows Application Control. Do not bypass
-organizational policy and do not use the trusted updater for this unsigned
-candidate.
+The exact wheel passed installation, healthy doctor, indexing, search, context
+packs, workflow, storage verification, backup, staged restore, Codex hooks, and
+a 60-tool read-only MCP probe. It also corrects the FoxFlow plan-validation
+internal error. Do not use the trusted updater for this unsigned preview.
 
 See:
 

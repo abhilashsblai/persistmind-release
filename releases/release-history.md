@@ -4,6 +4,7 @@
 
 | Version | Date | Channel | Source commit | Notes |
 | --- | --- | --- | --- | --- |
+| `0.2.2.dev1` | 2026-07-24 | Internal Windows Preview | `ee5ede7df9aef29d6e99c9ef16ef7ff0d185838a` | [Release notes](release-notes/0.2.2.dev1.md) |
 | `0.2.1.dev41` | 2026-07-23 | Internal Windows Preview candidate (qualification blocked) | `227340dfd4715806a55dede3581c65589fc56574` | [Release notes](release-notes/0.2.1.dev41.md) |
 | `0.2.1.dev31` | 2026-07-19 | Internal Windows Preview | `2a468449f79272b5d8e8aac15fc9c91a8a42e4a6` | [Release notes](release-notes/0.2.1.dev31.md) |
 | `0.2.1.dev29` | 2026-07-19 | Internal Windows Preview | `f83781d5022af1834f842c3dfeffb438c6013ba4` | [Release notes](release-notes/0.2.1.dev29.md) |
