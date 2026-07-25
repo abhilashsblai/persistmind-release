@@ -5,6 +5,13 @@
 > repositories. It is not a public beta, production release, or trusted-updater
 > package.
 
+> [!NOTE]
+> A `0.2.2` diagnostic bundle has been prepared from the local production
+> readiness work and documented under
+> [0.2.2-diagnostic](0.2.2-diagnostic/README.md). It is intended for controlled
+> local validation only. The current qualified internal preview remains
+> `0.2.2.dev1` until a full protected qualification and publication pass.
+
 ## Release identity
 
 - Version: `0.2.2.dev1`

@@ -15,6 +15,8 @@ persistent context, governance, verification, and project memory around them.
 `Profile: Core Local`
 `Platform: Windows` `MCP: Read-only` `Production: Not qualified`
 
+`Diagnostic bundle: 0.2.2` `Source pushed: 6259b04`
+
 > [!WARNING]
 > Historical Git tags and any former GitHub-hosted artifacts are not the current
 > recommended PersistMind distribution. GitHub Releases is not an active
@@ -27,6 +29,11 @@ PersistMind `0.2.2.dev1` is available only for approved private Windows
 internal testing. It is qualified on Windows 11 with CPython 3.12 and is not a
 public beta or production release. See
 [the release record](releases/release-notes/0.2.2.dev1.md).
+
+A newer `0.2.2` diagnostic bundle exists for controlled local validation after
+the production-readiness gate hardening work. It is documented at
+[releases/0.2.2-diagnostic](releases/0.2.2-diagnostic/README.md). It is not
+production-ready and must not be presented as a stable release.
 
 | Item | Status |
 | --- | --- |
@@ -198,6 +205,7 @@ internal error. Do not use the trusted updater for this unsigned preview.
 See:
 
 - [Current release](releases/current.md)
+- [0.2.2 diagnostic bundle](releases/0.2.2-diagnostic/README.md)
 - [Windows installation](docs/windows-installation.md)
 - [Artifact verification](docs/artifact-verification.md)
 - [Known limitations](docs/limitations.md)
