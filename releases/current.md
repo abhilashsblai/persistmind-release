@@ -9,7 +9,8 @@
 > A `0.2.2` diagnostic bundle has been prepared from the local production
 > readiness work and documented under
 > [0.2.2-diagnostic](0.2.2-diagnostic/README.md). It is intended for controlled
-> local validation only. The current qualified internal preview remains
+> local validation only. Use the corrected `r2` Drive folder recorded there;
+> the first diagnostic folder is superseded. The current qualified internal preview remains
 > `0.2.2.dev1` until a full protected qualification and publication pass.
 
 ## Release identity

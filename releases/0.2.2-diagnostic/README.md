@@ -8,11 +8,14 @@
 
 - Version: `0.2.2`
 - Source repository: `abhilashsblai/PersistMind`
-- Source commit now pushed: `6259b04`
+- Source commit now pushed: `7904f4a`
 - Bundle source: local diagnostic wheelhouse
-  `C:\codes\PersistMind\.tmp\production-readiness-2026-07-25\wheelhouse-py313-v022`
+  `C:\codes\PersistMind\.tmp\production-readiness-2026-07-25\wheelhouse-py313-v022-r2`
 - Target environment: Windows, CPython 3.13 wheelhouse
 - Production status: Not production-ready
+- Installed validation target: `C:\codes\FoxFlow`
+- Installed validation status: `persistmind doctor --summary` returned
+  `status=healthy`, `ok=true` on 2026-07-25.
 
 ## Files Included In This Release Repository
 
@@ -20,28 +23,32 @@
 | --- | --- |
 | `install-persistmind.ps1` | `da1dde9789e9b04f66c1623e1e146146bc886f98a28701133da381f38241a447` |
 | `bootstrap_persistmind.py` | `b1bfdb5efca8dcc686763a91e5d196035401531689021e2ca7a812f0bd883b17` |
-| `dependency-lock.v1.json` | See file in this directory |
+| `dependency-lock.v1.json` | `bc22b6100fcd06953d3ad1c71278ab2047d1baa39157857299d68b6f065cbc0d` |
 
 ## External Artifact
 
 The installable wheel is intentionally not committed to this Git repository.
 It should be distributed through the controlled Google Drive release channel.
 
-Drive folder:
+Corrected r2 Drive folder:
+`https://drive.google.com/drive/folders/1xyGi0Wd3rsGCaZ13pXUaqbwYp3mS7OeD`
+
+The earlier diagnostic folder
 `https://drive.google.com/drive/folders/14XQGkpFKaQSc-YZDVr1x0Nc5gZ88A0-Z`
+is superseded because its wheel carried stale generated storage metadata.
 
 Uploaded files:
 
 | File | Drive ID |
 | --- | --- |
-| `install-persistmind.ps1` | `1lh6tPDXMigLv-7c6sJWx0LsIirZZPFqY` |
-| `bootstrap_persistmind.py` | `1jhteynd8MtVXieldbL36YvEJdLA8Szil` |
-| `persistmind-0.2.2-py3-none-any.whl` | `1svN2zOwvwpv4C2jdVobTfZkZ0zHt7gYj` |
-| `dependency-lock.v1.json` | `1qzmHQ6ELCIsoMp7NAaQwmwxv4pf0g2wt` |
+| `install-persistmind.ps1` | `1e-KYxSeBqxgtOYobreuDvfk7srl6XgVK` |
+| `bootstrap_persistmind.py` | `18mGPjIu9UM-8Tn0-L5VBhkmp4UzMZ9nk` |
+| `persistmind-0.2.2-py3-none-any.whl` | `1fq6_WT5_x6rMS5VswEdKc4CxS3nSBrDw` |
+| `dependency-lock.v1.json` | `1v7Dnwi8MUFIPMRkq8ekUXBQXkUo9f5ze` |
 
 | Artifact | SHA-256 |
 | --- | --- |
-| `persistmind-0.2.2-py3-none-any.whl` | `67736c5f2b6e962c389b08686cf5c72a82895fed621a7e48b6c6798667bee820` |
+| `persistmind-0.2.2-py3-none-any.whl` | `daf420ac7642b24f727cb93342fa309c9f8b58372d8e6fa0bd4d1eabba2c8cb0` |
 
 ## Required Verification Before Use
 
