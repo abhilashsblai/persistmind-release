@@ -27,6 +27,18 @@
 The installable wheel is intentionally not committed to this Git repository.
 It should be distributed through the controlled Google Drive release channel.
 
+Drive folder:
+`https://drive.google.com/drive/folders/14XQGkpFKaQSc-YZDVr1x0Nc5gZ88A0-Z`
+
+Uploaded files:
+
+| File | Drive ID |
+| --- | --- |
+| `install-persistmind.ps1` | `1lh6tPDXMigLv-7c6sJWx0LsIirZZPFqY` |
+| `bootstrap_persistmind.py` | `1jhteynd8MtVXieldbL36YvEJdLA8Szil` |
+| `persistmind-0.2.2-py3-none-any.whl` | `1svN2zOwvwpv4C2jdVobTfZkZ0zHt7gYj` |
+| `dependency-lock.v1.json` | `1qzmHQ6ELCIsoMp7NAaQwmwxv4pf0g2wt` |
+
 | Artifact | SHA-256 |
 | --- | --- |
 | `persistmind-0.2.2-py3-none-any.whl` | `67736c5f2b6e962c389b08686cf5c72a82895fed621a7e48b6c6798667bee820` |
