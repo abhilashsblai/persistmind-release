@@ -205,6 +205,7 @@ internal error. Do not use the trusted updater for this unsigned preview.
 See:
 
 - [Current release](releases/current.md)
+- [0.2.2 local test bundle from `ae6da73`](releases/0.2.2-local-test-ae6da73.md)
 - [0.2.2 diagnostic bundle](releases/0.2.2-diagnostic/README.md)
 - [Windows installation](docs/windows-installation.md)
 - [Artifact verification](docs/artifact-verification.md)
