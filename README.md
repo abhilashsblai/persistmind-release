@@ -24,9 +24,11 @@ persistent context, governance, verification, and project memory around them.
 > and [releases/current.md](releases/current.md) before installing.
 
 The current release installer scripts are committed under
-[installer/](installer/). These scripts are reviewable installer entry points
-only; a specific installable release still requires the matching signed
-manifest, detached signature, wheelhouse hashes, and qualification record.
+[installer/](installer/). This repository also includes self-contained
+hash-locked Windows diagnostic wheelhouses under
+[bundles/0.2.2](bundles/0.2.2/), so a clean Windows machine can install
+PersistMind into another local project directly from a clone of this GitHub
+repository.
 
 ## Current Release Status
 
@@ -47,7 +49,7 @@ production-ready and must not be presented as a stable release.
 | Windows 11 | Qualified on the current candidate |
 | Windows 10 | Internal-preview target; qualification pending |
 | Linux and macOS | Qualification pending |
-| Distribution | Private Google Drive channel for approved testers |
+| Distribution | GitHub self-contained diagnostic bundle; private Drive retained for historical preview artifacts |
 | Production use | Not supported |
 | Public beta | Not available |
 | MCP | Read-only |
@@ -188,14 +190,39 @@ Read [Core Local](docs/core-local.md) and
 
 ## Download and Install PersistMind
 
-PersistMind is currently distributed privately to approved Windows internal
-preview testers. This GitHub repository provides product documentation, release
-notes, qualification information, artifact metadata, and installation guidance.
-It does not host release binaries. The current qualified artifact is stored in
-the designated Google Drive release channel. The first-install scripts are
-available in [installer/](installer/) for review and release preparation, but
-they must be used with the exact release manifest, signature, and artifact
-hashes documented for the selected release.
+PersistMind can be installed from this GitHub repository on Windows for
+controlled local validation. Clone the repository, then run the committed
+installer wrapper against the project you want to configure:
+
+```powershell
+git clone https://github.com/abhilashsblai/persistmind-release.git
+cd persistmind-release
+.\installer\install-from-repo.ps1 `
+  -Repo C:\Path\To\Project `
+  -Agents codex `
+  -SkipIndex
+```
+
+The wrapper detects CPython 3.11, 3.12, or 3.13, selects the matching committed
+wheelhouse in [bundles/0.2.2](bundles/0.2.2/), verifies the PersistMind wheel
+hash, creates an isolated bootstrap runtime, and configures the target project.
+
+After installation:
+
+```powershell
+$pm = "$env:LOCALAPPDATA\PersistMind\0.2.2-windows-py312\Scripts\python.exe"
+& $pm -I -m persistmind --repo C:\Path\To\Project doctor --summary
+```
+
+Use `py311`, `py312`, or `py313` in the runtime path based on the detected
+Python version, or pass `-BootstrapHome` to the installer wrapper to choose a
+specific runtime location.
+
+The self-contained GitHub bundles are unsigned diagnostic artifacts. They are
+not production-ready, public beta, or trusted-updater packages.
+
+The older `0.2.2.dev1` preview artifact remains documented for historical
+continuity and approved testers:
 
 **[Download the exact `0.2.2.dev1` Windows preview ZIP](https://drive.google.com/file/d/1MAQKcVNRBeUnd8LeMv2GbRHLD4dd8mzk/view?usp=drivesdk)**
 
@@ -226,7 +253,8 @@ platform and Python-version matrices pass.
 
 | Channel | Audience | Status | Artifact location |
 | --- | --- | --- | --- |
-| Internal Preview | Approved testers | Current | Private Google Drive |
+| Internal Diagnostic | Local Windows validation | Current | This GitHub repository (`bundles/0.2.2`) |
+| Internal Preview | Approved testers | Historical/current preview record | Private Google Drive |
 | Closed Beta | Selected design partners | Planned | Controlled Drive channel |
 | Public Beta | Public evaluators | Not available | To be announced |
 | Stable | Production users | Not available | To be announced |

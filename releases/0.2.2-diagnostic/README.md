@@ -9,9 +9,10 @@
 - Version: `0.2.2`
 - Source repository: `abhilashsblai/PersistMind`
 - Source commit now pushed: `7904f4a`
-- Bundle source: local diagnostic wheelhouse
-  `C:\codes\PersistMind\.tmp\production-readiness-2026-07-25\wheelhouse-py313-v022-r2`
-- Target environment: Windows, CPython 3.13 wheelhouse
+- Bundle source: committed diagnostic wheelhouses under
+  `bundles/0.2.2/windows-py311`, `bundles/0.2.2/windows-py312`, and
+  `bundles/0.2.2/windows-py313`
+- Target environment: Windows, CPython 3.11 through 3.13 wheelhouses
 - Production status: Not production-ready
 - Installed validation target: `C:\codes\FoxFlow`
 - Installed validation status: `persistmind doctor --summary` returned
@@ -27,8 +28,9 @@
 
 ## External Artifact
 
-The installable wheel is intentionally not committed to this Git repository.
-It should be distributed through the controlled Google Drive release channel.
+The installable diagnostic wheelhouses are now committed to this Git repository
+under `bundles/0.2.2`. The controlled Google Drive release channel is retained
+as historical distribution metadata and backup.
 
 Corrected r2 Drive folder:
 `https://drive.google.com/drive/folders/1xyGi0Wd3rsGCaZ13pXUaqbwYp3mS7OeD`
@@ -48,18 +50,27 @@ Uploaded files:
 
 | Artifact | SHA-256 |
 | --- | --- |
-| `persistmind-0.2.2-py3-none-any.whl` | `daf420ac7642b24f727cb93342fa309c9f8b58372d8e6fa0bd4d1eabba2c8cb0` |
+| `bundles/0.2.2/windows-py311/persistmind-0.2.2-py3-none-any.whl` | `246d141cbc638ca3509b5cb903110de3b6b9f13f8722147b7dd333a307d6c1ff` |
+| `bundles/0.2.2/windows-py312/persistmind-0.2.2-py3-none-any.whl` | `246d141cbc638ca3509b5cb903110de3b6b9f13f8722147b7dd333a307d6c1ff` |
+| `bundles/0.2.2/windows-py313/persistmind-0.2.2-py3-none-any.whl` | `daf420ac7642b24f727cb93342fa309c9f8b58372d8e6fa0bd4d1eabba2c8cb0` |
 
 ## Required Verification Before Use
 
 Before using this diagnostic bundle in another project:
 
 1. Confirm the installer and bootstrap hashes above.
-2. Confirm the wheel hash above if installing from Drive or local wheelhouse.
+2. Confirm the matching wheelhouse checksums in
+   `bundles/0.2.2/<bundle>/SHA256SUMS.txt`.
 3. Treat all results as diagnostic evidence only.
 4. Do not label this artifact as production-ready.
 5. Do not use `persistmind update` or trusted production promotion with this
    unsigned bundle.
+
+Install from a clone:
+
+```powershell
+.\installer\install-from-repo.ps1 -Repo C:\Path\To\Project -Agents codex -SkipIndex
+```
 
 ## Known Open Production Blockers
 

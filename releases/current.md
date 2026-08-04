@@ -9,9 +9,11 @@
 > A `0.2.2` diagnostic bundle has been prepared from the local production
 > readiness work and documented under
 > [0.2.2-diagnostic](0.2.2-diagnostic/README.md). It is intended for controlled
-> local validation only. Use the corrected `r2` Drive folder recorded there;
-> the first diagnostic folder is superseded. The current qualified internal preview remains
-> `0.2.2.dev1` until a full protected qualification and publication pass.
+> local validation only. The release repository now includes self-contained
+> Windows diagnostic wheelhouses under `bundles/0.2.2`; the corrected Drive
+> folder remains historical backup metadata. The current qualified internal
+> preview remains `0.2.2.dev1` until a full protected qualification and
+> publication pass.
 
 ## Release identity
 
@@ -20,7 +22,8 @@
 - Source commit: [`ee5ede7df9aef29d6e99c9ef16ef7ff0d185838a`](https://github.com/abhilashsblai/PersistMind/commit/ee5ede7df9aef29d6e99c9ef16ef7ff0d185838a)
 - Build timestamp: `2026-07-24T10:48:19.959180Z`
 - Runtime profile: `windows-internal-preview`
-- Distribution: designated Google Drive internal-preview channel
+- Distribution: GitHub self-contained diagnostic bundle for `0.2.2`; designated
+  Google Drive internal-preview channel for historical `0.2.2.dev1`
 - Qualified environment: Windows 11, CPython 3.12
 - Production/public beta/officially signed: No
 
@@ -35,7 +38,23 @@
 - [Release manifest](https://drive.google.com/file/d/1A4si0TovFBGVfCVbq6Oy3Su8J-wju8eG/view?usp=drivesdk)
 - [SHA-256 list](https://drive.google.com/file/d/1U2lZNRR1vjT1QS7EJXoX-sqtW0I3icKT/view?usp=drivesdk)
 
-GitHub contains source and release metadata, not release binaries.
+GitHub now contains the `0.2.2` diagnostic wheelhouses needed for clean local
+Windows installation. The historical `0.2.2.dev1` preview binaries remain in
+the controlled Drive channel.
+
+## GitHub diagnostic bundle
+
+| Bundle | Python | Platform | PersistMind wheel SHA-256 |
+| --- | --- | --- | --- |
+| `bundles/0.2.2/windows-py311` | CPython 3.11 | Windows x86_64 | `246d141cbc638ca3509b5cb903110de3b6b9f13f8722147b7dd333a307d6c1ff` |
+| `bundles/0.2.2/windows-py312` | CPython 3.12 | Windows x86_64 | `246d141cbc638ca3509b5cb903110de3b6b9f13f8722147b7dd333a307d6c1ff` |
+| `bundles/0.2.2/windows-py313` | CPython 3.13 | Windows x86_64 | `daf420ac7642b24f727cb93342fa309c9f8b58372d8e6fa0bd4d1eabba2c8cb0` |
+
+Install from a clone:
+
+```powershell
+.\installer\install-from-repo.ps1 -Repo C:\Path\To\Project -Agents codex -SkipIndex
+```
 
 ## Artifact verification
 

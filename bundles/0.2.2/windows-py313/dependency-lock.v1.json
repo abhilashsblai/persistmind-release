@@ -1,0 +1,397 @@
+{
+    "installer":  {
+                      "extras":  [
+
+                                 ],
+                      "network_resolution":  false,
+                      "pip_arguments":  [
+                                            "--no-index",
+                                            "--find-links",
+                                            "."
+                                        ],
+                      "platform":  "win_amd64",
+                      "python_versions":  [
+                                              "3.13"
+                                          ]
+                  },
+    "root_wheel":  "persistmind-0.2.2-py3-none-any.whl",
+    "schema_version":  "persistmind.dependency_lock.v1",
+    "wheels":  [
+                   {
+                       "filename":  "annotated_types-0.8.0-py3-none-any.whl",
+                       "name":  "annotated-types",
+                       "root":  false,
+                       "sha256":  "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+                       "size":  13427,
+                       "version":  "0.8.0"
+                   },
+                   {
+                       "filename":  "anyio-4.14.2-py3-none-any.whl",
+                       "name":  "anyio",
+                       "root":  false,
+                       "sha256":  "9f505dda5ac9f0c8309b5e8bd445a8c2bf7246f3ce950121e45ea15bc41d1494",
+                       "size":  125813,
+                       "version":  "4.14.2"
+                   },
+                   {
+                       "filename":  "apsw-3.53.3.1-cp313-cp313-win_amd64.whl",
+                       "name":  "apsw",
+                       "root":  false,
+                       "sha256":  "db7bf119a66d7d8f5ac39a12393ae66fd0888f3190734094a12cc3dd3183a7ab",
+                       "size":  3256103,
+                       "version":  "3.53.3.1"
+                   },
+                   {
+                       "filename":  "attrs-26.1.0-py3-none-any.whl",
+                       "name":  "attrs",
+                       "root":  false,
+                       "sha256":  "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+                       "size":  67548,
+                       "version":  "26.1.0"
+                   },
+                   {
+                       "filename":  "certifi-2026.7.22-py3-none-any.whl",
+                       "name":  "certifi",
+                       "root":  false,
+                       "sha256":  "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+                       "size":  136983,
+                       "version":  "2026.7.22"
+                   },
+                   {
+                       "filename":  "cffi-2.1.0-cp313-cp313-win_amd64.whl",
+                       "name":  "cffi",
+                       "root":  false,
+                       "sha256":  "8e74a6135550c4748af665b1b1118b6aab33b1fc6a16f9aff630af107c3b4512",
+                       "size":  185717,
+                       "version":  "2.1.0"
+                   },
+                   {
+                       "filename":  "click-8.4.2-py3-none-any.whl",
+                       "name":  "click",
+                       "root":  false,
+                       "sha256":  "e6f9f66136c816745b9d65817da91d61d957fb16e02e4dcd0552553c5a197b76",
+                       "size":  119243,
+                       "version":  "8.4.2"
+                   },
+                   {
+                       "filename":  "colorama-0.4.6-py2.py3-none-any.whl",
+                       "name":  "colorama",
+                       "root":  false,
+                       "sha256":  "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+                       "size":  25335,
+                       "version":  "0.4.6"
+                   },
+                   {
+                       "filename":  "cryptography-49.0.0-cp311-abi3-win_amd64.whl",
+                       "name":  "cryptography",
+                       "root":  false,
+                       "sha256":  "e5dfc1e64de5677cec922ffa8da89c546d0415bf6efdf081842e5d44c84e1f0e",
+                       "size":  3810026,
+                       "version":  "49.0.0"
+                   },
+                   {
+                       "filename":  "h11-0.16.0-py3-none-any.whl",
+                       "name":  "h11",
+                       "root":  false,
+                       "sha256":  "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+                       "size":  37515,
+                       "version":  "0.16.0"
+                   },
+                   {
+                       "filename":  "httpcore-1.0.9-py3-none-any.whl",
+                       "name":  "httpcore",
+                       "root":  false,
+                       "sha256":  "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+                       "size":  78784,
+                       "version":  "1.0.9"
+                   },
+                   {
+                       "filename":  "httpx-0.28.1-py3-none-any.whl",
+                       "name":  "httpx",
+                       "root":  false,
+                       "sha256":  "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+                       "size":  73517,
+                       "version":  "0.28.1"
+                   },
+                   {
+                       "filename":  "httpx_sse-0.4.3-py3-none-any.whl",
+                       "name":  "httpx-sse",
+                       "root":  false,
+                       "sha256":  "0ac1c9fe3c0afad2e0ebb25a934a59f4c7823b60792691f779fad2c5568830fc",
+                       "size":  8960,
+                       "version":  "0.4.3"
+                   },
+                   {
+                       "filename":  "idna-3.18-py3-none-any.whl",
+                       "name":  "idna",
+                       "root":  false,
+                       "sha256":  "7f952cbe720b688055e3f87de14f5c3e5fdaa8bc3928985c4077ca689de849a2",
+                       "size":  65455,
+                       "version":  "3.18"
+                   },
+                   {
+                       "filename":  "jaraco.classes-3.4.0-py3-none-any.whl",
+                       "name":  "jaraco.classes",
+                       "root":  false,
+                       "sha256":  "f662826b6bed8cace05e7ff873ce0f9283b5c924470fe664fff1c2f00f581790",
+                       "size":  6777,
+                       "version":  "3.4.0"
+                   },
+                   {
+                       "filename":  "jaraco_context-6.1.2-py3-none-any.whl",
+                       "name":  "jaraco.context",
+                       "root":  false,
+                       "sha256":  "bf8150b79a2d5d91ae48629d8b427a8f7ba0e1097dd6202a9059f29a36379535",
+                       "size":  7871,
+                       "version":  "6.1.2"
+                   },
+                   {
+                       "filename":  "jaraco_functools-4.6.0-py3-none-any.whl",
+                       "name":  "jaraco.functools",
+                       "root":  false,
+                       "sha256":  "99e3dc0060c5cbe8fcd1cdb36258e2a65ca40f1566b2033b12abb1bb44dd3c30",
+                       "size":  11677,
+                       "version":  "4.6.0"
+                   },
+                   {
+                       "filename":  "jsonschema-4.26.0-py3-none-any.whl",
+                       "name":  "jsonschema",
+                       "root":  false,
+                       "sha256":  "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+                       "size":  90630,
+                       "version":  "4.26.0"
+                   },
+                   {
+                       "filename":  "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+                       "name":  "jsonschema-specifications",
+                       "root":  false,
+                       "sha256":  "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+                       "size":  18437,
+                       "version":  "2025.9.1"
+                   },
+                   {
+                       "filename":  "keyring-25.7.0-py3-none-any.whl",
+                       "name":  "keyring",
+                       "root":  false,
+                       "sha256":  "be4a0b195f149690c166e850609a477c532ddbfbaed96a404d4e43f8d5e2689f",
+                       "size":  39160,
+                       "version":  "25.7.0"
+                   },
+                   {
+                       "filename":  "markdown_it_py-4.2.0-py3-none-any.whl",
+                       "name":  "markdown-it-py",
+                       "root":  false,
+                       "sha256":  "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a",
+                       "size":  91687,
+                       "version":  "4.2.0"
+                   },
+                   {
+                       "filename":  "mcp-1.28.1-py3-none-any.whl",
+                       "name":  "mcp",
+                       "root":  false,
+                       "sha256":  "2726bca5e7193f61c5dde8b12500a6de2d9acf6d1a1c0be9e8c2e706437991df",
+                       "size":  222620,
+                       "version":  "1.28.1"
+                   },
+                   {
+                       "filename":  "mdurl-0.1.2-py3-none-any.whl",
+                       "name":  "mdurl",
+                       "root":  false,
+                       "sha256":  "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+                       "size":  9979,
+                       "version":  "0.1.2"
+                   },
+                   {
+                       "filename":  "more_itertools-11.1.0-py3-none-any.whl",
+                       "name":  "more-itertools",
+                       "root":  false,
+                       "sha256":  "4b65538ae22f6fed0ce4874efd317463a7489796a0939fa66824dd542125a192",
+                       "size":  72226,
+                       "version":  "11.1.0"
+                   },
+                   {
+                       "filename":  "packaging-26.2-py3-none-any.whl",
+                       "name":  "packaging",
+                       "root":  false,
+                       "sha256":  "5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e",
+                       "size":  100195,
+                       "version":  "26.2"
+                   },
+                   {
+                       "filename":  "persistmind-0.2.2-py3-none-any.whl",
+                       "name":  "persistmind",
+                       "root":  true,
+                       "sha256":  "daf420ac7642b24f727cb93342fa309c9f8b58372d8e6fa0bd4d1eabba2c8cb0",
+                       "size":  1411576,
+                       "version":  "0.2.2"
+                   },
+                   {
+                       "filename":  "pycparser-3.0-py3-none-any.whl",
+                       "name":  "pycparser",
+                       "root":  false,
+                       "sha256":  "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992",
+                       "size":  48172,
+                       "version":  "3.0"
+                   },
+                   {
+                       "filename":  "pydantic-2.13.4-py3-none-any.whl",
+                       "name":  "pydantic",
+                       "root":  false,
+                       "sha256":  "45a282cde31d808236fd7ea9d919b128653c8b38b393d1c4ab335c62924d9aba",
+                       "size":  472262,
+                       "version":  "2.13.4"
+                   },
+                   {
+                       "filename":  "pydantic_core-2.46.4-cp313-cp313-win_amd64.whl",
+                       "name":  "pydantic_core",
+                       "root":  false,
+                       "sha256":  "6b3ace8194b0e5204818c92802dcdca7fc6d88aabbb799d7c795540d9cd6d292",
+                       "size":  2071819,
+                       "version":  "2.46.4"
+                   },
+                   {
+                       "filename":  "pydantic_settings-2.14.2-py3-none-any.whl",
+                       "name":  "pydantic-settings",
+                       "root":  false,
+                       "sha256":  "a20c97b37910b6550d5ea50fbcc2d4187defe58cd57070b73863d069419c9440",
+                       "size":  61715,
+                       "version":  "2.14.2"
+                   },
+                   {
+                       "filename":  "pygments-2.20.0-py3-none-any.whl",
+                       "name":  "Pygments",
+                       "root":  false,
+                       "sha256":  "81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176",
+                       "size":  1231151,
+                       "version":  "2.20.0"
+                   },
+                   {
+                       "filename":  "pyjwt-2.13.0-py3-none-any.whl",
+                       "name":  "PyJWT",
+                       "root":  false,
+                       "sha256":  "66adcc2aff09b3f1bbd95fc1e1577df8ac8723c978552fd43304c8a290ac5728",
+                       "size":  31274,
+                       "version":  "2.13.0"
+                   },
+                   {
+                       "filename":  "python_dotenv-1.2.2-py3-none-any.whl",
+                       "name":  "python-dotenv",
+                       "root":  false,
+                       "sha256":  "1d8214789a24de455a8b8bd8ae6fe3c6b69a5e3d64aa8a8e5d68e694bbcb285a",
+                       "size":  22101,
+                       "version":  "1.2.2"
+                   },
+                   {
+                       "filename":  "python_multipart-0.0.32-py3-none-any.whl",
+                       "name":  "python-multipart",
+                       "root":  false,
+                       "sha256":  "ff6d3f776f16878c894e52e107296ffc890e913c611b1a4ec6c44e2821fe2e23",
+                       "size":  30042,
+                       "version":  "0.0.32"
+                   },
+                   {
+                       "filename":  "pywin32-312-cp313-cp313-win_amd64.whl",
+                       "name":  "pywin32",
+                       "root":  false,
+                       "sha256":  "c53e878d15a1c44788082bfe712a905433473aa38f86375b7cf8b45e3acbaaf9",
+                       "size":  6914298,
+                       "version":  "312"
+                   },
+                   {
+                       "filename":  "pywin32_ctypes-0.2.3-py3-none-any.whl",
+                       "name":  "pywin32-ctypes",
+                       "root":  false,
+                       "sha256":  "8a1513379d709975552d202d942d9837758905c8d01eb82b8bcc30918929e7b8",
+                       "size":  30756,
+                       "version":  "0.2.3"
+                   },
+                   {
+                       "filename":  "referencing-0.37.0-py3-none-any.whl",
+                       "name":  "referencing",
+                       "root":  false,
+                       "sha256":  "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+                       "size":  26766,
+                       "version":  "0.37.0"
+                   },
+                   {
+                       "filename":  "rich-15.0.0-py3-none-any.whl",
+                       "name":  "rich",
+                       "root":  false,
+                       "sha256":  "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb",
+                       "size":  310654,
+                       "version":  "15.0.0"
+                   },
+                   {
+                       "filename":  "rpds_py-2026.6.3-cp313-cp313-win_amd64.whl",
+                       "name":  "rpds-py",
+                       "root":  false,
+                       "sha256":  "9250a9a0a6fd4648b3f868da8d91a4c52b5811a62df58e753d50ae4454a36f80",
+                       "size":  219454,
+                       "version":  "2026.6.3"
+                   },
+                   {
+                       "filename":  "shellingham-1.5.4-py2.py3-none-any.whl",
+                       "name":  "shellingham",
+                       "root":  false,
+                       "sha256":  "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686",
+                       "size":  9755,
+                       "version":  "1.5.4"
+                   },
+                   {
+                       "filename":  "sqlite_vec-0.1.9-py3-none-win_amd64.whl",
+                       "name":  "sqlite-vec",
+                       "root":  false,
+                       "sha256":  "4a28dc12fa4b53d7b1dced22da2488fade444e96b5d16fd2d698cd670675cf32",
+                       "size":  292804,
+                       "version":  "0.1.9"
+                   },
+                   {
+                       "filename":  "sse_starlette-3.4.6-py3-none-any.whl",
+                       "name":  "sse-starlette",
+                       "root":  false,
+                       "sha256":  "56217ab4c9a9f9c5db7b21e08732d3e7c2b807f45231ad23de0551a24c4a41f6",
+                       "size":  16516,
+                       "version":  "3.4.6"
+                   },
+                   {
+                       "filename":  "starlette-1.3.1-py3-none-any.whl",
+                       "name":  "starlette",
+                       "root":  false,
+                       "sha256":  "c7372aae11c3c3f26a42df7bd626cec2f47d03483d261d369516a615a53714c6",
+                       "size":  73632,
+                       "version":  "1.3.1"
+                   },
+                   {
+                       "filename":  "typer-0.15.3-py3-none-any.whl",
+                       "name":  "typer",
+                       "root":  false,
+                       "sha256":  "c86a65ad77ca531f03de08d1b9cb67cd09ad02ddddf4b34745b5008f43b239bd",
+                       "size":  45253,
+                       "version":  "0.15.3"
+                   },
+                   {
+                       "filename":  "typing_extensions-4.16.0-py3-none-any.whl",
+                       "name":  "typing_extensions",
+                       "root":  false,
+                       "sha256":  "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+                       "size":  45571,
+                       "version":  "4.16.0"
+                   },
+                   {
+                       "filename":  "typing_inspection-0.4.2-py3-none-any.whl",
+                       "name":  "typing-inspection",
+                       "root":  false,
+                       "sha256":  "4ed1cacbdc298c220f1bd249ed5287caa16f34d44ef4e9c3d0cbad5b521545e7",
+                       "size":  14611,
+                       "version":  "0.4.2"
+                   },
+                   {
+                       "filename":  "uvicorn-0.51.0-py3-none-any.whl",
+                       "name":  "uvicorn",
+                       "root":  false,
+                       "sha256":  "5d38af6cd620f2ae3849fb44fd4879e0890aa1febe8d47eb355fb45d93fe6a5b",
+                       "size":  73219,
+                       "version":  "0.51.0"
+                   }
+               ]
+}

@@ -8,3 +8,6 @@ venv/
 *.whl
 *.tar.gz
 *.zip
+!bundles/**/*.whl
+!bundles/**/*.tar.gz
+!bundles/**/*.zip
