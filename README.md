@@ -23,6 +23,11 @@ persistent context, governance, verification, and project memory around them.
 > delivery channel. Always review [Current Release Status](#current-release-status)
 > and [releases/current.md](releases/current.md) before installing.
 
+The current release installer scripts are committed under
+[installer/](installer/). These scripts are reviewable installer entry points
+only; a specific installable release still requires the matching signed
+manifest, detached signature, wheelhouse hashes, and qualification record.
+
 ## Current Release Status
 
 PersistMind `0.2.2.dev1` is available only for approved private Windows
@@ -187,7 +192,10 @@ PersistMind is currently distributed privately to approved Windows internal
 preview testers. This GitHub repository provides product documentation, release
 notes, qualification information, artifact metadata, and installation guidance.
 It does not host release binaries. The current qualified artifact is stored in
-the designated Google Drive release channel.
+the designated Google Drive release channel. The first-install scripts are
+available in [installer/](installer/) for review and release preparation, but
+they must be used with the exact release manifest, signature, and artifact
+hashes documented for the selected release.
 
 **[Download the exact `0.2.2.dev1` Windows preview ZIP](https://drive.google.com/file/d/1MAQKcVNRBeUnd8LeMv2GbRHLD4dd8mzk/view?usp=drivesdk)**
 
