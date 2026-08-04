@@ -55,6 +55,37 @@ function Find-CompatiblePython {
     throw "Python 3.11, 3.12, or 3.13 is required. Install Python first or pass -PythonCommand."
 }
 
+function Test-AgentSelected {
+    param(
+        [string]$AgentList,
+        [string]$AgentName
+    )
+    if (-not $AgentList) { return $false }
+    $names = $AgentList -split "," | ForEach-Object { $_.Trim().ToLowerInvariant() }
+    return $names -contains $AgentName.ToLowerInvariant()
+}
+
+function Install-CodexWorkflowSkill {
+    param([string]$ReleaseRoot)
+    $source = Join-Path $ReleaseRoot "codex-skills\persistmind-workflow"
+    if (-not (Test-Path -LiteralPath $source -PathType Container)) {
+        Write-Warning "persistmind-install: Codex workflow skill not found at $source"
+        return
+    }
+    if (-not $env:USERPROFILE) {
+        Write-Warning "persistmind-install: USERPROFILE is not set; skipping Codex skill install"
+        return
+    }
+    $skillsRoot = Join-Path $env:USERPROFILE ".codex\skills"
+    $target = Join-Path $skillsRoot "persistmind-workflow"
+    New-Item -ItemType Directory -Path $skillsRoot -Force | Out-Null
+    if (Test-Path -LiteralPath $target) {
+        Remove-Item -LiteralPath $target -Recurse -Force
+    }
+    Copy-Item -LiteralPath $source -Destination $target -Recurse -Force
+    Write-Host "persistmind-install: installed Codex skill persistmind-workflow to $target"
+}
+
 $scriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $releaseRoot = Resolve-Path -LiteralPath (Join-Path $scriptRoot "..")
 $python = Find-CompatiblePython
@@ -119,3 +150,9 @@ if ($LASTEXITCODE -ne 0) {
 
 Write-Host "persistmind-install: installed from committed wheelhouse $bundle"
 Write-Host "persistmind-install: runtime home $BootstrapHome"
+
+if (Test-AgentSelected -AgentList $Agents -AgentName "codex") {
+    Install-CodexWorkflowSkill -ReleaseRoot $releaseRoot
+} else {
+    Write-Host "persistmind-install: Codex skill skipped because -Agents does not include codex"
+}

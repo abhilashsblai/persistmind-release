@@ -72,6 +72,12 @@ Install from a clone:
 .\installer\install-from-repo.ps1 -Repo C:\Path\To\Project -Agents codex -SkipIndex
 ```
 
+For Codex installs, the wrapper also installs or refreshes the bundled
+Codex-specific `persistmind-workflow` skill at
+`%USERPROFILE%\.codex\skills\persistmind-workflow`. Restart Codex after
+installation so new sessions can use the skill when working through PersistMind
+preflight, plans, checkpoints, verification, and outcomes.
+
 ## Known Open Production Blockers
 
 The production blocker ledger remains in the source repository at

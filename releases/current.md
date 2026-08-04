@@ -56,6 +56,13 @@ Install from a clone:
 .\installer\install-from-repo.ps1 -Repo C:\Path\To\Project -Agents codex -SkipIndex
 ```
 
+When `-Agents codex` is used, the installer wrapper also installs the
+Codex-specific `persistmind-workflow` skill from this repository into
+`%USERPROFILE%\.codex\skills\persistmind-workflow`. The skill is specifically
+for Codex and helps Codex preserve PersistMind task/session IDs, pack/preflight
+evidence, plan/checkpoint IDs, intended files/tests, verification, and outcome
+state in newly configured projects.
+
 ## Artifact verification
 
 | Artifact | Size | SHA-256 |

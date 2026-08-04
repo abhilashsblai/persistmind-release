@@ -8,7 +8,7 @@ entry point for release preparation and controlled validation.
 
 | File | Purpose |
 | --- | --- |
-| `install-from-repo.ps1` | Convenience wrapper that installs from the committed `bundles/0.2.2/windows-py*` wheelhouses in this repository. |
+| `install-from-repo.ps1` | Convenience wrapper that installs from the committed `bundles/0.2.2/windows-py*` wheelhouses in this repository and installs the bundled Codex workflow skill when `-Agents codex` is selected. |
 | `install-persistmind.ps1` | Windows first-install wrapper. Locates or installs Python 3.11-3.13, verifies the bootstrap, and installs from signed release metadata or an explicitly qualified local wheel. |
 | `bootstrap_persistmind.py` | Standard-library bootstrap that verifies signed release metadata and installs a hash-locked wheelhouse offline. |
 | `install-persistmind.sh` | POSIX installer wrapper for release preparation and non-Windows validation. |
@@ -18,7 +18,7 @@ entry point for release preparation and controlled validation.
 
 | File | SHA-256 |
 | --- | --- |
-| `install-from-repo.ps1` | `c86493dcc61243038021d89029f6a9c613934a1ea15274bcbe717646e3711e09` |
+| `install-from-repo.ps1` | `5394182f887dc6bcac94acf3a24580d8eeae249a62436a54565478b3ca5861fc` |
 | `install-persistmind.ps1` | `1c63d1302f850c840cd465864bdc3bf0dea4b08f4a55c24264e2604e25b88946` |
 | `bootstrap_persistmind.py` | `6b37d3a4613974aa090354ea7b25cf8abc8772dbc4139b38c004945e70f72371` |
 | `install-persistmind.sh` | `b5a52c37ecb85c7f5bafe87d5695cc3087a6cf83da514d372728b35cb34bf29e` |
@@ -40,3 +40,8 @@ qualification evidence for a specific published release.
 The wrapper detects CPython 3.11, 3.12, or 3.13, selects the matching committed
 wheelhouse under `bundles/0.2.2`, verifies the PersistMind wheel hash, and then
 delegates to `install-persistmind.ps1`.
+
+When `-Agents codex` is selected, the wrapper also installs or refreshes the
+Codex-specific `persistmind-workflow` skill at
+`%USERPROFILE%\.codex\skills\persistmind-workflow`. This skill is specifically
+for Codex and should be loaded by a restarted Codex session after installation.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "PersistMind Workflow"
+  short_description: "Stage gates for PersistMind tasks"
+  default_prompt: "Use PersistMind Workflow to guide this task through the correct PersistMind repo, preflight, plan, checkpoint, verification, and outcome stages without losing required IDs or evidence."

@@ -206,6 +206,12 @@ cd persistmind-release
 The wrapper detects CPython 3.11, 3.12, or 3.13, selects the matching committed
 wheelhouse in [bundles/0.2.2](bundles/0.2.2/), verifies the PersistMind wheel
 hash, creates an isolated bootstrap runtime, and configures the target project.
+When `-Agents codex` is used, it also installs or refreshes the Codex-specific
+`persistmind-workflow` skill from
+[`codex-skills/persistmind-workflow`](codex-skills/persistmind-workflow/) into
+`%USERPROFILE%\.codex\skills\persistmind-workflow`. This skill is specifically
+for Codex. It tells Codex which PersistMind stage information to carry between
+repo selection, preflight, plans, checkpoints, verification, and outcomes.
 
 After installation:
 
@@ -322,6 +328,7 @@ checksums.
 The current supported integration boundary is local, read-only context through
 MCP plus explicitly reviewed CLI workflows.
 
+- [Bundled Codex skill](codex-skills/README.md)
 - [Integration overview](docs/integrations.md)
 - [Codex guide](guides/codex.md)
 - [Claude Code guide](guides/claude.md)

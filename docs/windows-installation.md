@@ -22,6 +22,18 @@ The wrapper selects the matching wheelhouse from `bundles/0.2.2/windows-py311`,
 `SHA256SUMS.txt`, installs into an isolated bootstrap environment, and
 configures the target project.
 
+When `-Agents codex` is selected, the wrapper also installs or refreshes the
+Codex-specific PersistMind workflow skill at:
+
+```powershell
+$env:USERPROFILE\.codex\skills\persistmind-workflow
+```
+
+This skill is specifically for Codex. It guides Codex to preserve the correct
+PersistMind stage data during new project work: target repository path, task
+session, pack/preflight evidence, plan and checkpoint IDs, intended files/tests,
+verification commands, and final outcome state.
+
 To force a Python interpreter or runtime location:
 
 ```powershell
@@ -44,8 +56,9 @@ $pm = "$env:LOCALAPPDATA\PersistMind\0.2.2-windows-py312\Scripts\python.exe"
 ```
 
 Review generated files and restart Codex so the project-local hooks and MCP
-configuration load. Keep `PERSISTMIND_HOME` on local storage; do not use Google
-Drive for live databases, indexes, WALs, or runtime state.
+configuration load. Also restart Codex after the skill is installed so Codex can
+discover `persistmind-workflow`. Keep `PERSISTMIND_HOME` on local storage; do
+not use Google Drive for live databases, indexes, WALs, or runtime state.
 
 Do not use `persistmind update` for this unsigned diagnostic package. Linux and
 macOS are not qualified for this candidate.
