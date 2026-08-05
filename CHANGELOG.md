@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.2.2 diagnostic refresh - 2026-08-05
+
+### Fixed
+
+- Refreshed the committed `0.2.2` Windows diagnostic wheelhouses from
+  PersistMind source commit `4a70b42ac37f8d6427c87c11c895167ebb2bd653`.
+- Included the outcome-closure contract hardening: non-pass `task_close`,
+  remediation-attempt wait/backoff/transient recovery accounting, hydrated
+  accepted-attempt visibility, and MCP parity for working-memory promote and
+  decline.
+- Updated installer hashes, dependency locks, and release documentation for the
+  refreshed diagnostic bundle.
+
+### Qualification and publication
+
+- Source-side focused closure, verified-fact/FoxFlow, ruff, py_compile,
+  architecture, and diff checks passed before source publication.
+- This remains an unsigned diagnostic bundle, not a production release or
+  trusted-updater artifact.
+
 ## 0.2.2.dev1 - 2026-07-24
 
 ### Fixed

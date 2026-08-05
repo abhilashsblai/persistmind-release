@@ -16,10 +16,10 @@ import shutil
 import subprocess
 import sys
 import tomllib
+from collections.abc import Iterable
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Iterable
-
+from typing import Any
 
 CONTRACT_MARKERS = (
     "<!-- persistmind-agent-contract -->",
@@ -128,7 +128,7 @@ def is_persistmind_source_checkout(repo: Path) -> bool:
         return False
     project = value.get("project") if isinstance(value, dict) else None
     name = str(project.get("name") or "") if isinstance(project, dict) else ""
-    return name.casefold() in {"persistmind", "persistmind", "advanced-persistmind"}
+    return name.casefold() in {"persistmind", "advanced-persistmind"}
 
 
 def project_data_paths(repo: Path) -> tuple[set[Path], set[Path]]:
@@ -763,7 +763,6 @@ def clean_manifest_surfaces(cleaner: Cleaner, repo: Path, workspaces: Iterable[P
         cleaner.warnings.append(f"installation manifest is unreadable: {manifest_path}")
         return False
     if not isinstance(manifest, dict) or manifest.get("schema_version") not in {
-        "persistmind.installation.v1",
         "persistmind.installation.v1",
     }:
         cleaner.warnings.append(f"unsupported installation manifest: {manifest_path}")

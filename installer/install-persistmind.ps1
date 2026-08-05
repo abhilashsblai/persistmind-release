@@ -68,10 +68,10 @@ try {
     $usingLocalWheel = [bool]($LocalWheelPath -or $LocalWheelSha256)
     if (-not $BootstrapPath) {
         if (-not $BootstrapUrl -or -not $BootstrapSha256) {
-            throw "Provide -BootstrapPath, or the GitHub release -BootstrapUrl and -BootstrapSha256 from the qualified release."
+            throw "Provide -BootstrapPath, or the Google Drive -BootstrapUrl and -BootstrapSha256 from the qualified release folder."
         }
-        if ($BootstrapUrl -notmatch '^https://(github\.com|drive\.google\.com|drive\.usercontent\.google\.com|docs\.googleusercontent\.com)/') {
-            throw "The bootstrap URL must be hosted on GitHub Releases or Google Drive."
+        if ($BootstrapUrl -notmatch '^https://(drive\.google\.com|drive\.usercontent\.google\.com|docs\.googleusercontent\.com)/') {
+            throw "The bootstrap URL must be hosted on Google Drive."
         }
         if ($BootstrapSha256 -notmatch '^[0-9a-fA-F]{64}$') { throw "Bootstrap SHA-256 is invalid." }
         $temporaryDirectory = Join-Path ([System.IO.Path]::GetTempPath()) ("persistmind-release-artifacts-" + [guid]::NewGuid().ToString("N"))
@@ -80,7 +80,7 @@ try {
         Invoke-WebRequest -Uri $BootstrapUrl -OutFile $BootstrapPath -MaximumRedirection 8
         $actualBootstrapHash = (Get-FileHash -LiteralPath $BootstrapPath -Algorithm SHA256).Hash.ToLowerInvariant()
         if ($actualBootstrapHash -ne $BootstrapSha256.ToLowerInvariant()) {
-            throw "Bootstrap download failed SHA-256 verification."
+            throw "Bootstrap Google Drive download failed SHA-256 verification."
         }
     }
     if ([bool]$LocalWheelPath -ne [bool]$LocalWheelSha256) {
@@ -90,7 +90,7 @@ try {
         throw "Local artifact testing requires -BootstrapPath and the exact -Version."
     }
     if (-not $usingLocalWheel -and (-not $ManifestUrl -or -not $ManifestSignatureUrl)) {
-        throw "Release installation requires -ManifestUrl and -ManifestSignatureUrl."
+        throw "Google Drive installation requires -ManifestUrl and -ManifestSignatureUrl."
     }
     $bootstrap = (Resolve-Path -LiteralPath $BootstrapPath).Path
     if (-not (Test-Path -LiteralPath $Repo)) {

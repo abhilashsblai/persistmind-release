@@ -24,7 +24,7 @@ import urllib.parse
 import urllib.request
 import venv
 import zipfile
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -523,7 +523,7 @@ def _verify_v3_manifest(value: dict[str, Any]) -> None:
         expires_at = datetime.fromisoformat(str(value["expires_at"]).replace("Z", "+00:00"))
     except ValueError as exc:
         raise SystemExit("release manifest v3 expiry is invalid") from exc
-    if expires_at.tzinfo is None or expires_at <= datetime.now(timezone.utc):
+    if expires_at.tzinfo is None or expires_at <= datetime.now(UTC):
         raise SystemExit("release manifest v3 has expired")
     bindings = [value.get("dependency_lock"), value.get("sbom"), *value.get("artifacts", [])]
     file_ids: list[str] = []
@@ -571,7 +571,7 @@ def _verify_v4_manifest(value: dict[str, Any]) -> None:
         expires_at = datetime.fromisoformat(str(value["expires_at"]).replace("Z", "+00:00"))
     except ValueError as exc:
         raise SystemExit("release manifest v4 expiry is invalid") from exc
-    if expires_at.tzinfo is None or expires_at <= datetime.now(timezone.utc):
+    if expires_at.tzinfo is None or expires_at <= datetime.now(UTC):
         raise SystemExit("release manifest v4 has expired")
     bindings = [value.get("dependency_lock"), value.get("sbom"), *value.get("artifacts", [])]
     file_ids: list[str] = []

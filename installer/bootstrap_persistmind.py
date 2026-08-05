@@ -24,7 +24,7 @@ import urllib.parse
 import urllib.request
 import venv
 import zipfile
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -47,7 +47,6 @@ TRUSTED_MANIFEST_NAME = "trusted-release-manifest.v4.json"
 TRUSTED_MANIFEST_SIGNATURE_NAME = f"{TRUSTED_MANIFEST_NAME}.sig"
 MANIFEST_SELF_VERIFICATION_ID = "signed-manifest:self:ed25519:v4"
 DRIVE_HOSTS = {"drive.google.com", "drive.usercontent.google.com", "docs.googleusercontent.com"}
-GITHUB_RELEASE_HOSTS = {"github.com", "objects.githubusercontent.com"}
 ROOT_KEYS = (
     "2zTxhUn/x3MO0ju5mXYuEmbJfAGWj6BE9nWkgBb43do=",
     "kuh85P8eq5Qp1S4kIUJ2LoUfxZX+TbEstEaKgJtlV4A=",
@@ -151,7 +150,7 @@ def _python_supported(specifier: str) -> bool:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Install PersistMind from a signed GitHub release manifest"
+        description="Install PersistMind from a signed Google Drive release manifest"
     )
     parser.add_argument("--repo", default=".", help="project repository to configure")
     parser.add_argument(
@@ -162,12 +161,12 @@ def main() -> None:
     parser.add_argument(
         "--manifest-url",
         default=os.environ.get("PERSISTMIND_RELEASE_MANIFEST_URL"),
-        help="GitHub release URL for the signed release manifest",
+        help="Google Drive URL for the signed release manifest",
     )
     parser.add_argument(
         "--manifest-signature-url",
         default=os.environ.get("PERSISTMIND_RELEASE_MANIFEST_SIGNATURE_URL"),
-        help="GitHub release URL for the detached manifest signature",
+        help="Google Drive URL for the detached manifest signature",
     )
     parser.add_argument("--init-git", action="store_true")
     parser.add_argument("--skip-index", action="store_true")
@@ -203,11 +202,11 @@ def main() -> None:
     else:
         if not args.manifest_url or not args.manifest_signature_url:
             raise SystemExit(
-                "release metadata is not configured; pass --manifest-url and "
+                "Google Drive release metadata is not configured; pass --manifest-url and "
                 "--manifest-signature-url"
             )
-        manifest_bytes = _release_metadata_bytes(args.manifest_url, MAX_METADATA_BYTES)
-        signature = _release_metadata_bytes(args.manifest_signature_url, 16_384)
+        manifest_bytes = _drive_metadata_bytes(args.manifest_url, MAX_METADATA_BYTES)
+        signature = _drive_metadata_bytes(args.manifest_signature_url, 16_384)
         release: dict[str, Any] = {}
         manifest = _verify_manifest(release, manifest_bytes, signature, args.channel, args.version)
         _verify_promoted_release_identity(manifest)
@@ -466,7 +465,11 @@ def _verify_manifest(
     }
     if not isinstance(value, dict) or not required.issubset(value):
         raise SystemExit("release manifest is incomplete")
-    expected_repository = REPOSITORY
+    expected_repository = (
+        SOURCE_REPOSITORY
+        if value.get("schema_version") == "persistmind.update_manifest.v4"
+        else REPOSITORY
+    )
     if (
         value["schema_version"] not in MANIFEST_SCHEMAS
         or value["repository"] != expected_repository
@@ -520,7 +523,7 @@ def _verify_v3_manifest(value: dict[str, Any]) -> None:
         expires_at = datetime.fromisoformat(str(value["expires_at"]).replace("Z", "+00:00"))
     except ValueError as exc:
         raise SystemExit("release manifest v3 expiry is invalid") from exc
-    if expires_at.tzinfo is None or expires_at <= datetime.now(timezone.utc):
+    if expires_at.tzinfo is None or expires_at <= datetime.now(UTC):
         raise SystemExit("release manifest v3 has expired")
     bindings = [value.get("dependency_lock"), value.get("sbom"), *value.get("artifacts", [])]
     file_ids: list[str] = []
@@ -546,17 +549,19 @@ def _verify_v4_manifest(value: dict[str, Any]) -> None:
         "revoked",
         "project_state_protocol",
         "artifact_transport",
-        "release_repository",
+        "release_root_folder_id",
+        "release_folder_id",
     }
     if not required.issubset(value) or value.get("revoked") is not False:
         raise SystemExit("release manifest v4 trust metadata is incomplete or revoked")
     if not re.fullmatch(r"[0-9a-f]{40}", str(value.get("commit_sha", ""))):
         raise SystemExit("release manifest v4 source commit is invalid")
     if (
-        value.get("artifact_transport") != "github_release_asset"
-        or value.get("release_repository") != REPOSITORY
+        value.get("artifact_transport") != "google_drive"
+        or value.get("release_root_folder_id") != RELEASE_DRIVE_FOLDER_ID
+        or not re.fullmatch(r"[A-Za-z0-9_-]{10,200}", str(value.get("release_folder_id", "")))
     ):
-        raise SystemExit("release manifest v4 GitHub release identity is invalid")
+        raise SystemExit("release manifest v4 Drive folder identity is invalid")
     if (
         not str(value.get("build_identity", "")).strip()
         or int(value.get("project_state_protocol", 0)) != 2
@@ -566,34 +571,22 @@ def _verify_v4_manifest(value: dict[str, Any]) -> None:
         expires_at = datetime.fromisoformat(str(value["expires_at"]).replace("Z", "+00:00"))
     except ValueError as exc:
         raise SystemExit("release manifest v4 expiry is invalid") from exc
-    if expires_at.tzinfo is None or expires_at <= datetime.now(timezone.utc):
+    if expires_at.tzinfo is None or expires_at <= datetime.now(UTC):
         raise SystemExit("release manifest v4 has expired")
     bindings = [value.get("dependency_lock"), value.get("sbom"), *value.get("artifacts", [])]
-    asset_names: list[str] = []
+    file_ids: list[str] = []
     for binding in bindings:
         if not isinstance(binding, dict):
             raise SystemExit("release manifest v4 artifact binding is invalid")
         transport = binding.get("transport")
-        if not isinstance(transport, dict) or transport.get("kind") != "github_release_asset":
-            raise SystemExit("release manifest v4 requires GitHub release asset transport")
-        if (
-            transport.get("repository") != REPOSITORY
-            or transport.get("release_tag") != value.get("release_tag")
-            or transport.get("asset_name") != binding.get("filename")
-        ):
-            raise SystemExit("release manifest v4 GitHub asset identity is invalid")
-        asset_names.append(str(transport["asset_name"]))
-    if len(asset_names) != len(set(asset_names)):
-        raise SystemExit("release manifest v4 GitHub asset identities must be unique")
-
-
-def _release_metadata_bytes(url: str, maximum: int) -> bytes:
-    parsed = urllib.parse.urlparse(url)
-    if parsed.scheme == "https" and parsed.hostname in DRIVE_HOSTS:
-        return _drive_metadata_bytes(url, maximum)
-    if parsed.scheme == "https" and parsed.hostname == "github.com":
-        return _github_metadata_bytes(url, maximum)
-    raise SystemExit("release metadata must be hosted on GitHub Releases or Google Drive")
+        if not isinstance(transport, dict) or transport.get("kind") != "google_drive":
+            raise SystemExit("release manifest v4 requires Google Drive artifact transport")
+        file_id = str(transport.get("file_id", ""))
+        if not re.fullmatch(r"[A-Za-z0-9_-]{10,200}", file_id):
+            raise SystemExit("release manifest v4 Drive file identity is invalid")
+        file_ids.append(file_id)
+    if len(file_ids) != len(set(file_ids)):
+        raise SystemExit("release manifest v4 Drive file identities must be unique")
 
 
 def _drive_metadata_bytes(url: str, maximum: int) -> bytes:
@@ -613,36 +606,6 @@ def _drive_metadata_bytes(url: str, maximum: int) -> bytes:
         final = urllib.parse.urlparse(response.geturl())
         if final.scheme != "https" or final.hostname not in DRIVE_HOSTS:
             raise SystemExit("release metadata response escaped the Drive host policy")
-        value = response.read(maximum + 1)
-    if len(value) > maximum:
-        raise SystemExit("release metadata exceeds the bootstrap size policy")
-    return value
-
-
-def _github_metadata_bytes(url: str, maximum: int) -> bytes:
-    parsed = urllib.parse.urlparse(url)
-    expected_prefix = f"/{REPOSITORY}/releases/download/"
-    if (
-        parsed.scheme != "https"
-        or parsed.hostname != "github.com"
-        or not parsed.path.startswith(expected_prefix)
-    ):
-        raise SystemExit("release metadata must be hosted on the PersistMind GitHub release repo")
-
-    class GitHubMetadataRedirect(urllib.request.HTTPRedirectHandler):
-        def redirect_request(self, req, fp, code, msg, headers, newurl):  # type: ignore[no-untyped-def]
-            redirect = urllib.parse.urlparse(newurl)
-            if redirect.scheme != "https" or redirect.hostname not in GITHUB_RELEASE_HOSTS:
-                raise SystemExit("release metadata redirect escaped the GitHub host policy")
-            return super().redirect_request(req, fp, code, msg, headers, newurl)
-
-    request = urllib.request.Request(url, headers={"User-Agent": "persistmind-bootstrap/4"})
-    with urllib.request.build_opener(GitHubMetadataRedirect()).open(
-        request, timeout=60
-    ) as response:
-        final = urllib.parse.urlparse(response.geturl())
-        if final.scheme != "https" or final.hostname not in GITHUB_RELEASE_HOSTS:
-            raise SystemExit("release metadata response escaped the GitHub host policy")
         value = response.read(maximum + 1)
     if len(value) > maximum:
         raise SystemExit("release metadata exceeds the bootstrap size policy")
@@ -709,12 +672,7 @@ def _download_signed_asset(
     ):
         raise SystemExit("release artifact binding is invalid")
     if isinstance(artifact.get("transport"), dict):
-        transport = artifact["transport"]
-        if transport.get("kind") == "google_drive":
-            return _download_drive_asset(artifact, directory)
-        if transport.get("kind") == "github_release_asset":
-            return _download_github_release_asset(artifact, directory)
-        raise SystemExit("release artifact transport is invalid")
+        return _download_drive_asset(artifact, directory)
     asset = _assets(release).get(name)
     if not asset or int(asset.get("size", -1)) != size:
         raise SystemExit("release asset does not match its signed manifest")
@@ -784,61 +742,6 @@ def _download_drive_asset(artifact: dict[str, Any], directory: Path) -> Path:
                 handle.write(block)
         if total != size or digest.hexdigest() != expected_digest:
             raise SystemExit("release Drive artifact failed SHA-256 verification")
-        os.replace(temporary, target)
-        return target
-    finally:
-        temporary.unlink(missing_ok=True)
-
-
-def _download_github_release_asset(artifact: dict[str, Any], directory: Path) -> Path:
-    name = str(artifact["filename"])
-    size = int(artifact["size"])
-    expected_digest = str(artifact["sha256"])
-    transport = artifact.get("transport")
-    if not isinstance(transport, dict) or transport.get("kind") != "github_release_asset":
-        raise SystemExit("release artifact transport is invalid")
-    repository = str(transport.get("repository", ""))
-    release_tag = str(transport.get("release_tag", ""))
-    asset_name = str(transport.get("asset_name", ""))
-    url = str(transport.get("url", ""))
-    parsed = urllib.parse.urlparse(url)
-    if (
-        repository != REPOSITORY
-        or asset_name != name
-        or not re.fullmatch(r"v[0-9A-Za-z_.-]+", release_tag)
-        or parsed.scheme != "https"
-        or parsed.hostname != "github.com"
-        or urllib.parse.unquote(parsed.path)
-        != f"/{repository}/releases/download/{release_tag}/{asset_name}"
-    ):
-        raise SystemExit("release GitHub artifact origin or identity is invalid")
-
-    class SignedGitHubRedirect(urllib.request.HTTPRedirectHandler):
-        def redirect_request(self, req, fp, code, msg, headers, newurl):  # type: ignore[no-untyped-def]
-            redirect = urllib.parse.urlparse(newurl)
-            if redirect.scheme != "https" or redirect.hostname not in GITHUB_RELEASE_HOSTS:
-                raise SystemExit("release GitHub redirect escaped the signed host policy")
-            return super().redirect_request(req, fp, code, msg, headers, newurl)
-
-    target = directory / name
-    temporary = target.with_suffix(target.suffix + ".part")
-    digest = hashlib.sha256()
-    request = urllib.request.Request(url, headers=_headers())
-    opener = urllib.request.build_opener(SignedGitHubRedirect())
-    try:
-        with opener.open(request, timeout=120) as response, temporary.open("wb") as handle:
-            final = urllib.parse.urlparse(response.geturl())
-            if final.scheme != "https" or final.hostname not in GITHUB_RELEASE_HOSTS:
-                raise SystemExit("release GitHub response escaped the signed host policy")
-            total = 0
-            while block := response.read(min(1024 * 1024, size + 1 - total)):
-                total += len(block)
-                if total > size:
-                    raise SystemExit("release GitHub artifact exceeds its signed size")
-                digest.update(block)
-                handle.write(block)
-        if total != size or digest.hexdigest() != expected_digest:
-            raise SystemExit("release GitHub artifact failed SHA-256 verification")
         os.replace(temporary, target)
         return target
     finally:

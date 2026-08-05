@@ -13,7 +13,9 @@
 > Windows diagnostic wheelhouses under `bundles/0.2.2`; the corrected Drive
 > folder remains historical backup metadata. The current qualified internal
 > preview remains `0.2.2.dev1` until a full protected qualification and
-> publication pass.
+> publication pass. The committed diagnostic wheelhouses were refreshed on
+> 2026-08-05 from PersistMind source commit
+> `4a70b42ac37f8d6427c87c11c895167ebb2bd653`.
 
 ## Release identity
 
@@ -46,9 +48,9 @@ the controlled Drive channel.
 
 | Bundle | Python | Platform | PersistMind wheel SHA-256 |
 | --- | --- | --- | --- |
-| `bundles/0.2.2/windows-py311` | CPython 3.11 | Windows x86_64 | `246d141cbc638ca3509b5cb903110de3b6b9f13f8722147b7dd333a307d6c1ff` |
-| `bundles/0.2.2/windows-py312` | CPython 3.12 | Windows x86_64 | `246d141cbc638ca3509b5cb903110de3b6b9f13f8722147b7dd333a307d6c1ff` |
-| `bundles/0.2.2/windows-py313` | CPython 3.13 | Windows x86_64 | `daf420ac7642b24f727cb93342fa309c9f8b58372d8e6fa0bd4d1eabba2c8cb0` |
+| `bundles/0.2.2/windows-py311` | CPython 3.11 | Windows x86_64 | `1b953c42396c681d8531c3d2560bdb61b2d9be1d4161dadbbfecb8a221aaf75b` |
+| `bundles/0.2.2/windows-py312` | CPython 3.12 | Windows x86_64 | `1b953c42396c681d8531c3d2560bdb61b2d9be1d4161dadbbfecb8a221aaf75b` |
+| `bundles/0.2.2/windows-py313` | CPython 3.13 | Windows x86_64 | `1b953c42396c681d8531c3d2560bdb61b2d9be1d4161dadbbfecb8a221aaf75b` |
 
 Install from a clone:
 

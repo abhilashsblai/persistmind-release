@@ -8,7 +8,7 @@
 
 - Version: `0.2.2`
 - Source repository: `abhilashsblai/PersistMind`
-- Source commit now pushed: `7904f4a`
+- Source commit now pushed: `4a70b42ac37f8d6427c87c11c895167ebb2bd653`
 - Bundle source: committed diagnostic wheelhouses under
   `bundles/0.2.2/windows-py311`, `bundles/0.2.2/windows-py312`, and
   `bundles/0.2.2/windows-py313`
@@ -22,9 +22,9 @@
 
 | File | SHA-256 |
 | --- | --- |
-| `install-persistmind.ps1` | `da1dde9789e9b04f66c1623e1e146146bc886f98a28701133da381f38241a447` |
-| `bootstrap_persistmind.py` | `b1bfdb5efca8dcc686763a91e5d196035401531689021e2ca7a812f0bd883b17` |
-| `dependency-lock.v1.json` | `bc22b6100fcd06953d3ad1c71278ab2047d1baa39157857299d68b6f065cbc0d` |
+| `install-persistmind.ps1` | `137c60feb672be0300811b47f63cf926f65440e76c96260fbec76becd13d89f2` |
+| `bootstrap_persistmind.py` | `f81e391e783849deca0a6356ff9a536e58494c5334b289a4d161d901d3137d4b` |
+| `dependency-lock.v1.json` | `7b271f9043d5b3d5dc8eeca36c54d8c511dc15cb01fff45f9adafebac084b897` |
 
 ## External Artifact
 
@@ -50,9 +50,18 @@ Uploaded files:
 
 | Artifact | SHA-256 |
 | --- | --- |
-| `bundles/0.2.2/windows-py311/persistmind-0.2.2-py3-none-any.whl` | `246d141cbc638ca3509b5cb903110de3b6b9f13f8722147b7dd333a307d6c1ff` |
-| `bundles/0.2.2/windows-py312/persistmind-0.2.2-py3-none-any.whl` | `246d141cbc638ca3509b5cb903110de3b6b9f13f8722147b7dd333a307d6c1ff` |
-| `bundles/0.2.2/windows-py313/persistmind-0.2.2-py3-none-any.whl` | `daf420ac7642b24f727cb93342fa309c9f8b58372d8e6fa0bd4d1eabba2c8cb0` |
+| `bundles/0.2.2/windows-py311/persistmind-0.2.2-py3-none-any.whl` | `1b953c42396c681d8531c3d2560bdb61b2d9be1d4161dadbbfecb8a221aaf75b` |
+| `bundles/0.2.2/windows-py312/persistmind-0.2.2-py3-none-any.whl` | `1b953c42396c681d8531c3d2560bdb61b2d9be1d4161dadbbfecb8a221aaf75b` |
+| `bundles/0.2.2/windows-py313/persistmind-0.2.2-py3-none-any.whl` | `1b953c42396c681d8531c3d2560bdb61b2d9be1d4161dadbbfecb8a221aaf75b` |
+
+## 2026-08-05 Refresh
+
+This diagnostic bundle was refreshed from source commit
+`4a70b42ac37f8d6427c87c11c895167ebb2bd653`. The refreshed wheel includes the
+outcome-closure contract hardening: non-pass terminal `task_close`,
+remediation-attempt evidence with wait/backoff/transient recovery accounting,
+hydrated accepted-attempt visibility, and MCP tools for working-memory promote
+and decline.
 
 ## Required Verification Before Use
 

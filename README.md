@@ -15,7 +15,7 @@ persistent context, governance, verification, and project memory around them.
 `Profile: Core Local`
 `Platform: Windows` `MCP: Read-only` `Production: Not qualified`
 
-`Diagnostic bundle: 0.2.2` `Source pushed: 6259b04`
+`Diagnostic bundle: 0.2.2` `Source pushed: 4a70b42`
 
 > [!WARNING]
 > Historical Git tags and any former GitHub-hosted artifacts are not the current
@@ -41,6 +41,12 @@ A newer `0.2.2` diagnostic bundle exists for controlled local validation after
 the production-readiness gate hardening work. It is documented at
 [releases/0.2.2-diagnostic](releases/0.2.2-diagnostic/README.md). It is not
 production-ready and must not be presented as a stable release.
+
+The committed `0.2.2` diagnostic wheelhouses were refreshed on 2026-08-05 from
+source commit `4a70b42ac37f8d6427c87c11c895167ebb2bd653`. This update carries
+the outcome-closure contract hardening: `task_close` for non-pass terminal
+states, remediation-attempt accounting with wait/backoff/transient recovery
+details, and MCP parity for working-memory promote/decline.
 
 | Item | Status |
 | --- | --- |
