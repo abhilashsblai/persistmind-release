@@ -11,17 +11,17 @@ It works alongside tools such as Codex, Claude Code, Cursor, and MCP-compatible
 clients. PersistMind does not replace the coding agent or Git; it supplies the
 persistent context, governance, verification, and project memory around them.
 
-`Current preview: 0.2.2.dev1` `Qualified: Windows 11 / Python 3.12`
-`Profile: Core Local`
+`Current candidate: 0.2.7` `Built: Windows 11 / Python 3.13`
+`Profile: windows-stable`
 `Platform: Windows` `MCP: Read-only` `Production: Not qualified`
 
-`Diagnostic bundle: 0.2.2` `Source pushed: 4a70b42`
+`Source pushed: 210d2ef` `Wheel SHA-256: 6dc3283addef93878975060da81f2a0dfa870375fff1570b80e7868180927702`
 
 > [!WARNING]
-> Historical Git tags and any former GitHub-hosted artifacts are not the current
-> recommended PersistMind distribution. GitHub Releases is not an active
-> delivery channel. Always review [Current Release Status](#current-release-status)
-> and [releases/current.md](releases/current.md) before installing.
+> Historical Git tags and any former GitHub Releases assets are not the current
+> recommended PersistMind distribution. Review
+> [Current Release Status](#current-release-status) and
+> [releases/current.md](releases/current.md) before installing.
 
 The current release installer scripts are committed under
 [installer/](installer/). This repository also includes self-contained
@@ -32,15 +32,11 @@ repository.
 
 ## Current Release Status
 
-PersistMind `0.2.2.dev1` is available only for approved private Windows
-internal testing. It is qualified on Windows 11 with CPython 3.12 and is not a
-public beta or production release. See
-[the release record](releases/release-notes/0.2.2.dev1.md).
-
-A newer `0.2.2` diagnostic bundle exists for controlled local validation after
-the production-readiness gate hardening work. It is documented at
-[releases/0.2.2-diagnostic](releases/0.2.2-diagnostic/README.md). It is not
-production-ready and must not be presented as a stable release.
+PersistMind `0.2.7` is available as an unsigned Windows release candidate for
+controlled validation. It was built from pushed source commit
+[`210d2ef`](https://github.com/abhilashsblai/PersistMind/commit/210d2ef7dc6421381d823a4a0770667acc679c8a)
+on Windows 11 with CPython 3.13.5. It is not a public beta or production
+release. See [releases/0.2.7-candidate](releases/0.2.7-candidate/README.md).
 
 The committed `0.2.2` diagnostic wheelhouses were refreshed on 2026-08-05 from
 source commit `4a70b42ac37f8d6427c87c11c895167ebb2bd653`. This update carries
@@ -50,12 +46,12 @@ details, and MCP parity for working-memory promote/decline.
 
 | Item | Status |
 | --- | --- |
-| Release level | Internal Windows Preview |
-| Supported profile | Core Local (`windows-internal-preview`) |
-| Windows 11 | Qualified on the current candidate |
-| Windows 10 | Internal-preview target; qualification pending |
+| Release level | Windows Release Candidate |
+| Supported profile | `windows-stable` |
+| Windows 11 | Build environment observed; full promotion evidence pending |
+| Windows 10 | Qualification pending |
 | Linux and macOS | Qualification pending |
-| Distribution | GitHub self-contained diagnostic bundle; private Drive retained for historical preview artifacts |
+| Distribution | This release repository under `releases/0.2.7-candidate` |
 | Production use | Not supported |
 | Public beta | Not available |
 | MCP | Read-only |
@@ -196,64 +192,41 @@ Read [Core Local](docs/core-local.md) and
 
 ## Download and Install PersistMind
 
-PersistMind can be installed from this GitHub repository on Windows for
-controlled local validation. Clone the repository, then run the committed
-installer wrapper against the project you want to configure:
+PersistMind is currently distributed as a controlled Windows release candidate.
+This GitHub repository now contains the `0.2.7` wheel, PowerShell installer,
+bootstrap helper, uninstall helper, CPython 3.13 offline wheelhouse,
+dependency lock, build record, and checksums under
+[`releases/0.2.7-candidate`](releases/0.2.7-candidate/README.md).
+
+Before installing, the version, filename, source commit, file size, SHA-256,
+dependency lock, and build record must match
+[releases/current.md](releases/current.md). The wheel SHA-256 is
+`6dc3283addef93878975060da81f2a0dfa870375fff1570b80e7868180927702`.
+
+Install from the release folder:
 
 ```powershell
-git clone https://github.com/abhilashsblai/persistmind-release.git
-cd persistmind-release
-.\installer\install-from-repo.ps1 `
-  -Repo C:\Path\To\Project `
-  -Agents codex `
-  -SkipIndex
+cd releases\0.2.7-candidate
+$wheelHash = '6dc3283addef93878975060da81f2a0dfa870375fff1570b80e7868180927702'
+Get-FileHash .\persistmind-0.2.7-py3-none-any.whl -Algorithm SHA256
+Get-FileHash .\dependency-lock.v1.json -Algorithm SHA256
+.\install-persistmind.ps1 `
+  -BootstrapPath .\bootstrap_persistmind.py `
+  -LocalWheelPath .\persistmind-0.2.7-py3-none-any.whl `
+  -LocalWheelSha256 $wheelHash `
+  -Version 0.2.7
 ```
 
-The wrapper detects CPython 3.11, 3.12, or 3.13, selects the matching committed
-wheelhouse in [bundles/0.2.2](bundles/0.2.2/), verifies the PersistMind wheel
-hash, creates an isolated bootstrap runtime, and configures the target project.
-When `-Agents codex` is used, it also installs or refreshes the Codex-specific
-`persistmind-workflow` skill from
-[`codex-skills/persistmind-workflow`](codex-skills/persistmind-workflow/) into
-`%USERPROFILE%\.codex\skills\persistmind-workflow`. This skill is specifically
-for Codex. It tells Codex which PersistMind stage information to carry between
-repo selection, preflight, plans, checkpoints, verification, and outcomes.
+Do not use the trusted updater for this unsigned candidate.
 
-After installation:
-
-```powershell
-$pm = "$env:LOCALAPPDATA\PersistMind\0.2.2-windows-py312\Scripts\python.exe"
-& $pm -I -m persistmind --repo C:\Path\To\Project doctor --summary
-```
-
-Use `py311`, `py312`, or `py313` in the runtime path based on the detected
-Python version, or pass `-BootstrapHome` to the installer wrapper to choose a
-specific runtime location.
-
-The self-contained GitHub bundles are unsigned diagnostic artifacts. They are
-not production-ready, public beta, or trusted-updater packages.
-
-The older `0.2.2.dev1` preview artifact remains documented for historical
-continuity and approved testers:
-
-**[Download the exact `0.2.2.dev1` Windows preview ZIP](https://drive.google.com/file/d/1MAQKcVNRBeUnd8LeMv2GbRHLD4dd8mzk/view?usp=drivesdk)**
-
-This link identifies one release artifact, not a folder containing multiple
-versions. Access may require approval. Before installing, the version, filename,
-source commit, file size, SHA-256, manifest, and signature status must match
-[releases/current.md](releases/current.md). The ZIP SHA-256 is
-`26aba71a82beb992628cc81c309a535af280db17ab118402ef2ffd0fe3bce9f4`.
-
-The exact wheel passed installation, healthy doctor, indexing, search, context
-packs, workflow, storage verification, backup, staged restore, Codex hooks, and
-a 60-tool read-only MCP probe. It also corrects the FoxFlow plan-validation
-internal error. Do not use the trusted updater for this unsigned preview.
+The older self-contained `0.2.2` GitHub diagnostic wheelhouses remain under
+[bundles/0.2.2](bundles/0.2.2/) for historical controlled validation only.
+They are not production-ready, public beta, or trusted-updater packages.
 
 See:
 
 - [Current release](releases/current.md)
-- [0.2.2 local test bundle from `ae6da73`](releases/0.2.2-local-test-ae6da73.md)
-- [0.2.2 diagnostic bundle](releases/0.2.2-diagnostic/README.md)
+- [0.2.7 release candidate](releases/0.2.7-candidate/README.md)
 - [Windows installation](docs/windows-installation.md)
 - [Artifact verification](docs/artifact-verification.md)
 - [Known limitations](docs/limitations.md)
@@ -265,24 +238,25 @@ platform and Python-version matrices pass.
 
 | Channel | Audience | Status | Artifact location |
 | --- | --- | --- | --- |
-| Internal Diagnostic | Local Windows validation | Current | This GitHub repository (`bundles/0.2.2`) |
-| Internal Preview | Approved testers | Historical/current preview record | Private Google Drive |
+| Release Candidate | Approved testers | Current | This repository |
+| Internal Diagnostic | Local Windows validation | Historical | This GitHub repository (`bundles/0.2.2`) |
+| Internal Preview | Approved testers | Historical | Private Google Drive |
 | Closed Beta | Selected design partners | Planned | Controlled Drive channel |
 | Public Beta | Public evaluators | Not available | To be announced |
 | Stable | Production users | Not available | To be announced |
 | LTS | Long-lived production users | Not available | To be announced |
 
 GitHub is the canonical source for documentation, release metadata,
-installation guidance, qualification status, checksums, and release history. A
-download is acceptable only when its identity and evidence match the current
-release record.
+installation guidance, qualification status, checksums, release history, and
+the current candidate artifacts. A download is acceptable only when its
+identity and evidence match the current release record.
 
 See [release channels](releases/release-channels.md).
 
 ## Updating an Internal Preview
 
-Internal preview builds are installed manually from a verified release artifact.
-Automatic updates are not enabled for unsigned internal-preview packages.
+Release candidates are installed manually from a verified release artifact.
+Automatic updates are not enabled for unsigned candidate packages.
 
 Before installing a newer preview:
 

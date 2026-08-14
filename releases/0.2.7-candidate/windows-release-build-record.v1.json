@@ -1,0 +1,71 @@
+{
+  "artifacts": [
+    {
+      "filename": "persistmind-0.2.7-py3-none-any.whl",
+      "sha256": "6dc3283addef93878975060da81f2a0dfa870375fff1570b80e7868180927702",
+      "size": 1568226
+    }
+  ],
+  "builder": {
+    "executable": "C:\\Python313\\python.exe",
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.5"
+  },
+  "identity": {
+    "artifact_hashes": {
+      "installer_sha256": null,
+      "wheel_sha256": null
+    },
+    "build_timestamp": "2026-08-14T03:31:02.511776Z",
+    "channel": "candidate",
+    "compatible_os": [
+      "Windows 11"
+    ],
+    "compatible_python": [
+      "3.11",
+      "3.12",
+      "3.13"
+    ],
+    "identity_hash": "046769bff2a98c4471fba82d7216e17a5e946b7f421be9942734725293e83155",
+    "known_limitations": [
+      "Windows 11 x64 and local NTFS only",
+      "Promotion requires exact installed-artifact and agent evidence"
+    ],
+    "maturity": "release_candidate",
+    "observed_environments": [],
+    "officially_signed": false,
+    "operation_catalog_sha256": "770957251881b784a91f00091f184febd263d10cbb2e9f407723b49f91727987",
+    "product": "PersistMind",
+    "production": false,
+    "profile_locked": true,
+    "promotion": {
+      "independent_approval_id": null,
+      "signed_manifest_verification_id": null,
+      "supported_agent_evidence_ids": []
+    },
+    "public_beta": false,
+    "qualification_evidence_ids": [],
+    "qualified_os": [],
+    "qualified_python": [],
+    "release_type": "Windows Release Candidate",
+    "runtime_profile": "windows-stable",
+    "schema_heads": {
+      "activity_active": 4,
+      "audit_active": 3,
+      "control": 1,
+      "knowledge": 4,
+      "learning": 6,
+      "policy": 4,
+      "source_manifest": 4,
+      "task_state": 8
+    },
+    "schema_version": "persistmind.release_identity.v4",
+    "signing_status": "awaiting-protected-promotion",
+    "source_commit": "210d2ef7dc6421381d823a4a0770667acc679c8a",
+    "version": "0.2.7"
+  },
+  "ok": true,
+  "schema_version": "persistmind.windows_release_build.v1",
+  "source_commit": "210d2ef7dc6421381d823a4a0770667acc679c8a",
+  "version": "0.2.7"
+}
